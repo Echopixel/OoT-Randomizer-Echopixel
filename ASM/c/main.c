@@ -43,6 +43,7 @@ void before_game_state_update() {
     rando_display_buffer_reset();
     handle_pending_items();
     handle_dpad();
+    handle_lbutton_and_minimap_state();
     update_misc_colors();
     update_hud_colors();
     process_extern_ctxt();
