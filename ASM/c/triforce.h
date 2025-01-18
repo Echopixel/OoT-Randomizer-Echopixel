@@ -11,9 +11,7 @@ extern uint16_t TRIFORCE_HUNT_ENABLED;
 extern uint16_t TRIFORCE_PIECES_REQUIRED;
 
 void draw_triforce_count(z64_disp_buf_t* db);
-void draw_skull_count(z64_disp_buf_t* db);
 void set_triforce_render();
-void handle_lbutton_and_minimap_state();
 
 #define BLOCK_TRIFORCE (0x00000001 | \
                     0x00000002 | \
@@ -26,12 +24,5 @@ void handle_lbutton_and_minimap_state();
                             ((uint32_t)z64_ctxt.state_dtor==z64_state_ovl_tab[3].vram_dtor) && \
                             (z64_file.game_mode == 0) && \
                             ((z64_event_state_1 & 0x20) == 0))
-
-typedef enum
-{
-  MINIMAP_ON_SCREEN,
-  TRIFORCE_OR_SKULL_ON_SCREEN,
-  NONE_ON_SCREEN,
-} minimap_triforce_enum;
 
 #endif
