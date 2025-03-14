@@ -41,14 +41,22 @@ typedef struct
 }
 output_t;
 
-/* Archive struct */
+/* One ROM file in an archive file */
 typedef struct
 {
-    uint32_t fileCount;
-    uint32_t*  refSize;
-    uint32_t*  srcSize;
-    uint8_t**      ref;
-    uint8_t**      src;
+    uint32_t refSize;
+    uint32_t srcSize;
+    uint8_t*     ref;
+    uint8_t*     src;
+}
+archiveFile_t;
+
+/* Archive file */
+typedef struct
+{
+    uint32_t    numFiles;
+    uint32_t    tabCount;
+    archiveFile_t* files;
 }
 archive_t;
 /* 1}}} */
@@ -89,7 +97,7 @@ int main(int argc, char** argv)
     table_t tab;
 
     errorCheck(argc, argv);
-    printf("Zelda64 Compressor, Version 2\n");
+    printf("Zelda64 Compressor, Version 2.1\n");
     fflush(stdout);
 
     /* Open input, read into inROM */
@@ -101,36 +109,50 @@ int main(int argc, char** argv)
     junk = fread(inROM, tempSize, 1, file);
     fclose(file);
 
-    /* Read archive if it exists*/
+    /* Find the file table and relevant info */
+    tabStart = findTable(inROM);
+    fileTab = (uint32_t*)(inROM + tabStart);
+    getTableEnt(&tab, fileTab, 2);
+    tabSize = tab.endV - tab.startV;
+    tabCount = tabSize / 16;
+
+    /* Read archive if it exists */
     file = fopen("ARCHIVE.bin", "rb");
     if(file != NULL)
     {
-        /* Get number of files */
-        printf("Loading Archive.\n");
-        fflush(stdout);
+        /* The table count is the number of tables in the ROM */
+        /* The file count is the number of files in the archive */
         archive = malloc(sizeof(archive_t));
-        junk = fread(&(archive->fileCount), sizeof(uint32_t), 1, file);
-        
-        /* Allocate space for files and sizes */
-        archive->refSize = malloc(sizeof(uint32_t) * archive->fileCount);
-        archive->srcSize = malloc(sizeof(uint32_t) * archive->fileCount);
-        archive->ref = malloc(sizeof(uint8_t*) * archive->fileCount);
-        archive->src = malloc(sizeof(uint8_t*) * archive->fileCount);
+        archive->tabCount = tabCount;
+        junk = fread(&(archive->numFiles), sizeof(uint32_t), 1, file);
+
+        /* We want an archive file for every table entry */
+        /* Initialize all SRC and REF arrays to NULL */
+        archive->files = calloc(sizeof(archiveFile_t), archive->tabCount);
+
+        printf("Loading Archive with %d files.\n", archive->numFiles);
 
         /* Read in file size and then file data */
-        for(i = 0; i < archive->fileCount; i++)
+        for(i = 0; i < archive->numFiles; ++i)
         {
+            /* Get the index that this file goes into */
+            junk = fread(&j, sizeof(uint32_t), 1, file);
+
+            if(j >= archive->tabCount)
+            {
+                printf("Archive index %d has out-of-bounds file index %d... Skipping.", i, j);
+                continue;
+            }
+
             /* Decompressed "Reference" file */
-            junk = fread(&tempSize, sizeof(uint32_t), 1, file);
-            archive->ref[i] = malloc(tempSize);
-            archive->refSize[i] = tempSize;
-            junk = fread(archive->ref[i], 1, tempSize, file);
+            junk = fread(&(archive->files[j].refSize), sizeof(uint32_t), 1, file);
+            archive->files[j].ref = malloc(archive->files[j].refSize);
+            junk = fread(archive->files[j].ref, 1, archive->files[j].refSize, file);
 
             /* Compressed "Source" file */
-            junk = fread(&tempSize, sizeof(uint32_t), 1, file);
-            archive->src[i] = malloc(tempSize);
-            archive->srcSize[i] = tempSize;
-            junk = fread(archive->src[i], 1, tempSize, file);
+            junk = fread(&(archive->files[j].srcSize), sizeof(uint32_t), 1, file);
+            archive->files[j].src = malloc(archive->files[j].srcSize);
+            junk = fread(archive->files[j].src, 1, archive->files[j].srcSize, file);
         }
         fclose(file);
     }
@@ -141,17 +163,10 @@ int main(int argc, char** argv)
         archive = NULL;
     }
 
-    /* Find the file table and relevant info */
-    tabStart = findTable(inROM);
-    fileTab = (uint32_t*)(inROM + tabStart);
-    getTableEnt(&tab, fileTab, 2);
-    tabSize = tab.endV - tab.startV;
-    tabCount = tabSize / 16;
-
     /* Allocate space for the exclusion list */
     /* Default to 1 (compress), set exclusions to 0 */
     file = fopen("dmaTable.dat", "r");
-    size = tabCount - 1;
+    size = tabCount;
     refTab = malloc(sizeof(uint8_t) * size);
     memset(refTab, 1, size);
 
@@ -225,10 +240,14 @@ int main(int argc, char** argv)
     pthread_mutex_destroy(&countlock);
     if(archive != NULL)
     {
-        free(archive->ref);
-        free(archive->src);
-        free(archive->refSize);
-        free(archive->srcSize);
+        for(i = 0; i < archive->tabCount; ++i)
+        {
+            if(archive->files[i].ref != NULL)
+                free(archive->files[i].ref);
+            if(archive->files[i].src != NULL)
+                free(archive->files[i].src);
+        }
+        free(archive->files);
         free(archive);
     }
     free(threads);
@@ -296,7 +315,7 @@ int main(int argc, char** argv)
 }
 /* 1}}} */
 
-/* uint32_t findTAble(uint8_t*) {{{1 */
+/* uint32_t findTable(uint8_t*) {{{1 */
 uint32_t findTable(uint8_t* argROM)
 {
     uint32_t i;
@@ -335,7 +354,8 @@ void* threadFunc(void* null)
     uint8_t* src;
     uint8_t* dst;
     table_t    t;
-    int32_t i, nextArchive, size, srcSize;
+    int32_t i, size, srcSize;
+    uint8_t useArchive;
 
     while((i = getNext()) != -1)
     {
@@ -349,18 +369,17 @@ void* threadFunc(void* null)
         /* Otherwise, just copy src into out */
         if(refTab[i] == 1)
         {
-            pthread_mutex_lock(&countlock);
-            nextArchive = arcCount++;
-            pthread_mutex_unlock(&countlock);
+            /* Determine if we should compare against the archive or not*/
+            useArchive = ((archive != NULL) && (archive->files[i].ref != NULL));
 
             /* If uncompressed is the same as archive, just copy/paste the compressed */
             /* Otherwise, compress it manually */
-            if((archive != NULL) && (memcmp(src, archive->ref[nextArchive], archive->refSize[nextArchive]) == 0))
+            if(useArchive && (memcmp(src, archive->files[i].ref, archive->files[i].refSize) == 0))
             {
                 out[i].comp = 1;
-                size = archive->srcSize[nextArchive];
+                size = archive->files[i].srcSize;
                 out[i].data = malloc(size);
-                memcpy(out[i].data, archive->src[nextArchive], size);
+                memcpy(out[i].data, archive->files[i].src, size);
             }
             else
             {
@@ -371,12 +390,6 @@ void* threadFunc(void* null)
                 out[i].data = malloc(size);
                 memcpy(out[i].data, dst, size);
                 free(dst);
-            }
-            
-            if(archive != NULL)
-            {
-                free(archive->ref[nextArchive]);
-                free(archive->src[nextArchive]);
             }
         }
         else if(refTab[i] == 2)
@@ -447,6 +460,9 @@ void makeArchive()
 
         if(tab.endP != 0 && tab.endP != 0xFFFFFFFF)
         {
+            /* Write the index of this file */
+            fwrite(&i, sizeof(uint32_t), 1, file);
+
             /* Write the size and data for the decompressed portion */
             fileSize = tab.endV - tab.startV;
             fwrite(&fileSize, sizeof(uint32_t), 1, file);
@@ -551,6 +567,7 @@ void errorCheck(int argc, char** argv)
         perror(inName);
         exit(1);
     }
+    fclose(file);
 
     /* Check that dmaTable.dat exists & has permissions */
     file = fopen("dmaTable.dat", "r");
@@ -560,6 +577,7 @@ void errorCheck(int argc, char** argv)
         fprintf(stderr, "Please make a dmaTable.dat file first\n");
         exit(1);
     }
+    fclose(file);
 
     /* Check that output ROM is writeable */
     /* Create output filename if needed */
