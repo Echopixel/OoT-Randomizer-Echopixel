@@ -110,67 +110,58 @@ issue. You should always Hard Reset to avoid this issue entirely.
 
 ## Changelog
 
-### 8.2
+### Dev
 
 #### New Settings and Options
-* New cosmetic option `Input Viewer` for showing control stick values and pressed buttons at the bottom of the screen.
-* Add new options for chest/pot/etc. textures, including `Stone of Agony Unlocks Chest Textures` which gives new functionality to the Stone of Agony.
-* The name of the currently playing custom music will now be displayed. Can be disabled using a new cosmetic setting.
-* New setting to control how dungeon rewards are shuffled.
-* The `Links Pocket` location is renamed to `ToT Reward from Rauru`, and a new setting has been added that controls whether it is skipped.
-* New option `Specific Rewards` for the `Pre-completed Dungeons Mode` setting, allowing the user to set dungeons to be precompleted depending on which medallion or stone they have. Not compatible with shuffled dungeon rewards.
-* New settings to `Include Empty Pots` and `Include Empty Crates` when pots and crates are shuffled respectively.
-* New settings preset for the No Logic Weekly.
-* New plando-only `password_lock` setting to require a password to start the seed. The password is a sequence of 6 button presses (A and C) shown near the top of the spoiler log.
+* New options `Custom (count)` and `Custom (%)` for the `Ice Traps` setting.
+* New hidden `plandomized_locations` setting to allow presets to place specific items at specific locations.
+* New setting to speed up the boat ride in the Shadow Temple.
+* New `Require Lens of Truth for Treasure Chest Game` setting.
+* New option `Market Big Poes` for the `Misc. Hints` setting.
+* New setting `Shuffle Ganon's Tower Entrance` to allow shuffling the boss entrance to Ganon himself.
+* New setting to control the behavior of the child-only heart piece in Gerudo Fortress when Thieves' Hideout entrances are shuffled.
 
-#### Other New Features
-* A text box has been added when completing the adult shooting gallery without a bow to warn the player that they haven't received the real reward.
-* Settings presets can have aliases. Command-line users may use an alias instead of the name to specify the preset.
-* The plando-only `item_hints` setting can now include special items such as songs or keys.
-* A boss key icon will now be displayed near the small key icon in dungeons where it has been obtained.
-* Fairy pots are now included in `Shuffle Pots`.
-* A message is shown the first time a seed with No Logic is generated, to warn the user that the seed may be unbeatable.
-* New hint distribution field `excluded_goal_categories` to disable specific goal categories.
-* Pre-completed dungeons are crossed out in the dungeon overview menus (A or D-left on the inventory screen).
-* New hint distribution field `one_hint_per_goal` can be set to `true` or `false` to override the automatic settings-based behavior of how goal hints are selected.
-
-#### Bug Fixes
-* Goal hints can now hint items required to defeat Ganon even if they're not required for the rainbow bridge, Ganon's boss key, or the trials. These items will be hinted as being on the "path of the hero".
-* Fix a softlock present in the original game when damaging Volvagia's second hitbox during the death cutscene.
-* Don't start the trade sequence timer if getting the `ZD King Zora Thawed` item while the Eyeball Frog is in the inventory.
-* Fix the items on the right side of the mask shop being available without paying for all borrowed masks first.
-* The Stone of Agony can now be foolish in Glitched Logic and No Logic, as it already was with the `Hidden Grottos without Stone of Agony` trick enabled.
-* Fix seeds with Plentiful item pool and no adult trade items selected failing to generate.
-* Fix castle courtyard exiting to incorrect area in Ganon's Castle Dungeon ER.
-* Fix heart piece count getting zeroed out incorrectly in certain circumstances.
-* Business scrubs now take their payment before giving the item.
-* The softlock which occurs when collecting a shuffled silver rupee on the ladder in the Bottom of the Well is now fixed by moving the item location so it can't be collected from the ladder instead of disallowing silver rupees on this location.
-* Fix inverted cursor in the pause menu when pausing while in first person with the `Uninvert Y-Axis in First Person Camera` cosmetic setting enabled.
-* Fix some inconsistent tags for wonderitem locations in the `Exclude Locations` list.
-* Fix swapped `Hideout Kitchen Wonderitem` and `Hideout Kitchen Stove Wonderitem` locations.
-* Fix a bug where a foolish hint could be generated for an area despite not having any shuffled item locations.
-* Fix a bug where spoiler logs' `randomized_settings` fields could be incomplete.
-* Prevent setting names from overlapping with scrollbars in the GUI.
-* Add missing Wonderitems in MQ Jabu Jabu's falling Like Like room.
+#### Bug fixes
+* Ocarina buttons required to play the Song of Time are now part of the `path of time` goal.
+* The `Frogs Ocarina Game` misc. hint text box has been moved slightly so it no longer requires reloading the area to reread.
+* Fix key rings being hinted as small keys when keys are in their own dungeons.
+* Fix a crash when pressing down on the D-pad on the inventory screen in some settings combinations.
+* Fix a possible void out at the Forest Temple boss door.
+* Fix importing settings from older versions on web.
+* Fix a Mac-specific issue when loading track .meta files.
+* Fix an error in the easy bite fishing hack.
+* The randomizer no longer ignores errors when decompressing the base rom or compressing the randomized rom.
+* Trade quest items from skipped locations are no longer lost when another trade item is found.
+* Fix a crash when dungeon rewards are directly selected as starting items.
+* Fix an error with pre-completed dungeon rewards in multiworld.
+* Scarecrow's song is now in logic without ocarina buttons if `Free Scarecrow's Song` is on.
+* Fix a crash that could occur when doing certain sequences of actions in the treasure box shop with shuffled keys.
+* Fix the items in the “Haunted Wasteland Checks” Dual hint being listed reverse.
+* Fix a crash that could occur on Wii VC when entering the Skull Kid room in Lost Woods as adult.
+* Fix `Pre-completed Dungeons Mode` set to `Specific Rewards` not accounting for boss entrance randomizer.
+* Fix the “VC Crash” bug.
+* Fix Spirit Temple music not resuming after Nabooru is defeated.
 
 #### New Speedups
-* Meg will now take less time before respawning after getting hurt.
-* The cutscenes for stealing Epona by jumping over a fence are now sped up. Previously, only the cutscene for jumping over the front gate was shortened.
-* The cutscenes for pulling and dropping the Master Sword are now sped up.
-* The cutscene changing the water level of the Kakariko well is now even faster.
-* The cutscenes playing when a blue warp is taken for the first time have been removed.
+* The first text box from each carpenter in the Thieves' Hideout is skipped.
+* The cutscene that plays when Morpha is defeated has been shortened from around 30 seconds to around 5 seconds.
+* The cutscene introducing the arena where Ganon is fought is shortened by 5 seconds and the camera angle after it is improved.
 
 #### Other Changes
-* Clarified the error message shown when an unshuffled trade quest item is used as a starting item.
-* Locations in pre-completed dungeons will no longer be hinted.
-* Treasure Chest Game key and silver rupee options are now included in `Randomize Main Rule Settings`.
-* Pause menu has been modified so that equip swap will work again.
-* Major items from pots, crates, etc now display above Link's head while the text box is open.
-* Gameplay is no longer interrupted if you receive a junk item from another player in multiworld.
-* Removed the potentially confusing Master Sword icon from the Rainbow Bridge page of the adult Temple of Time altar text.
-* Blue warps now set time of day each time they're taken, fixing a potential softlock.
+* Now supports custom music written for the Majora's Mask Randomizer.
+* New Magic Meter item model to allow magic drops to be shuffled in the future.
+* Seeds rolled on ootrandomizer.com display their ID in the top left corner of the file select screen.
+* The `Other` tab of the generator has been rearranged for better grouping of settings, and the `One Major Item per Dungeon` setting has been moved there since it was causing frequent failures with `Randomize Main Rule Settings`.
+* Biggoron's text after turning in the Eyedrops has been changed to avoid potential confusion.
+* Clarified the hint text for `HF Inside Fence Grotto`.
+* Farore's Wind now displays which dungeon it will warp Link to.
+* Reversed the order of the hints in the `Spirit Temple Adult Lower` dual hint.
+* Add adult and child trade items to the auto-tracker context.
+* Improve Debug menu with new options and menus.
+* New load progress and crash screens for Wii VC.
+* `Pre-completed Dungeons Mode` set to `Specific Rewards` is now compatible with shuffled dungeon rewards.
 
-### 8.1
+### 8.2
 
 #### New Settings and Options
 * New cosmetic option `Input Viewer` for showing control stick values and pressed buttons at the bottom of the screen.
