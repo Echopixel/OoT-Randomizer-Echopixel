@@ -1555,8 +1555,9 @@ def build_world_gossip_hints(spoiler: Spoiler, world: World, checked_locations: 
 
     # Add user-specified hinted item locations if using a built-in hint distribution
     # Raise error if hint copies is zero
-    for location, kinds in checked_locations.items():
+    for location_name, kinds in checked_locations.items():
         if CheckedKind.ALWAYS in kinds:
+            location = world.get_location(location_name)
             if location.item.name in bingoBottlesForHints and world.settings.hint_dist == 'bingo':
                 always_item = 'Bottle'
             else:
