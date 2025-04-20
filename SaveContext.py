@@ -1613,9 +1613,6 @@ class SaveContext:
         self.write_bits(0x0F08, 0x08)  # "Entered Hyrule Castle"
 
 def write_settings_dependent_save_context_flags(save_context: SaveContext, world: World) -> None:
-    if world.settings.shuffle_hideout_entrances and world.settings.shuffle_gerudo_fortress_heart_piece == 'remove':
-        save_context.write_permanent_flag(Scenes.GERUDO_FORTRESS, FlagType.COLLECT, 0x3, 0x02)
-
     if not world.settings.useful_cutscenes:
         save_context.write_bits(0x0F1A, 0x04)  # "Met Darunia in Fire Temple"
         if 'Forest Temple' not in world.settings.dungeon_shortcuts:
@@ -1744,13 +1741,13 @@ def write_settings_dependent_save_context_flags(save_context: SaveContext, world
         save_context.write_permanent_flag(Scenes.THIEVES_HIDEOUT, FlagType.SWITCH, 0x1, 0x0F)
         save_context.write_permanent_flag(Scenes.THIEVES_HIDEOUT, FlagType.SWITCH, 0x2, 0x01)
         save_context.write_permanent_flag(Scenes.THIEVES_HIDEOUT, FlagType.SWITCH, 0x3, 0xFE)
-        save_context.write_permanent_flag(Scenes.THIEVES_HIDEOUT, FlagType.SWITCH, 0x2, 0xD4)
+        save_context.write_permanent_flag(Scenes.THIEVES_HIDEOUT, FlagType.COLLECT, 0x2, 0xD4)
     elif world.settings.gerudo_fortress == 'fast':
         save_context.write_bits(0x0EE7, 0x0E)  # Free 3 carpenters
         save_context.write_permanent_flag(Scenes.THIEVES_HIDEOUT, FlagType.SWITCH, 0x1, 0x0D)
         save_context.write_permanent_flag(Scenes.THIEVES_HIDEOUT, FlagType.SWITCH, 0x2, 0x01)
         save_context.write_permanent_flag(Scenes.THIEVES_HIDEOUT, FlagType.SWITCH, 0x3, 0xDC)
-        save_context.write_permanent_flag(Scenes.THIEVES_HIDEOUT, FlagType.SWITCH, 0x2, 0xC4)
+        save_context.write_permanent_flag(Scenes.THIEVES_HIDEOUT, FlagType.COLLECT, 0x2, 0xC4)
 
     if world.settings.open_forest == 'open':
         save_context.write_bits(0xED5, 0x10)  # "Showed Mido Sword & Shield"
