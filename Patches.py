@@ -1445,8 +1445,8 @@ def patch_rom(spoiler: Spoiler, world: World, rom: Rom) -> Rom:
     # Patch freestanding items
     if world.settings.shuffle_freestanding_items:
         # Get freestanding item locations
-        actor_override_locations = [location for location in world.get_locations() if location.disabled == DisableType.ENABLED and location.type == 'ActorOverride']
-        rupeetower_locations = [location for location in world.get_locations() if location.disabled == DisableType.ENABLED and location.type == 'RupeeTower']
+        actor_override_locations = [location for location in world.get_locations() if not location.locked and location.type == 'ActorOverride']
+        rupeetower_locations = [location for location in world.get_locations() if not location.locked and location.type == 'RupeeTower']
 
         for location in actor_override_locations:
             patch_actor_override(location, rom)
@@ -2331,8 +2331,8 @@ def get_override_entry(location: Location) -> Optional[OverrideEntry]:
     if None in (scene, default, item_id):
         return None
 
-    # Don't add freestanding items, pots/crates, beehives to the override table if they're disabled. We use this check to determine how to draw and interact with them
-    if location.type in ('ActorOverride', 'Freestanding', 'RupeeTower', 'Pot', 'Crate', 'FlyingPot', 'SmallCrate', 'Beehive', 'Wonderitem') and location.disabled != DisableType.ENABLED:
+    # Don't add freestanding items, pots/crates, beehives to the override table if they're locked (unshuffled). We use this check to determine how to draw and interact with them
+    if location.type in ('ActorOverride', 'Freestanding', 'RupeeTower', 'Pot', 'Crate', 'FlyingPot', 'SmallCrate', 'Beehive', 'Wonderitem') and location.locked:
         return None
 
     player_id = location.item.world.id + 1
