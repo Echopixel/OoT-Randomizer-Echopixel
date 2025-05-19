@@ -1482,7 +1482,7 @@
         "events": {
             # Used for the "path of time" goal
             "Temple of Time Access": "True",
-            "Opened Door of Time": "can_play(Song_of_Time) or open_door_of_time"
+            "Opened Door of Time": "can_open_door_of_time"
         },
         "locations": {
             "ToT Light Arrows Cutscene": "is_adult and can_trigger_lacs",
