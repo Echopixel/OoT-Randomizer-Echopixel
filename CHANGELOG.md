@@ -1,6 +1,7 @@
 # Dev
 
 * New settings for more control over special deal prices.
+* The `Randomize Ocarina Melodies` setting has a new option to randomize the Frogs 2 melody.
 
 # 8.3
 
