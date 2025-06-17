@@ -1425,6 +1425,7 @@
         "region_name": "Ganons Castle Grounds",
         "scene": "Castle Grounds",
         "hint": "OUTSIDE_GANONS_CASTLE",
+        "provides_time": "DAMPE",
         "locations": {
             "OGC GS": "True"
         },
