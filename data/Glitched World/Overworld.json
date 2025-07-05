@@ -2469,10 +2469,20 @@
                 (logic_goron_city_leftmost and has_explosives and can_use(Hover_Boots))
                 or can_hess or can_superslide or
                 (can_use(Hover_Boots) and adv_hovers_recoil and glitch_clipping)",
-            "GC Maze Center Chest": "can_blast_or_smash or can_use(Silver_Gauntlets) or
-                (can_use(Hover_Boots) and adv_hovers_recoil and glitch_clipping)",
-            "GC Maze Right Chest": "can_blast_or_smash or can_use(Silver_Gauntlets) or
-                (can_use(Hover_Boots) and adv_hovers_recoil and glitch_clipping)",
+            "GC Maze Center Chest": "can_blast_or_smash or can_use(Silver_Gauntlets)
+                or
+                (glitch_clipping and (
+                    (can_use(Hover_Boots) and adv_hovers_recoil)
+                    can_hess or can_superslide or
+                    )
+                )",
+            "GC Maze Right Chest": "can_blast_or_smash or can_use(Silver_Gauntlets)
+                or
+                (glitch_clipping and (
+                    (can_use(Hover_Boots) and adv_hovers_recoil)
+                    or can_hess or can_superslide
+                    )
+                )",
             "GC Rolling Goron as Child": "
                 is_child and
                 (has_explosives or (Progressive_Strength_Upgrade and logic_child_rolling_with_strength))",
@@ -2486,6 +2496,23 @@
             "GC Upper Staircase Pot 2": "True",
             "GC Upper Staircase Pot 3": "True",
             "GC Medigoron Pot": "can_break_mud_wall or Progressive_Strength_Upgrade or can_gdv",
+            "GC Boulder Maze Crate": "(can_bonk or can_blast_or_smash)
+                and
+                (can_blast_or_smash or can_use(Silver_Gauntlets)
+                    or
+                    (glitch_clipping and (
+                        (can_use(Hover_Boots) and adv_hovers_recoil)
+                        or can_hess or can_superslide
+                        )
+                    )
+                )",
+            "GC GS Boulder Maze": "is_child and (can_bonk or can_blast_or_smash)
+                and
+                (can_blast_or_smash
+                    or
+                    (glitch_clipping and (can_hess or can_superslide)
+                    )
+                )",
             "GC GS Center Platform": "is_adult",
             "GC Medigoron Gossip Stone": "can_break_mud_wall or Progressive_Strength_Upgrade or can_gdv",
             "GC Maze Gossip Stone": "can_blast_or_smash or can_use(Silver_Gauntlets) or
