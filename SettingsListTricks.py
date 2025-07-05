@@ -1780,15 +1780,14 @@ logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
 advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
     #   Advanced glitchless tricks will be first, followed by General Glitch Tricks and then Dungeon tricks
     #   For glitches with multiple trick variants, refer to tooltip description
-    
     '(Glitch) Infinite Sword Glitch (ISG)': {
         'name'    : 'glitch_isg',
         'tags'    : ("Glitch","Child", "Adult",),
         'tooltip' : '''\
-                    Crouch stabbing and interrupting it puts Link in a state 
-                    where he is constantly swinging his sword. This can be used 
+                    Crouch stabbing and interrupting it puts Link in a state
+                    where he is constantly swinging his sword. This can be used
                     for damage output or for the secondary property of being
-                    unable to fall off ledges while in this state. 
+                    unable to fall off ledges while in this state.
 
                     This is required for hovering.
                     '''},
@@ -1796,7 +1795,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'name'    : 'glitch_groundjump',
         'tags'    : ("Glitch","Child", "Adult",),
         'tooltip' : '''\
-                    Shielding while attempting to pick up a Bomb stores that 
+                    Shielding while attempting to pick up a Bomb stores that
                     state. If you then backflip, the backflip will be cancelled
                     allowing Link to grab ledges higher than usual.  Useful
                     in some places and easier than the glitchless alternative
@@ -1809,7 +1808,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     As we all know the collision in this game is a mere suggestion
                     at times. Enabling this will allow for the logical use of many
                     damage clips, clipping through acute angles, squeezing through
-                    boulders, and generally used clips through the game. 
+                    boulders, and generally used clips through the game.
                     Some more niche ones will have their own
                     trick unrelated to this one.
                     '''},
@@ -1817,9 +1816,9 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'name'    : 'glitch_tsc',
         'tags'    : ("Glitch","Child", "Adult",),
         'tooltip' : '''\
-                    Using the Triple Slash animation and a first person item on 
-                    a particular frame window can displace Link through some 
-                    corners. 
+                    Using the Triple Slash animation and a first person item on
+                    a particular frame window can displace Link through some
+                    corners.
 
                     This is not dependent on the Clipping trick.
                     '''},
@@ -1829,39 +1828,39 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tooltip' : '''\
                     Enables general Ledge Clipping as Adult Link.
                     Useful in a few places such as Forest Temple to skip
-                    the Song of Time block. 
+                    the Song of Time block.
                     '''},
     '(Glitch) Lunge Storage': {
         'name'    : 'glitch_lunge_storage',
         'tags'    : ("Glitch","Child", "Adult",),
         'tooltip' : '''\
-                    Lunge storage allows acute angle clips to be possible by 
-                    cancelling the attack early and storing the forward 
-                    displacement to reach places a normal jumpslash 
-                    cannot bypass. 
-                    '''},  
+                    Lunge storage allows acute angle clips to be possible by
+                    cancelling the attack early and storing the forward
+                    displacement to reach places a normal jumpslash
+                    cannot bypass.
+                    '''},
     '(Glitch) Equip Swap': {
         'name'    : 'glitch_equip_swap',
         'tags'    : ("Glitch","Child", "Adult",),
         'tooltip' : '''\
-                    This has a built-in assumption that 
+                    This has a built-in assumption that
                     to successfully be able to equip swap
                     Child needs access to anything in the
                     leftmost column, and Adult needs access
-                    to a spell due to the child trade item.  
+                    to a spell due to the child trade item.
                     No other slot targets are
-                    considered by logic, even if you can 
+                    considered by logic, even if you can
                     perform them.
-                    '''}, 
+                    '''},
     '(Glitch) Itemless Forest Escape': {
         'name'    : 'glitch_itemless_forest_escape',
         'tags'    : ("Glitch","Child","Entrance Shuffle",),
         'tooltip' : '''\
-                    Itemless escape requires precise 
+                    Itemless escape requires precise
                     timing using a rock in front of Midos
                     House. If enabling, be warned it may
-                    be required in Entrance Shuffle. 
-                    '''}, 
+                    be required in Entrance Shuffle.
+                    '''},
     '(Glitch) Pokey Escape': {
         'name'    : 'glitch_pokey_escape',
         'tags'    : ("Glitch","Child","Entrance Shuffle",),
@@ -1876,8 +1875,8 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tooltip' : '''\
                     A minimal items escape compared to Pokey.
                     Requires only sword or stick. Useful for
-                    Entrance Shuffle and minimal items or 
-                    preferences. 
+                    Entrance Shuffle and minimal items or
+                    preferences.
                     '''},
     '(Glitch) Hovering with Explosives': {
         'name'    : 'glitch_hovering',
@@ -1885,7 +1884,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tooltip' : '''\
                     Requires a way to get ISG, a shield, and
                     both bombs and chus. This trick makes no
-                    distinction between bombs and chus for the 
+                    distinction between bombs and chus for the
                     purpose of generalized hovering and by having
                     access to both explosives.
                     '''},
@@ -1896,8 +1895,8 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     Megaflips and megasidehops are used to cross
                     gaps or obstacles that cannot be reached by jumping.
                     as it preserves the same momentum as a superslide.
-                    Either explosive is accounted for in this trick. 
-                    Enemy boosts are not included in logic. 
+                    Either explosive is accounted for in this trick.
+                    Enemy boosts are not included in logic.
                     '''},
     '(Glitch) Ocarina Items': {
         'name'    : 'glitch_oi',
@@ -1908,7 +1907,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     else so it is usable in more places. Be warned
                     that this can dupe over items if done
                     incorrectly!
-                    '''}, 
+                    '''},
     '(Glitch) Superslide': {
         'name'    : 'glitch_superslide',
         'tags'    : ("Glitch","Child", "Adult",),
@@ -1917,38 +1916,38 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     to access items through obstacles in some
                     cases. This is a good beginning into HESS.
                     Superslide teleports are not included in logic.
-                    '''},   
+                    '''},
     '(Glitch) HESS': {
         'name'    : 'glitch_hess',
         'tags'    : ("Glitch","Child", "Adult",),
         'tooltip' : '''\
-                    Hyper Extended Superslides have numerous 
-                    uses for passing obstacles. There are the same 
+                    Hyper Extended Superslides have numerous
+                    uses for passing obstacles. There are the same
                     requirements for Superslide versus HESS however
-                    the ability to change direction opens up a few 
-                    more locations. 
-                    '''}, 
+                    the ability to change direction opens up a few
+                    more locations.
+                    '''},
     '(Advanced) Hoverboots Recoil': {
         'name'    : 'adv_hovers_recoil',
         'tags'    : ("Glitchless","Adult",),
         'tooltip' : '''\
-                    Allows for the use of Hover Boots momentum 
+                    Allows for the use of Hover Boots momentum
                     after a recoil or damage
                     in many scenarios to reach regions or cross through
-                    obstacles. In the case of a clip it would be 
-                    specified differently in logic to allow use for 
-                    GGJ or advanced play. 
-                    '''},    
+                    obstacles. In the case of a clip it would be
+                    specified differently in logic to allow use for
+                    GGJ or advanced play.
+                    '''},
     '(Advanced) Recoil Jumps': {
         'name'    : 'adv_recoil_jump',
         'tags'    : ("Glitchless","Adult",),
         'tooltip' : '''\
                     By shielding an explosion or damage midair, usually
-                    out of a twisted backflip, Link is able to gain the 
+                    out of a twisted backflip, Link is able to gain the
                     height from the backflip but also be able to grab
-                    ledges. This is the glitchless variant of a 
-                    groundjump as they achieve similar goals. 
-                    '''},   
+                    ledges. This is the glitchless variant of a
+                    groundjump as they achieve similar goals.
+                    '''},
     '(Glitch) Glitch Damage Value': {
         'name'    : 'glitch_damage_value',
         'tags'    : ("Glitch","QPA","Glitch Damage Value",),
@@ -1958,54 +1957,53 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     it for power crouch stabbing or isg.
                     Other specific use cases may have a separate
                     trick.
-                    '''}, 
+                    '''},
     '(Glitch) Ledge Cancel': {
         'name'    : 'glitch_ledge_cancel',
         'tags'    : ("Glitch","Child","Adult",),
         'tooltip' : '''\
-                    Climb a ledge and shield at the end of the 
+                    Climb a ledge and shield at the end of the
                     animation to activate. This glitch makes Link
                     ignore hitboxes of actors to walk through
-                    boulders and NPCs. 
+                    boulders and NPCs.
                     '''},
     '(Glitch) Weirdshot': {
         'name'    : 'glitch_weirdshot',
         'tags'    : ("Glitch","Adult","Bouldersanity", "Entrance Shuffle",),
         'tooltip' : '''\
-                    Weirdshotting is in logic with bombs, though 
+                    Weirdshotting is in logic with bombs, though
                     chus can be utilized. Weirdshots are a pre-
-                    requisite for weirdslides to be enabled. 
+                    requisite for weirdslides to be enabled.
                     Weirdslides are for entering grottos
-                    without hammer or strength or pressing 
-                    switches under unmovable boulders. 
+                    without hammer or strength or pressing
+                    switches under unmovable boulders.
                     '''},
     '(Advanced) Damage Boost': {
         'name'    : 'adv_damage_boost',
         'tags'    : ("Glitchless","Child","Adult",),
         'tooltip' : '''\
-                    Damage boosting has multiple uses for 
-                    crossing gaps without hover boots or 
+                    Damage boosting has multiple uses for
+                    crossing gaps without hover boots or
                     crossing obstacles. This is not suitable
-                    for OHKO. 
+                    for OHKO.
                     '''},
     '(Advanced) Wallwalking': {
         'name'    : 'adv_wallwalking',
         'tags'    : ("Glitchless","Child","Adult",),
         'tooltip' : '''\
-                    Previously known as Seamwalking, this allows you to 
+                    Previously known as Seamwalking, this allows you to
                     walk on the sides and tops of walls as in certain
                     situations the game counts them as floors.  Some uses
                     are the Desert Colossus GS on the rock, and grabbing
-                    the Lake Hylia underwater rupees with the Boomerang. 
+                    the Lake Hylia underwater rupees with the Boomerang.
                     '''},
-
     '(Advanced) Glitchless Megaflip': {
         'name'    : 'logic_glitchless_megaflip',
         'tags'    : ("Glitchless",),
         'tooltip' : '''\
                     Perform a megaflip using enemy damage boosting
                     for a glitchless variation. This is niche and is not
-                    linked to the glitch megaflip version. 
+                    linked to the glitch megaflip version.
                     '''},
     '(Glitch) Hookshot Jumps': {
         'name'    : 'glitch_hookshot_jump',
@@ -2015,7 +2013,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     animation. There are various checks that
                     can be reached with a jump. Doom jump
                     is a separate trick.
-                    '''}, 
+                    '''},
     '(Glitch) Open Underwater Chests': {
         'name'    : 'glitch_underwater_chests',
         'tags'    : ("Glitch","Adult",),
@@ -2023,12 +2021,12 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     While wearing Iron Boots, you can hookshot something
                     to set Link's state and be able to open chests
                     underwater.
-                    '''}, 
+                    '''},
     '(Glitch) LW Target with GDV': {
         'name'    : 'glitch_lw_target_hover',
         'tags'    : ("Glitch","QPA","Glitch Damage Value",),
         'tooltip' : '''\
-                    Includes hovering to reach the slingshot target. 
+                    Includes hovering to reach the slingshot target.
                     '''},
     '(Glitch) Navi Dive': {
         'name'    : 'glitch_navi_dive',
@@ -2043,7 +2041,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tags'    : ("Glitch","Child","Entrance Shuffle",),
         'tooltip' : '''\
                     Useful for Entrance Shuffle where Navi may
-                    not be available to be called upon. Requires 
+                    not be available to be called upon. Requires
                     only a stick.
                     '''},
     '(Glitch) Aqua Escape Adult': {
@@ -2051,7 +2049,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tags'    : ("Glitch","Adult", "Entrance Shuffle",),
         'tooltip' : '''\
                     Requires only sword and shield. Useful
-                    for access to entrance without Navi call. 
+                    for access to entrance without Navi call.
                     '''},
     '(Advanced) LH Tree GS with only Hookshot': {
         'name'    : 'adv_lh_tree_gs_hookshot',
@@ -2061,22 +2059,22 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     this skull without longshot to collect.
 
                     This requires Wallwalking to be enabled.
-                    '''}, 
+                    '''},
     '(Glitch) LH to Zora\'s Domain as Child with Nothing': {
         'name'    : 'glitch_lh_to_zd_child_nothing',
         'tags'    : ("Glitch","Child","Entrance Shuffle",),
         'tooltip' : '''\
-                    Clip into the Lakeside Lab house through 
+                    Clip into the Lakeside Lab house through
                     the corner and swim OOB to reach the load.
-                    '''},   
+                    '''},
     '(Glitch) Enter Water Groundclip': {
         'name'    : 'glitch_enter_water_groundclip',
         'tags'    : ("Glitch","Adult","Entrance Shuffle",),
         'tooltip' : '''\
-                    Enter water from the warp pad with a 
+                    Enter water from the warp pad with a
                     serious of movements ending with a jumpslash
                     into the loading zone to the dungeon. One of
-                    many variations. 
+                    many variations.
                     '''},
     '(Glitch) Enter Water Ledge Clip': {
         'name'    : 'glitch_enter_water_ledgeclip',
@@ -2096,7 +2094,6 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     through the water and swim in after opening
                     the gate.
                     '''},
-    
     '(Glitch) Enter Water Lab Clip Adult': {
         'name'    : 'glitch_enter_water_lab_clip_adult',
         'tags'    : ("Glitch","Adult","Entrance Shuffle",),
@@ -2111,7 +2108,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tooltip' : '''\
                     Enter water as child through the lab clip
                     and swim to the loading zone. Refer to videos
-                    for the swim without mashing. 
+                    for the swim without mashing.
                     '''},
     '(Glitch) Lakeside Lab with less stuff': {
         'name'    : 'glitch_lakeside_lab_with_less',
@@ -2119,7 +2116,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tooltip' : '''\
                     Achieve the lakeside lab reward without
                     gold scale, irons or hookshot. Utilizes a
-                    bottle and Hover Boots for the method. 
+                    bottle and Hover Boots for the method.
                     '''},
     '(Glitch) Unfreeze King Zora with Nothing': {
         'name'    : 'glitch_kz_with_nothing',
@@ -2128,30 +2125,30 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     Reading a sign whilst standing in the correct
                     spot and facing the correct way will cause
                     the red ice around King Zora to permanently
-                    disappear. 
+                    disappear.
                     '''},
     '(Advanced) GV Broken Bridge with Hookshot': {
         'name'    : 'adv_gv_bridge_hookshot',
         'tags'    : ("Glitchless","Adult",),
         'tooltip' : '''\
-                    Cross the GV bridge with Hookshot Extension. 
-                    '''},  
+                    Cross the GV bridge with Hookshot Extension.
+                    '''},
     '(Advanced) GV Broken Bridge Cucco Jump': {
         'name'    : 'logic_cucco_jump',
         'tags'    : ("Glitch","Child",),
         'tooltip' : '''\
                     Jump over the gerudo guard and gate at
-                    the bridge with the cucco. Requires shield 
-                    and sword for this trick. 
+                    the bridge with the cucco. Requires shield
+                    and sword for this trick.
                     '''},
     '(Advanced) GV Cross Broken Bridge with Recoil off Boulder': {
         'name'    : 'adv_gv_boulder_recoil',
         'tags'    : ("Glitchless","Adult",),
         'tooltip' : '''\
                     With semi-precise positioning, you can recoil
-                    off a boulder and preserve the momentum with 
-                    Hover Boots to cross the broken bridge. 
-                    '''}, 
+                    off a boulder and preserve the momentum with
+                    Hover Boots to cross the broken bridge.
+                    '''},
     '(Advanced) GV Tent as Child': {
         'name'    : 'logic_gv_tent_child',
         'tags'    : ("Glitch","Child","Entrance Shuffle",),
@@ -2164,11 +2161,11 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'name'    : 'glitch_gv_chest_longshot',
         'tags'    : ("Glitch","Adult","Gerudo Valley",),
         'tooltip' : '''\
-                    Moving far enough away from the boulders 
+                    Moving far enough away from the boulders
                     disables their collision, allowing the tip
                     of the Longshot to reach the chest and pull
                     Link through.
-                    '''}, 
+                    '''},
     '(Advanced) GV Grotto Ledge to Upper Stream': {
         'name'    : 'adv_gv_grotto_ledge_to_upper',
         'tags'    : ("Glitchless","Child","Adult",),
@@ -2181,9 +2178,9 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'name'    : 'glitch_gtg_adult_groundclip',
         'tags'    : ("Glitch","Adult","Entrance Shuffle",),
         'tooltip' : '''\
-                    Ledgecancel at the top of the fortress and 
+                    Ledgecancel at the top of the fortress and
                     drop down into the loading zone of GTG to skip
-                    freeing the guards or paying the fee. 
+                    freeing the guards or paying the fee.
                     '''},
     '(Glitch) GTG Child Groundclip': {
         'name'    : 'glitch_gtg_child_groundclip',
@@ -2197,42 +2194,42 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tags'    : ("Glitchless","Adult","Entrance Shuffle",),
         'tooltip' : '''\
                      Jump the fence from the balcony of GF
-                     and use hover boots to land on the wall to walk down 
-                     towards the gate and pass. Can be done day or night. 
-                    '''}, 
+                     and use hover boots to land on the wall to walk down
+                     towards the gate and pass. Can be done day or night.
+                    '''},
     '(Advanced) GF Unload with Antigrav': {
         'name'    : 'logic_gf_unload',
         'tags'    : ("Glitchless","Child","Adult","Entrance Shuffle",),
         'tooltip' : '''\
-                    Unload the bottom level of GF by wall walking 
+                    Unload the bottom level of GF by wall walking
                     and jumping off creating antigravity and floating
-                    down to unload. Walking into GTG or leaving GF to 
-                    Colossus is in logic with this trick. If shuffled 
+                    down to unload. Walking into GTG or leaving GF to
+                    Colossus is in logic with this trick. If shuffled
                     GF entrances, access to Archery area as adult must
-                    also be met. Child can access always. 
-                    '''}, 
+                    also be met. Child can access always.
+                    '''},
     '(Advanced) GF Archery Area without Gerudo Card as Adult': {
         'name'    : 'logic_gf_archery_no_card',
         'tags'    : ("Glitch","Adult","Entrance Shuffle",),
         'tooltip' : '''\
-                    Day or night, pass the guard on the hill 
-                    towards archery with a backwalk movement. 
+                    Day or night, pass the guard on the hill
+                    towards archery with a backwalk movement.
                     '''},
     '(Glitch) GF Gate Skip Groundclip': {
         'name'    : 'glitch_gf_gate_groundclip',
         'tags'    : ("Glitch","Adult","Entrance Shuffle",),
         'tooltip' : '''\
-                    Pass the gate from the ground level with a 
+                    Pass the gate from the ground level with a
                     double bomb hover groundclip as adult without
-                    Gerudo Card. Can be done day or night. 
-                    '''},  
+                    Gerudo Card. Can be done day or night.
+                    '''},
     '(Advanced) TH Breakroom to Balcony as Child': {
         'name'    : 'logic_th_breakroom_to_balcony_child',
         'tags'    : ("Glitchless","Child","Entrance Shuffle",),
         'tooltip' : '''\
                     Jump from the breakroom to the balcony entrance
                     hallway with a damage boost and jumpslash to pass
-                    the wall. 
+                    the wall.
                     '''},
     '(Glitch) Spirit Hover': {
         'name'    : 'glitch_spirit_hover',
@@ -2241,7 +2238,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     An iconic trick in OoT. This exists to allow it to be
                     considered in logic without general hovering also being
                     enabled. Logically expects the version with Hover Boots,
-                    Bombs, and Chus. 
+                    Bombs, and Chus.
 
                     This trick is not dependent on the ISG or Hovering tricks.
                     '''},
@@ -2251,7 +2248,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tooltip' : '''\
                     Separated trick from weirdshots and weirdslides
                     due to the sand adding complexity. Logic requires
-                    chus. 
+                    chus.
                     '''},
     '(Glitch) Colossus Great Fairy Fountain without Explosives': {
         'name'    : 'glitch_colossus_fairy_no_explosives',
@@ -2271,16 +2268,16 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tags'    : ("Glitchless","Child","Entrance Shuffle","Market",),
         'tooltip' : '''\
                     Jumping from the crate over the door to access Bazaar
-                    and Slingshot Gallery at night. Both are similar jumps 
-                    from a crate. 
-                    '''}, 
+                    and Slingshot Gallery at night. Both are similar jumps
+                    from a crate.
+                    '''},
     '(Advanced) Market Night Potion': {
         'name'    : 'adv_market_night_potion',
         'tags'    : ("Glitchless","Child","Entrance Shuffle","Market",),
         'tooltip' : '''\
-                    Same jumpslash from crate to reach Bazaar, except 
+                    Same jumpslash from crate to reach Bazaar, except
                     do not walk into loading zone and instead walk
-                    behind the houses into Potion shop load. 
+                    behind the houses into Potion shop load.
                     '''},
     '(Advanced) Market Night Mask Shop': {
         'name'    : 'adv_market_night_mask_shop',
@@ -2288,7 +2285,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tooltip' : '''\
                     Watch the video. https://www.youtube.com/watch?v=17nWTtSuIYs
                     Jumpslash over door from Shooting
-                    Gallery and walk through houses OoB to the shop. 
+                    Gallery and walk through houses OoB to the shop.
                     This is tedious as it passes in front of the load to HC.
                     '''},
     '(Advanced) Market Day Treasure Chest Game': {
@@ -2297,22 +2294,22 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tooltip' : '''\
                     Jumpslash over the Shooting Gallery door and walk behind
                     the Chu Bowling and houses around the edge OoB until
-                    entering the load to the TCG. 
+                    entering the load to the TCG.
                     '''},
     '(Glitch) ToT DoT Skip Child with Lunge Storage': {
         'name'    : 'glitch_dot_skip_child_lunge',
         'tags'    : ("Glitch","Child",),
         'tooltip' : '''\
-                    Requires sword and shield, clip through DoT with a 
+                    Requires sword and shield, clip through DoT with a
                     lunge storage. There are many variations to
-                    achieve. 
+                    achieve.
                     '''},
     '(Glitch) ToT DoT Skip Child Swordless': {
         'name'    : 'glitch_dot_skip_child_swordless',
         'tags'    : ("Glitch","Child",),
         'tooltip' : '''\
                     Itemless DoT skip as child for fewer
-                    requirements. 
+                    requirements.
                     '''},
     '(Glitch) ToT DoT Skip Adult with Hover Recoil': {
         'name'    : 'glitch_dot_skip_adult_hover_recoil',
@@ -2320,16 +2317,16 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tooltip' : '''\
                     Adult DoT skip with a crouchstab recoil and
                     equipping hover boots to clip through the door
-                    and float to the other side. 
-                    '''},   
+                    and float to the other side.
+                    '''},
     '(Glitch) ToT DoT Skip Adult with Hovers and BGS': {
         'name'    : 'glitch_dot_skip_adult_hovers_bgs',
         'tags'    : ("Glitch","Adult",),
         'tooltip' : '''\
                     Easier DoT skip, crouchstab 3x with BGS and
                     hover boots equipped. Does work with Giant's Knife
-                    as well but logic requires the BGS due to 
-                    overwritting progressives. 
+                    as well but logic requires the BGS due to
+                    overwritting progressives.
                     '''},
     '(Glitch) ToT DoT Skip Adult with BGS only': {
         'name'    : 'glitch_dot_skip_adult_bgs_only',
@@ -2348,14 +2345,14 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
 
                     (Potential for softlock with letter shenanigans and is
                     in testing)
-                    '''}, 
+                    '''},
     '(Glitch) HC Fairy Fountain Wallwalk': {
         'name'    : 'glitch_hc_fairy_wallwalk',
         'tags'    : ("Glitch","Child","Entrance Shuffle","Bouldersanity",),
         'tooltip' : '''\
                     Wallwalk up the seam in front of the HC fairy,
-                    and drop down into the load to bypass the boulder. 
-                    Useful in bouldersanity or no explosives. 
+                    and drop down into the load to bypass the boulder.
+                    Useful in bouldersanity or no explosives.
 
                     Requires wallwalking and clipping to be enabled.
                     '''},
@@ -2367,20 +2364,20 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     with Suns Song to continue buying keys to reach
                     the final chest. This is not compatible with
                     shuffled TCG keys as you cannot buy more keys
-                    from the front. 
+                    from the front.
                     '''},
     '(Glitch) Kakariko Tower GS with ISG': {
         'name'    : 'glitch_kakariko_tower_gs_isg',
         'tags'    : ("Glitch","Child",),
         'tooltip' : '''\
-                    Glitch alternative to the jumpslash trick in glitchless logic. 
+                    Glitch alternative to the jumpslash trick in glitchless logic.
                     '''},
     '(Glitch) Kak to BotW Odie Clip': {
         'name'    : 'glitch_kak_botw_odie',
         'tags'    : ("Glitch","Adult","Entrance Shuffle",),
         'tooltip' : '''\
-                    Itemless (sword and shield) clip into the 
-                    bottom of the well as adult. 
+                    Itemless (sword and shield) clip into the
+                    bottom of the well as adult.
                     '''},
     '(Glitch) Kak to BotW Ledge Clip Damage Boost': {
         'name'    : 'glitch_kak_botw_ledge',
@@ -2395,16 +2392,16 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tooltip' : '''\
                     Softlock potential with Ocarina, only the
                     method with timestop considered because
-                    we can\'t logically check for a lack of a 
+                    we can\'t logically check for a lack of a
                     sword.
                     '''},
     '(Glitch) Kak Granny\'s House as Child': {
         'name'    : 'glitch_kak_child_granny',
         'tags'    : ("Glitch","Child","Entrance Shuffle",),
         'tooltip' : '''\
-                    Enter Granny's house as child using some bomb movements. 
+                    Enter Granny's house as child using some bomb movements.
                     There are several setups. Be cautious of N64 crashing OoB on
-                    emulator. 
+                    emulator.
                     '''},
     '(Glitch) Impa\'s House Front to Back': {
         'name'    : 'glitch_impas_cow_clip',
@@ -2412,15 +2409,15 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tooltip' : '''\
                     Ledgeclip fall into the cow gate from the front
                     of Impas house to reach Cow and freestanding item.
-                    '''}, 
+                    '''},
     '(Advanced) Kak Windmill HP Child Jumpslash': {
         'name'    : 'adv_kak_windmill_heart_child',
         'tags'    : ("Glitchless","Child",),
         'tooltip' : '''\
                     Child can reach the spinning windwill ledge with
                     a precise jumpslash timing and then jump to
-                    the freestanding item to collect without boomerang. 
-                    '''}, 
+                    the freestanding item to collect without boomerang.
+                    '''},
     '(Advanced) Kakariko Tower GS with Boomerang': {
         'name'    : 'adv_kak_tower_gs_rang',
         'tags'    : ("Glitchless","Child","GS",),
@@ -2434,19 +2431,19 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'name'    : 'adv_kak_backyard_night',
         'tags'    : ("Glitchless","Child",),
         'tooltip' : '''\
-                    Doing a forward sidehop from the edge of 
+                    Doing a forward sidehop from the edge of
                     the fence outside the windmill allows you
-                    to get close enough for a jumpslash to 
+                    to get close enough for a jumpslash to
                     reach on top of the fence of the Odd Potion
-                    house, granting nighttime access to the 
+                    house, granting nighttime access to the
                     grotto area.
-                    '''},                    
+                    '''},
     '(Advanced) Graveyard Box HP Damage Boost': {
         'name'    : 'adv_graveyard_hp_damage_boost',
         'tags'    : ("Glitchless","Adult",),
         'tooltip' : '''\
                     Damage boost from the fence to the create
-                    to reach the graveyard HP. Wallwalking from here to 
+                    to reach the graveyard HP. Wallwalking from here to
                     Shadow is not included in logic.
                     '''},
     '(Glitch) Graveyard Royal Tomb Jumpslash Clip Child': {
@@ -2454,24 +2451,24 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tags'    : ("Glitch","Child","Entrance Shuffle",),
         'tooltip' : '''\
                     Clip into the Royal Tomb as child to skip
-                    Zeldas Lullaby requirement. 
+                    Zeldas Lullaby requirement.
                     '''},
     '(Glitch) Royal Family Tomb Chest with Sticks': {
         'name'    : 'glitch_rft_chest_sticks',
         'tags'    : ("Glitch","Child","Adult",),
         'tooltip' : '''\
-                    Using Flame Storage, it's possible to carry 
-                    the fire from the light torches near the 
+                    Using Flame Storage, it's possible to carry
+                    the fire from the light torches near the
                     Sun's Song altar to light the front torches.
                     '''},
     '(Glitch) Graveyard to Shadow Early Hookshot Jump': {
         'name'    : 'glitch_graveyard_shadow_early_hookshot',
         'tags'    : ("Glitch","Adult","Entrance Shuffle",),
         'tooltip' : '''\
-                    Hookshot jump from fence or Dampe Hut to 
+                    Hookshot jump from fence or Dampe Hut to
                     reach the wall, and walk to the loading zone
                     for Shadow Temple. This includes jumping over
-                    the wall into the load passing the door. 
+                    the wall into the load passing the door.
                     '''},
     '(Glitch) Graveyard to Shadow Early Hover': {
         'name'    : 'glitch_graveyard_shadow_early_hover',
@@ -2485,9 +2482,9 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tags'    : ("Glitch","Adult","Entrance Shuffle",),
         'tooltip' : '''\
                     If from the warp pad, without hookshot, use
-                    triple bomb push to unload the door and bypass 
+                    triple bomb push to unload the door and bypass
                     into the dungeon. Adds nocturne as requirement
-                    to reach the pad without hovering. Intermediate 
+                    to reach the pad without hovering. Intermediate
                     option between no hookshot and full hover.
                     '''},
     '(Advanced) DMT Heart Piece Damageless Jump': {
@@ -2496,7 +2493,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tooltip' : '''\
                     With a well placed jump it's possible to force
                     Link to roll when he lands on top of the DC
-                    entrance rather than break his legs. 
+                    entrance rather than break his legs.
                     '''},
     '(Glitch) DMT to Summit with Hookshot Jump': {
         'name'    : 'glitch_dmt_hookshot_jump',
@@ -2504,27 +2501,27 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tooltip' : '''\
                     Hookshot jump from below the boulders to reach the summit
                     access without having to cross boulders. Useful in
-                    bouldersanity. 
+                    bouldersanity.
                     '''},
     '(Glitch) DMT to DC Groundclip': {
         'name'    : 'glitch_dmt_dc_groundclip',
         'tags'    : ("Glitch","Child","Entrance Shuffle",),
         'tooltip' : '''\
-                    Sidehop groundclip as child from the bomb flower 
-                    platform to enter DC without strength or explosives. 
+                    Sidehop groundclip as child from the bomb flower
+                    platform to enter DC without strength or explosives.
                     '''},
     '(Glitch) DMT Explosiveless Magic': {
         'name'    : 'glitch_dmt_explosiveless_magic',
         'tags'    : ("Glitch","Adult","Entrance Shuffle",),
         'tooltip' : '''\
                     Perform a more precise lunge storage to enter
-                    DMT Fairy without explosives. 
+                    DMT Fairy without explosives.
                     '''},
     '(Advanced) Goron City LW Boulders with Bow': {
         'name'    : 'adv_gc_lw_boulders_bow',
         'tags'    : ("Glitchless","Adult",),
         'tooltip' : '''\
-                    Using a precise shot, you can hit one of 
+                    Using a precise shot, you can hit one of
                     the bomb flowers with an arrow through the
                     boulders when going from LW to Goron City
                     '''},
@@ -2539,7 +2536,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'name'    : 'glitch_gc_darunia_no_explosives',
         'tags'    : ("Glitch","Adult","Entrance Shuffle",),
         'tooltip' : '''\
-                    With a precise Ledge Clip it's possible to 
+                    With a precise Ledge Clip it's possible to
                     enter Darunia's Room without stopping the rolling
                     goron or using explosives for other glitches.
                     '''},
@@ -2548,15 +2545,15 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tags'    : ("Glitch","Adult","Entrance Shuffle","Bouldersanity",),
         'tooltip' : '''\
                     Perform a megaflip from the DMC Upper to land
-                    in the loading zone of DMC Fairy without 
-                    destroying the boulders. 
-                    '''},  
+                    in the loading zone of DMC Fairy without
+                    destroying the boulders.
+                    '''},
     '(Glitch) LW Underwater Rupees without Diving or Rang': {
         'name'    : 'glitch_lw_uw_rupees',
         'tags'    : ("Glitch","Child","Lost Woods","Rupees",),
         'tooltip' : '''\
                     Requires Navi Dive or Child Aqua Escape to be enabled
-                    as well. Using one of these techniques repeatedly, 
+                    as well. Using one of these techniques repeatedly,
                     it is possible to collect every rupee.
                     '''},
     '(Glitch) ZR to LW as Adult Ledge Clip': {
@@ -2579,7 +2576,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tooltip' : '''\
                     Ladder clip from lower ZR and swim OoB to the ZD
                     entrance with minimal items. Watch a setup before
-                    enabling this trick. 
+                    enabling this trick.
                     '''},
     '(Glitch) Zora\'s River upper GS with Boomerang': {
         'name'    : 'glitch_zr_upper_skull_rang',
@@ -2590,50 +2587,50 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     Hookshot or a long hover.
 
                     Requires Equip Swap to be enabled, but
-                    independent of Hovering and ISG glitches. 
-                    '''},    
+                    independent of Hovering and ISG glitches.
+                    '''},
     '(Glitch) ZD Child OoB': {
         'name'    : 'glitch_zd_child_oob',
         'tags'    : ("Glitch","Child",),
         'tooltip' : '''\
                     Bombchu damage boost clip from KZ throne area. Enabling
                     this reaches both behind KZ and also to the LH entrance
-                    by unloading the area near diving minigame. 
-                    '''}, 
+                    by unloading the area near diving minigame.
+                    '''},
     '(Glitch) ZD to ZF Ledge Cancel': {
         'name'    : 'glitch_zd_zf_ledge_cancel',
         'tags'    : ("Glitch","Child",),
         'tooltip' : '''\
                     Other variation of passing behind KZ when he is not
                     moved. Requires explosives.
-                    '''}, 
+                    '''},
     '(Glitch) ZD to ZF Burning Stick': {
         'name'    : 'glitch_zd_zf_burning_stick',
         'tags'    : ("Glitch","Child",),
         'tooltip' : '''\
-                    Minimal/zero items for passing KZ when he is not moved. 
-                    Requires only a stick, which can be gotten from pots even 
-                    in potsanity (collect item first). 
-                    '''}, 
+                    Minimal/zero items for passing KZ when he is not moved.
+                    Requires only a stick, which can be gotten from pots even
+                    in potsanity (collect item first).
+                    '''},
     '(Glitch) ZD Reverse KZ Adult': {
         'name'    : 'glitch_zd_reverse_kz_adult',
         'tags'    : ("Glitch","Child","Entrance Shuffle",),
         'tooltip' : '''\
-                    If KZ is not moved, use longshot to clip through him by 
-                    hooking the torch. This just works. 
-                    '''},   
+                    If KZ is not moved, use longshot to clip through him by
+                    hooking the torch. This just works.
+                    '''},
     '(Glitch) ZD Reverse KZ Child': {
         'name'    : 'glitch_zd_reverse_kz_child',
         'tags'    : ("Glitch","Child","Entrance Shuffle",),
         'tooltip' : '''\
                     Perform a weirdslide as child with first person item
-                    to cross under KZ if he is not moved. 
+                    to cross under KZ if he is not moved.
                     '''},
     '(Advanced) ZF Enter Jabu Jumpslash': {
         'name'    : 'adv_jabu_no_fish',
         'tags'    : ("Glitchless","Child","Jabu Jabu's Belly", "Jabu Jabu's Belly MQ","Entrance Shuffle",),
         'tooltip' : '''\
-                    Jump and then Jumpslash into the head for a glitchless access to Jabu. 
+                    Jump and then Jumpslash into the head for a glitchless access to Jabu.
                     This is not the jumpslash from the edge which is a recoil. It is logically equivalent.
                     '''},
     '(Glitch) ZF Child Wall GS with Hover': {
@@ -2646,13 +2643,13 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
 
                     Does not require the ISG or Hovering glitches
                     to be enabled.
-                    '''},  
+                    '''},
     '(Glitch) ZF Enter Jabu Adult with Hovers': {
         'name'    : 'glitch_adult_jabu_hovers',
         'tags'    : ("Glitch","Adult","Jabu Jabu's Belly", "Jabu Jabu's Belly MQ","Entrance Shuffle",),
         'tooltip' : '''\
                     Requires Bombs and Hover boots to do a megasidehop into
-                    Jabu as Adult. 
+                    Jabu as Adult.
 
                     Does not require other glitches to be enabled.
                     '''},
@@ -2661,7 +2658,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tags'    : ("Glitch","Adult","Jabu Jabu's Belly", "Jabu Jabu's Belly MQ","Entrance Shuffle",),
         'tooltip' : '''\
                     Removes the hover boots requirement, and requires
-                    chus to enter Jabu as adult. Minimized item requirement. 
+                    chus to enter Jabu as adult. Minimized item requirement.
 
                     Does not require other glitches to be enabled.
                     '''},
@@ -2679,22 +2676,22 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tooltip' : '''\
                     Climb onto the wall, and walk along the floor
                     to the entrance for the Fairy Fountain. Jumpslash
-                    into the load area from the top. 
+                    into the load area from the top.
                     '''},
     '(Glitch) HF Web Grotto Groundclip': {
         'name'    : 'glitch_hf_web_groundclip',
         'tags'    : ("Glitch","Adult","Entrance Shuffle","Bouldersanity",),
         'tooltip' : '''\
                     If glitched damage value is not enabled, alternative is
-                    a double bomb groundclip hover through the web to 
-                    access the locations. 
+                    a double bomb groundclip hover through the web to
+                    access the locations.
                     '''},
     '(Advanced) HF Tektite Grotto with Rang': {
         'name'    : 'adv_tektite_hp_rang',
         'tags'    : ("Glitchless","Child","Adult",),
         'tooltip' : '''\
-                    If standalone glitchless logic and no equipswap, this is enabled for child. 
-                    If equipswap is enabled, this works for child and adult. 
+                    If standalone glitchless logic and no equipswap, this is enabled for child.
+                    If equipswap is enabled, this works for child and adult.
                     '''},
     '(Glitch) Moustache Clip': {
         'name'    : 'glitch_moustache_clip',
@@ -2707,14 +2704,14 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'name'    : 'adv_231_hammer',
         'tags'    : ("Glitchless","Adult","Deku Tree",),
         'tooltip' : '''\
-                    Stun the dekus in the basement with Hammer 
+                    Stun the dekus in the basement with Hammer
                     instead of shield, to reach Queen Gohma's room.
-                    '''},  
+                    '''},
     '(Glitch) Deku Boss Door Skip': {
         'name'    : 'glitch_deku_boss_door_skip',
         'tags'    : ("Glitch","Adult","Deku Tree","Deku Tree MQ",),
         'tooltip' : '''\
-                    Boss Door skip (or BK skip) for both vanilla and MQ from 
+                    Boss Door skip (or BK skip) for both vanilla and MQ from
                     the upper pillar room. Note that MQ skip is a different pillar
                     to jumpslash from.
                     '''},
@@ -2724,7 +2721,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tooltip' : '''\
                     You can skip SoT and clip into the block to
                     obtain the chest past the rolling spike log with
-                    only hookshot. 
+                    only hookshot.
                     '''},
     '(Glitch) DC Beyond the Head without Explosives': {
         'name'    : 'glitch_dc_head_clip',
@@ -2732,47 +2729,47 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tooltip' : '''\
                     This trick is both clipping into the head, as well
                     as jumping up to the doorframe to open the door to
-                    reach beyond the head without explosives. 
-                    '''}, 
+                    reach beyond the head without explosives.
+                    '''},
     '(Glitch) Death Hookshot Jumps': {
         'name'    : 'glitch_death_hookshot_jump',
         'tags'    : ("Glitch","Adult","Dodongo's Cavern","Dodongo's Cavern MQ",),
         'tooltip' : '''\
                     Death or Doom jump in DC and MQ DC to reach the upper bridge with
                     fairy revival. Alternative for backwards DC without GDV or explosives
-                    or strength. 
+                    or strength.
                     '''},
     '(Advanced) KD with Chus': {
         'name'    : 'adv_kd_chus',
         'tags'    : ("Glitchless","Adult","Dodongo's Cavern","Dodongo's Cavern MQ","King Dodongo",),
         'tooltip' : '''\
                     With a well timed backflip and chu pull,
-                    Adult can down KD with only chus. 
+                    Adult can down KD with only chus.
                     '''},
     '(Advanced) MQ DC Pass Boulder with Hoverboots Jump': {
         'name'    : 'adv_dc_mq_hoverboots_boulder_jump',
         'tags'    : ("Glitchless","Adult","Dodongo's Cavern MQ","Bouldersanity",),
         'tooltip' : '''\
-                    If the boulders are inaccessible, you can cross the gap and jump 
+                    If the boulders are inaccessible, you can cross the gap and jump
                     over with precise hoverboots timing. Similar to other
-                    hoverboots over boulder jumps like DMT Fairy 
-                    or GC Boulder Maze. 
+                    hoverboots over boulder jumps like DMT Fairy
+                    or GC Boulder Maze.
                     '''},
     '(Advanced) MQ DC jump around stair Skulltulas': {
         'name'    : 'adv_dc_mq_stairs_skulltula_jump',
         'tags'    : ("Glitchless","Dodongo's Cavern MQ","Child"),
         'tooltip' : '''\
                     It's possible to jump around the Skulltulas
-                    blocking the path above the stairs. 
+                    blocking the path above the stairs.
                     '''},
     '(Advanced) MQ DC Upper Lizalfos Boulder Skip': {
         'name'    : 'logic_dc_mq_upper_lizalfos_boulder_skip',
         'tags'    : ("Glitchless","Adult","Dodongo's Cavern MQ","Bouldersanity",),
         'tooltip' : '''\
-                    Megajump with hover boots from in front of the boulders and 
+                    Megajump with hover boots from in front of the boulders and
                     jumpslash onto the platform on the other side to skip
-                    the boulder requirements to pass. 
-                    '''},    
+                    the boulder requirements to pass.
+                    '''},
     '(Glitch) Jabu First Switch Hover': {
         'name'    : 'glitch_jabu_switch_hover',
         'tags'    : ("Glitch","Child","Adult","Jabu Jabu's Belly",),
@@ -2784,10 +2781,10 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'name'    : 'glitch_jabu_compass_skip_tentacle',
         'tags'    : ("Glitch","Adult","Jabu Jabu's Belly","Enemy Souls",),
         'tooltip' : '''\
-                    Using explosives and hoverboots, damage boost 
+                    Using explosives and hoverboots, damage boost
                     through the corner of Jabu wall and into the compass
-                    room load without boomerang or souls. 
-                    '''}, 
+                    room load without boomerang or souls.
+                    '''},
     '(Glitch) Jabu Compass with Death': {
         'name'    : 'glitch_jabu_compass_with_death',
         'tags'    : ("Glitch","Child","Adult","Jabu Jabu's Belly","Enemy Souls",),
@@ -2813,72 +2810,72 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'name'    : 'glitch_forest_temple_basement',
         'tags'    : ("Glitch","Adult","Forest Temple","Forest Temple MQ",),
         'tooltip' : '''\
-                    While the elevator can be skipped, logically access to 
-                    basement will require hoverboots and explosives. 
+                    While the elevator can be skipped, logically access to
+                    basement will require hoverboots and explosives.
                     This creates repeatable access using the megasidehop
-                    method ignoring elevator. 
+                    method ignoring elevator.
                     '''},
     '(Glitch) Forest Basement GS Hover': {
         'name'    : 'glitch_forest_basement_gs',
         'tags'    : ("Glitch","Adult","Forest Temple",),
         'tooltip' : '''\
-                    If in the basement, can hover to the GS from the chest. 
-                    Seprate from the can_hover group. 
-                    '''}, 
+                    If in the basement, can hover to the GS from the chest.
+                    Seprate from the can_hover group.
+                    '''},
     '(Glitch) Forest Temple Boss Key Skip': {
         'name'    : 'glitch_forest_bk_skip',
         'tags'    : ("Glitch","Child","Adult","Forest Temple","Forest Temple MQ",),
         'tooltip' : '''\
                     Pick a variation, there are several. Logically will require
                     only sword and shield for adult.
-                    Child requires bombchus for vineclip from the courtyard. 
+                    Child requires bombchus for vineclip from the courtyard.
                     '''},
     '(Glitch) Fire Temple Boss Key Skip (Ledge clip)': {
         'name'    : 'glitch_fire_bk_skip_ledge',
         'tags'    : ("Glitch","Adult","Fire Temple","Fire Temple MQ",),
         'tooltip' : '''\
                     This BK skip requires all keys and traverse the dungeon to
-                    where the shortcut block would be hammered. A ledgeclip and 
+                    where the shortcut block would be hammered. A ledgeclip and
                     jumpslash can be done in front of this block to fall
-                    over the loading zone. 
+                    over the loading zone.
                     '''},
     '(Glitch) Fire Temple Boss Key Skip (Hover)': {
         'name'    : 'glitch_fire_bk_skip_hover',
         'tags'    : ("Glitch","Adult","Fire Temple","Fire Temple MQ",),
         'tooltip' : '''\
-                    Hovering from in front of door over/under the loading 
+                    Hovering from in front of door over/under the loading
                     zone. This skips key requirements to traverse the
-                    dungeon. 
+                    dungeon.
                     '''},
     '(Glitch) Fire Temple Child enemy room': {
         'name'    : 'glitch_fire_child_enemy_room',
         'tags'    : ("Glitch","Child","Fire Temple",),
         'tooltip' : '''\
-                    Child can clip behind the hammer pillar without using 
-                    hammer. Enabling this trick requires bombchus. 
-                    '''}, 
+                    Child can clip behind the hammer pillar without using
+                    hammer. Enabling this trick requires bombchus.
+                    '''},
     '(Glitch) Fire Temple Block skip': {
         'name'    : 'glitch_fire_block_skip',
         'tags'    : ("Glitch","Adult","Fire Temple",),
         'tooltip' : '''\
-                    Similar requirements to the shortcuts being active in Fire. 
+                    Similar requirements to the shortcuts being active in Fire.
                     Use of bomb or chu to clip through the block into the shortcut
                     area.
-                    '''},  
+                    '''},
     '(Glitch) Fire Temple Scarecrow Hover': {
         'name'    : 'glitch_fire_scarecrow_hover',
         'tags'    : ("Glitch","Adult","Fire Temple",),
         'tooltip' : '''\
                     Hover to Piere with hover boots and bombchus to skip
-                    needing access to Pierre or playing song. 
+                    needing access to Pierre or playing song.
                     '''},
     '(Glitch) MQ Fire Before Boss Torch puzzle with GDV': {
         'name'    : 'glitch_fire_mq_torch_puzzle',
         'tags'    : ("Glitch",),
         'tooltip' : '''\
                     Using glitched damage value and hover boots, you can
-                    light all torches in the before boss room. Hover boots 
-                    is only to gain faster movement. After review it could be 
+                    light all torches in the before boss room. Hover boots
+                    is only to gain faster movement. After review it could be
                     adjusted with megaflips. The torches have a semi-long burn.
                     '''},
     '(Advanced) MQ Fire Boss Key Chest Flame Skip': {
@@ -2898,7 +2895,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     After ledge clipping from the alcove, you can skip crossing
                     the gap before the locked north basement door by timing
                     a jumpslash to hit the ceiling as you fall through it
-                    to gain extra distance and land on the spikes. 
+                    to gain extra distance and land on the spikes.
                     '''},
     '(Glitch) Water Temple Cutscene Dive to Eastern Column': {
         'name'    : 'glitch_water_bottle_dive',
@@ -2907,7 +2904,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     Using Hoverboots, and Fish or Bugs, it's possible to cutscene
                     dive to the eastern column without iron boots or ledge clipping
                     from the alcove.
-                    '''},  
+                    '''},
     '(Glitch) Water Temple Ledge clip to South Basement': {
         'name'    : 'glitch_water_south_basement_clip',
         'tags'    : ("Glitch","Adult","Water Temple","Water Temple MQ",),
@@ -2915,22 +2912,22 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     Access to alcove is base logic, ledgeclip OoB
                     and drop down to the south basement and float into
                     the loading zone. This does not require scale or
-                    iron boots. 
-                    '''}, 
+                    iron boots.
+                    '''},
     '(Glitch) Water Temple Central Pillar with Torch Clip and Irons': {
         'name'    : 'glitch_water_central_pillar_with_torch_clip',
         'tags'    : ("Glitch","Adult","Water Temple","Water Temple MQ",),
         'tooltip' : '''\
                     Gives access to the Central Pillar with the water
                     raised by clipping out with a torch and swimming up
-                    into the doorway. 
-                    '''}, 
+                    into the doorway.
+                    '''},
     '(Glitch) Water Temple Torch Clips': {
         'name'    : 'glitch_water_torch_clip',
         'tags'    : ("Glitch","Adult","Water Temple","Water Temple MQ",),
         'tooltip' : '''\
                     Alternative clip OoB to reach areas by using hookshot
-                    to clip thru the wall from the torch in the basement. 
+                    to clip thru the wall from the torch in the basement.
                     Access to OoB rooms such as dragon head.
                     '''},
     '(Glitch) Water Temple Dragon Head Cutscene Dive': {
@@ -2938,23 +2935,23 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tags'    : ("Glitch","Adult","Water Temple",),
         'tooltip' : '''\
                     Using bombchus, explode the switch and dive during the explosion
-                    to remove the iron boots requirement to reach the chest. 
+                    to remove the iron boots requirement to reach the chest.
                     '''},
     '(Glitch) Water Temple Dragon Head Hover': {
         'name'    : 'glitch_water_dragon_hover',
         'tags'    : ("Glitch","Adult","Water Temple","Water Temple MQ",),
         'tooltip' : '''\
                     Hover to the alcove to reach the river chest in vanilla. In MQ
-                    this skips the hookshot requirement to reach river locations. 
+                    this skips the hookshot requirement to reach river locations.
                     '''},
     '(Glitch) Water Temple Song of Time Block Skip': {
         'name'    : 'glitch_water_sot_block_skip',
         'tags'    : ("Glitch","Adult","Water Temple","Water Temple MQ",),
         'tooltip' : '''\
-                    Logically require explosives and a ledgeclip. This works the same 
+                    Logically require explosives and a ledgeclip. This works the same
                     for vanilla and MQ to clip through the block. MQ is more tedious
                     because the gate can push you with collision. This does not access
-                    enemies, only the chest. 
+                    enemies, only the chest.
                     '''},
     '(Glitch) Water Temple Boss Key Skip with Bombs': {
         'name'    : 'glitch_water_bk_skip_bombs',
@@ -2968,9 +2965,9 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'name'    : 'glitch_water_bk_skip_chus',
         'tags'    : ("Glitch","Adult","Water Temple",),
         'tooltip' : '''\
-                    Alternative to bomb version, slightly more precise. 
+                    Alternative to bomb version, slightly more precise.
                     Separated out for preference style. Enable both
-                    if no preference. 
+                    if no preference.
                     '''},
     '(Glitch) MQ Water BK Skip': {
         'name'    : 'glitch_water_mq_bk_skip',
@@ -2991,19 +2988,19 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'name'    : 'logic_shadow_double_boosts',
         'tags'    : ("Glitch","Adult","Shadow Temple",),
         'tooltip' : '''\
-                    Hoverboots no longer needed to traverse Shadow Temple. 
+                    Hoverboots no longer needed to traverse Shadow Temple.
                     Damage boosts are not OHKO friendly. Double damage boosts
                     are needed to cross the gaps to reach Beamos room. Removes
-                    requirement for hook. 
-                    '''}, 
+                    requirement for hook.
+                    '''},
     '(Glitch) Shadow Temple as Child': {
         'name'    : 'glitch_child_shadow',
         'tags'    : ("Glitch","Child","Shadow Temple",),
         'tooltip' : '''\
                     This is an all encompassing trick for access to multiple
                     rooms as child, including the boat. Most of the dungeon
-                    would be accessible as child with hovering, clips, and 
-                    megaflips. MQ not included currently. 
+                    would be accessible as child with hovering, clips, and
+                    megaflips. MQ not included currently.
                     '''},
     '(Glitch) Shadow Temple Gate clip to Falling Spikes': {
         'name'    : 'glitch_shadow_gate_falling_spikes',
@@ -3018,7 +3015,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tooltip' : '''\
                     Various methods to reach the alcove near shadow boat without
                     Pierre or a longshot. Inclusions are:
-                    vineclip as child, and megaflip superslide with hoverboots or hover 
+                    vineclip as child, and megaflip superslide with hoverboots or hover
                     without hoverboots.
                     '''},
     '(Glitch) Shadow Boat Skull as Adult with Nothing': {
@@ -3026,9 +3023,9 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tags'    : ("Glitch","Adult","Shadow Temple",),
         'tooltip' : '''\
                     With gate clip, you can reach the skull and hearts with
-                    only sword and shield, this is a separate trick from the 
-                    other with alternatives but more item requirements. 
-                    Enable both for more options. 
+                    only sword and shield, this is a separate trick from the
+                    other with alternatives but more item requirements.
+                    Enable both for more options.
 
                     Requires clipping as this also grants access to the boat.
                     '''},
@@ -3036,24 +3033,24 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'name'    : 'glitch_shadow_no_Boat',
         'tags'    : ("Glitch","Adult","Shadow Temple",),
         'tooltip' : '''\
-                    Hover down the slippery slopes with 50+ bombchus. This is a meme. 
-                    It does nothing. 
-                    '''},   
+                    Hover down the slippery slopes with 50+ bombchus. This is a meme.
+                    It does nothing.
+                    '''},
     '(Glitch) Shadow Temple Before Boss Recovery Hearts Hovers': {
         'name'    : 'glitch_shadow_heart_chasm_hovers',
         'tags'    : ("Glitch","Adult","Shadow Temple",),
         'tooltip' : '''\
                     Hover to the recovery hearts without usable boomerang or
-                    SoT. 
+                    SoT.
                     '''},
     '(Glitch) Shadow Temple Boss Key Skip Boat Key': {
         'name'    : 'glitch_shadow_bk_skip_boat_key',
         'tags'    : ("Glitch","Shadow Temple","Shadow Temple MQ",),
         'tooltip' : '''\
-                    This can be either the HESS or Superslide variation. 
+                    This can be either the HESS or Superslide variation.
                     Item requirements are the same. Logically requires bombs
                     and hover boots. This goes directly from dead hand
-                    into the boss loading zone. 
+                    into the boss loading zone.
                     '''},
     '(Glitch) Shadow Temple Boss Key Skip from Deadhand': {
         'name'    : 'glitch_shadow_bk_skip_deadhand',
@@ -3062,7 +3059,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     Alternative with minimal items, no hover boots.
                     Can megaflip or TSC from Dead hand to unloaded
                     pre-boss room. Then BK skip thru the unloaded door
-                    with bombchu. 
+                    with bombchu.
                     '''},
     '(Glitch) Shadow Temple Boss Key Skip pre-boss': {
         'name'    : 'glitch_shadow_bk_skip_boss',
@@ -3072,14 +3069,14 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     loaded room before boss door. Logical access to this
                     room through the dungeon is required and all
                     small keys to have been acquired. Same BK skip with
-                    bombchu. 
+                    bombchu.
                     '''},
     '(Glitch) Spirit Temple Child side as Adult': {
         'name'    : 'glitch_spirit_child_side_as_adult',
         'tags'    : ("Glitch","Adult","Spirit Temple",),
         'tooltip' : '''\
                     Allows Adult to reach the child side of spirit through either
-                    a Hoverboots superslide or a TSC and megaflip. Both methods 
+                    a Hoverboots superslide or a TSC and megaflip. Both methods
                     also require their underlying glitches to be enabled.
                     '''},
     '(Glitch) Spirit Temple Adult side Block Skip': {
@@ -3087,7 +3084,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tags'    : ("Glitch","Adult","Spirit Temple",),
         'tooltip' : '''\
                     Adult side clip is a Triple Slash Clip (TSC) or a superslide
-                    based on the enabled grouped logic tricks. 
+                    based on the enabled grouped logic tricks.
                     '''},
     '(Glitch) Spirit Temple Child side Crawlspace skip as Adult': {
         'name'    : 'glitch_spirit_child_side_crawlspace_skip',
@@ -3096,31 +3093,31 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     Allows Adult to skip the second crawlspace on the child side
                     to reach the child climb. Requires being able to do an Entrance
                     Point Glich and survive a void.
-                    '''},    
+                    '''},
     '(Advanced) Spirit Compass with just Hoverboots': {
         'name'    : 'glitch_spirit_compass_hoverboots_only',
         'tags'    : ("Glitch","Adult","Spirit Temple",),
         'tooltip' : '''\
-                    Glitchless movement to reach the compass chest without hookshot. 
+                    Glitchless movement to reach the compass chest without hookshot.
                     '''},
     '(Glitch) Spirit Hover': {
         'name'    : 'glitch_spirit_hover',
         'tags'    : ("Glitch","Adult","Spirit Temple",),
         'tooltip' : '''\
-                    Spirit hover with bombchus and hover boots, and hookshot from 
-                    Colossus up to silver gauntlets hand. 
+                    Spirit hover with bombchus and hover boots, and hookshot from
+                    Colossus up to silver gauntlets hand.
                     If superslides are enabled, this also gives access to Mirror
-                    Shield chest. 
+                    Shield chest.
                     '''},
     '(Glitch) Spirit Temple Boss Key Skip Groundclip': {
         'name'    : 'glitch_spirit_bk_skip_groundclip',
         'tags'    : ("Glitch","Spirit Temple","Spirit Temple MQ",),
         'tooltip' : '''\
-                    Megaflip or double bomb staircase to clip through 
+                    Megaflip or double bomb staircase to clip through
                     the boss door. The staircase is equivalent to the
                     boss key skip in Water Temple. This requires access
                     to the head from the top and mirror shield to melt
-                    the face. 
+                    the face.
                     '''},
     '(Glitch) Spirit Temple Boss Key Skip Headclip': {
         'name'    : 'glitch_spirit_bk_skip_headclip',
@@ -3128,14 +3125,14 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tooltip' : '''\
                     Headclip using explosives and hookshot to reach the
                     boss room directly from the main statue room instead
-                    of key requirements. 
+                    of key requirements.
                     '''},
     '(Advanced) MQ Spirit Temple Lobby Eye Switch without Explosives': {
         'name'    : 'adv_spirit_mq_lobby_eye',
         'tags'    : ("Glitchless","Spirit Temple MQ",),
         'tooltip' : '''\
                     Standing far enough away from a boulder removes its
-                    collision, allowing you to hit things inside or 
+                    collision, allowing you to hit things inside or
                     through them without exploding them.
                     '''},
      '(Advanced) MQ Spirit Temple Child Gibdo Eye Switch without Explosives': {
@@ -3143,7 +3140,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tags'    : ("Glitchless","Spirit Temple MQ",),
         'tooltip' : '''\
                     Standing far enough away from a boulder removes its
-                    collision, allowing you to hit things inside or 
+                    collision, allowing you to hit things inside or
                     through them without exploding them.
                     '''},
     '(Glitch) MQ Spirit Temple Silver Block Skip': {
@@ -3158,7 +3155,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'name'    : 'glitch_spirit_mq_ceiling_boulder_skip',
         'tags'    : ("Glitch","Spirit Temple MQ",),
         'tooltip' : '''\
-                    By targetting after shooting the Longshot, you can 
+                    By targetting after shooting the Longshot, you can
                     disable the boulder's collision, allowing Link to
                     hit the hookshot target without exploding the boulder.
                     '''},
@@ -3166,7 +3163,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'name'    : 'adv_spirit_mq_lower_adult_from_lobby',
         'tags'    : ("Advanced","Spirit Temple MQ","Adult"),
         'tooltip' : '''\
-                    Using Hover Boots it's possible to conserve enough 
+                    Using Hover Boots it's possible to conserve enough
                     momentum to pass through the water jet.
                     '''},
     '(Glitch) MQ Spirit Temple Lower Adult without Fire': {
@@ -3200,30 +3197,30 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     In Vanilla, this goes to the map room and requires
                     the 5 silver rupees.
 
-                    In MQ, this goes to the compass room. 
+                    In MQ, this goes to the compass room.
                     '''},
     '(Advanced) Ice Cavern HP without Bottle': {
         'name'    : 'adv_ice_HP_no_bottle',
         'tags'    : ("Advanced","Adult","Ice Cavern",),
         'tooltip' : '''\
                     Bomb push into the ice to obtain the freestanding item.
-                    This puts the trick directly into logic. 
-                    '''},   
+                    This puts the trick directly into logic.
+                    '''},
     '(Advanced) Ice Cavern Push Block Silver Rupee Jumpslash': {
         'name'    : 'logic_ice_push_block_silver',
         'tags'    : ("Glitch","Adult","Ice Cavern",),
         'tooltip' : '''\
                     Previously, a bottle is required to dispel the ice.
                     This allows for more usage of Blue Fire Arrows to traverse
-                    Ice Cavern glitchlelssly. 
-                    '''}, 
+                    Ice Cavern glitchlelssly.
+                    '''},
     '(Glitch) Reverse Ice Cavern': {
         'name'    : 'glitch_reverse_ice',
         'tags'    : ("Glitch","Adult","Ice Cavern",),
         'tooltip' : '''\
                     Adult can backflip onto the crystal in the Freezard room lobby
-                    to clip OoB and slide towards the back end of the past Iron 
-                    Boots chest. To go through the door, iron boots are required. 
+                    to clip OoB and slide towards the back end of the past Iron
+                    Boots chest. To go through the door, iron boots are required.
                     '''},
     '(Glitch) Void Warps (ToDo)': {
         'name'    : 'glitch_',
@@ -3231,31 +3228,30 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tooltip' : '''\
                     TBD
                     '''},
-
     '(Glitch) GTG Lobby Eye Switch Hover': {
         'name'    : 'glitch_gtg_lobby_eye',
         'tags'    : ("Glitch","Adult","Child","Gerudo Training Grounds","Glitched Damage Value",),
         'tooltip' : '''\
                     Obtaining glitched damage value, and hovering to the eye
-                    switch to drop the chests without slingshot or bow. 
-                    '''}, 
+                    switch to drop the chests without slingshot or bow.
+                    '''},
     '(Glitch) GTG Vine Clips': {
         'name'    : 'glitch_gtg_vine_clip',
         'tags'    : ("Glitch","Adult","Child","Gerudo Training Grounds","Enemy Souls",),
         'tooltip' : '''\
                     Enabling this trick puts the entire maze into logic. This
                     also allows access to the open lava room without SoT or enemy
-                    souls. 
+                    souls.
                     Both child and adult can vineclip (adult is sideways
-                    vineclips). 
-                    '''},   
+                    vineclips).
+                    '''},
     '(Advanced) GTG Pillar Jumps': {
         'name'    : 'adv_gtg_pillar_jumps',
         'tags'    : ("Advanced","Adult","Gerudo Training Grounds",),
         'tooltip' : '''\
                     Remove the logic requirement to have hover boots to cross
                     the pillars. With precise jumps it can be reached without
-                    them. 
+                    them.
                     '''},
     '(Advanced) GTG Burning Chest without Hammer': {
         'name'    : 'adv_gtg_burning_chest_without_hammer',
@@ -3263,15 +3259,15 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tooltip' : '''\
                     Putting this chest into logic without excessive item
                     requirements. Not OHKO friendly as it requires taking
-                    damage. 
-                    '''}, 
+                    damage.
+                    '''},
     '(Advanced) MQ GTG Enemy Rooms as child': {
         'name'    : 'adv_gtg_mq_enemy_rooms_as_child',
         'tags'    : ("Advanced","Child","Adult","Gerudo Training Grounds",),
         'tooltip' : '''\
-                    Allows child to logically defeat the enemy rooms in 
-                    MQ GTG. This has no extra item requirements. 
-                    '''}, 
+                    Allows child to logically defeat the enemy rooms in
+                    MQ GTG. This has no extra item requirements.
+                    '''},
     '(Glitch) MQ GTG Blue Fire Wall Skip': {
         'name'    : 'glitch_gtg_mq_blue_fire_skip',
         'tags'    : ("Glitch","Child","Adult","Gerudo Training Grounds",),
@@ -3279,7 +3275,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     Child can clip through with lunge storage and a jumpslash.
                     Adult needs to hess into the corner and have Hover Boots
                     to go back in bounds.
-                    '''}, 
+                    '''},
     '(Glitch) Ganon\'s Tower Rainbow Bridge Skip': {
         'name'    : 'glitch_igc_rainbow_bridge',
         'tags'    : ("Glitch","Adult","Inside Ganon's Castle","Rainbow Bridge",),
@@ -3304,8 +3300,8 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tooltip' : '''\
                     Pushing the armos to the door creates a jumpslash clip
                     to clip out into the lobby area and can walk up the stairs,
-                    across the carpet and into the loading zone. Utilize sound cues. 
-                    If trials are active, the colored beams help guide the way. 
+                    across the carpet and into the loading zone. Utilize sound cues.
+                    If trials are active, the colored beams help guide the way.
                     '''},
     '(Advanced) Shadow Trial First Gap Without Fire': {
         'name'    : 'adv_shadow_trial_no_fire_gap',
@@ -3313,31 +3309,29 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
         'tooltip' : '''\
                     Hammer recoil hoverboost from the door to the torch, and then recoil
                     boost ending with bombchu damage boost to the likelike. Removes
-                    logic requirement for longshot or fire source. 
+                    logic requirement for longshot or fire source.
                     '''},
     '(Glitch) Shadow Trial Hess': {
         'name'    : 'glitch_shadow_trial_hess',
         'tags'    : ("Glitch","Adult","Inside Ganon's Castle",),
         'tooltip' : '''\
                     HESS from the door with hover boots to the torch, then to likelike.
-                    Removes logic requirement for longshot or fire source. 
-                    '''}, 
+                    Removes logic requirement for longshot or fire source.
+                    '''},
     '(Glitch) Fire Trial Pillar Silver without Gauntlets': {
         'name'    : 'glitch_fire_trial_pillar_silver',
         'tags'    : ("Glitch","Adult","Inside Ganon's Castle",),
         'tooltip' : '''\
-                    Skip strength 3 requirement to obtain the silver rupee under 
-                    the block. Logic does not require hover boots but there are 
-                    variations that can make it easier if they are available. 
+                    Skip strength 3 requirement to obtain the silver rupee under
+                    the block. Logic does not require hover boots but there are
+                    variations that can make it easier if they are available.
                     '''},
     '(Advanced) Fire Trial Longshot Skip': {
         'name'    : 'logic_fire_trial_longshot_skip',
         'tags'    : ("Glitch","Adult","Inside Ganon's Castle",),
         'tooltip' : '''\
                     Damage boost hoverslide to the door without the need
-                    for longshot. This is equivalent in glitched or GGJ playthrough. 
-                    Glitched rulesets can megaflip or HESS or other alteratives. 
+                    for longshot. This is equivalent in glitched or GGJ playthrough.
+                    Glitched rulesets can megaflip or HESS or other alteratives.
                     '''}
-
 }
-    

@@ -67,7 +67,7 @@
                 or (can_groundjump and is_adult)"
         },
         "exits": {
-            "Ice Cavern End": "is_adult and Blue_Fire" 
+            "Ice Cavern End": "is_adult and Blue_Fire"
         }
     },
     {

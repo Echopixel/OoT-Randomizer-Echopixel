@@ -231,7 +231,7 @@
         },
         "exits": {
             "Deku Tree Lobby": "
-                is_child 
+                is_child
                 or (shuffle_dungeon_entrances and (open_forest == 'open' or 'Showed Mido Sword & Shield'))
                 or (glitch_moustache_clip)
                 or (can_hess and can_use(Hover_Boots))",
@@ -383,7 +383,7 @@
                 (Hover_Boots or Longshot or here(can_plant_bean) or plant_beans or logic_lost_woods_bridge))",
             "LW Underwater Entrance": "is_child and (can_dive or Boomerang
                 or (can_jumpslash and (glitch_aqua_escape_child or glitch_navi_dive)))",
-            "Zora River": "can_leave_forest and (can_dive or can_use(Iron_Boots) or 
+            "Zora River": "can_leave_forest and (can_dive or can_use(Iron_Boots) or
             (glitch_navi_dive and can_jumpslash) or
             (glitch_aqua_escape_adult and can_jumpslash and is_adult) or
             (glitch_aqua_escape_child and can_jumpslash and is_child))",
@@ -415,7 +415,7 @@
         },
         "exits": {
             "LW Forest Exit": "True",
-            "Lost Woods": "is_child or 
+            "Lost Woods": "is_child or
                 (is_adult and (can_play(Sarias_Song) or can_superslide or can_mega or can_hess or can_hover))",
             "SFM Entryway": "True",
             "Deku Theater": "True",
@@ -566,7 +566,7 @@
         "locations": {
             "Pierre": "is_adult and Bonooru and scarecrow_behavior != 'free'",
             "LH Sun": "(can_use(Distant_Scarecrow) or 'Water Temple Clear' or can_hover) and can_use(Bow)",
-            "LH Freestanding PoH": "can_hover or 
+            "LH Freestanding PoH": "can_hover or
                 (is_adult and (can_use(Scarecrow) or here(can_plant_bean)))",
             "LH Underwater Item": "is_child and can_dive",
             "LH Underwater Near Shore Green Rupee": "is_child",
@@ -579,14 +579,14 @@
             "LH GS Bean Patch": "can_plant_bugs and can_child_attack",
             "LH GS Lab Wall": "
                 is_child and at_night and
-                (Boomerang or 
-                    (logic_lab_wall_gs and 
-                    (Sticks or Kokiri_Sword or 
+                (Boomerang or
+                    (logic_lab_wall_gs and
+                    (Sticks or Kokiri_Sword or
                         (has_projectile(child) and can_use(Megaton_Hammer))
                     ))
                 )",
             "LH GS Small Island": "is_child and can_child_attack and at_night",
-            "LH GS Tree": "at_night and is_adult and (can_use(Longshot) or can_hookshot_jump or 
+            "LH GS Tree": "at_night and is_adult and (can_use(Longshot) or can_hookshot_jump or
                 (adv_lh_tree_gs_hookshot and adv_wallwalking and Hookshot))",
             "LH Lab Gossip Stone": "True",
             "LH Gossip Stone (Southeast)": "True",
@@ -598,7 +598,7 @@
         },
         "exits": {
             "Hyrule Field": "True",
-            "Zoras Domain": "(is_child and 
+            "Zoras Domain": "(is_child and
                 (can_dive or glitch_lh_to_zd_child_nothing or (glitch_navi_dive and can_jumpslash))
                 ) or (is_adult and can_mega and glitch_clipping)",
             "LH Owl Flight": "is_child",
@@ -614,12 +614,12 @@
             "Water Temple Lobby": "
                 (
                 is_adult and Hookshot and
-                    (Iron_Boots or 
-                    ( (Longshot or logic_water_hookshot_entry) and 
+                    (Iron_Boots or
+                    ( (Longshot or logic_water_hookshot_entry) and
                         ((Progressive_Scale, 2) or (Ocarina and glitch_enter_water_ocarina))
                     ))
-                ) or 
-                (is_adult and 
+                ) or
+                (is_adult and
                     (glitch_enter_water_groundclip or
                     glitch_enter_water_ledgeclip or
                     glitch_enter_water_lab_clip_adult
@@ -659,17 +659,17 @@
             "LH Lab Dive": "
                 (Progressive_Scale, 2) or
                 (logic_lab_diving and is_adult and Iron_Boots and Hookshot) or
-                (glitch_lakeside_lab_with_less and is_adult and 
+                (glitch_lakeside_lab_with_less and is_adult and
                     (
                         (Hover_Boots and (Bugs or Fish)) or
                         (can_isg and Ocarina)
                     )
                 )",
-            "LH Lab Dive Red Rupee 1": "(Progressive_Scale, 2) or can_use(Iron_Boots) or 
+            "LH Lab Dive Red Rupee 1": "(Progressive_Scale, 2) or can_use(Iron_Boots) or
                 (glitch_lakeside_lab_with_less and can_use(Hover_Boots) and (Bugs or Fish))",
-            "LH Lab Dive Red Rupee 2": "(Progressive_Scale, 2) or can_use(Iron_Boots) or 
+            "LH Lab Dive Red Rupee 2": "(Progressive_Scale, 2) or can_use(Iron_Boots) or
                 (glitch_lakeside_lab_with_less and can_use(Hover_Boots) and (Bugs or Fish))",
-            "LH Lab Dive Red Rupee 3": "(Progressive_Scale, 2) or can_use(Iron_Boots) or 
+            "LH Lab Dive Red Rupee 3": "(Progressive_Scale, 2) or can_use(Iron_Boots) or
                 (glitch_lakeside_lab_with_less and can_use(Hover_Boots) and (Bugs or Fish))",
             "LH GS Lab Crate": "
                 can_use(Iron_Boots) and can_use(Hookshot) and
@@ -703,19 +703,19 @@
         "exits": {
             "Hyrule Field": "True",
             "GV Upper Stream": "True",
-            "GV Crate Ledge": "is_child or 
+            "GV Crate Ledge": "is_child or
                 (can_mega and can_live_dmg(0.5)) or
                 (can_use(Hover_Boots) and (can_superslide or can_hess) and can_live_dmg(0.5))",
             "GV Grotto Ledge": "True",
             "GV Fortress Side": "can_hover or (
                 is_adult and
                 (can_ride_epona or Longshot or gerudo_fortress == 'open' or can_finish_GerudoFortress
-                    or (adv_gv_bridge_hookshot and Hookshot) 
-                    or (Hover_Boots and (can_hess or can_mega or can_superslide or adv_gv_boulder_recoil)) 
+                    or (adv_gv_bridge_hookshot and Hookshot)
+                    or (Hover_Boots and (can_hess or can_mega or can_superslide or adv_gv_boulder_recoil))
                     or can_hovers_recoil
-                ) 
+                )
                 ) or
-                (is_child and 
+                (is_child and
                 ((logic_cucco_jump and Kokiri_Sword) or can_mega or can_damage_boost)
                 )",
             "GV Octorok Grotto": "(glitch_ledge_cancel and is_adult and has_explosives and can_shield and can_live_dmg(0.5,False))
@@ -801,26 +801,26 @@
             "Gerudo Fortress": "True",
             "GV Upper Stream": "True",
             "GV Crate Ledge": "
-                (can_live_dmg(0.5) and 
+                (can_live_dmg(0.5) and
                 (
                 ((logic_valley_crate_hovers or can_superslide or can_hess) and can_use(Hover_Boots))
                 or can_mega
-                )) or 
+                )) or
                 (can_live_dmg(0.5,False,True) and has_explosives and
                     ((adv_hovers_recoil and can_use(Hover_Boots) and can_live_dmg(1.0))
                     or
                     (adv_damage_boost and can_live_dmg(1.5))
                     )
                 )",
-            "Gerudo Valley": "can_hover or is_child or 
+            "Gerudo Valley": "can_hover or is_child or
                 (is_adult and
                     (can_ride_epona or Longshot or gerudo_fortress == 'open' or can_finish_GerudoFortress
-                    or (Hover_Boots and (can_mega or can_superslide or can_hess)) 
+                    or (Hover_Boots and (can_mega or can_superslide or can_hess))
                     or can_hovers_recoil
-                    ) 
+                    )
                 )",
-            "GV Carpenter Tent": "is_adult or logic_gv_tent_child", 
-            "GV Storms Grotto": "is_adult and can_open_storm_grotto" 
+            "GV Carpenter Tent": "is_adult or logic_gv_tent_child",
+            "GV Storms Grotto": "is_adult and can_open_storm_grotto"
         }
     },
     {
@@ -857,16 +857,16 @@
             # Can ask the Gerudo on the path to HBA to throw you in jail.
             "GF Break Room Entrance": "can_use(Hookshot)",
             "Gerudo Fortress Archery Range": "is_child or Gerudo_Membership_Card",
-            "GF Outside Gate": "'GF Gate Open' or 
+            "GF Outside Gate": "'GF Gate Open' or
                 (glitch_gf_gate_groundclip and can_live_dmg(0.5,False,False) and Bombs and can_shield)
                 or is_child",
             "Gerudo Training Ground Lobby": "(
-                is_adult and 
+                is_adult and
                     (Gerudo_Membership_Card or
                         (glitch_gtg_adult_groundclip and Hover_Boots and can_shield))
                 )
                 or
-                (is_child and 
+                (is_child and
                     (glitch_gtg_child_groundclip and can_jumpslash)
                 )",
             "GF Balcony": "can_use(Hookshot) and glitch_clipping",
@@ -1317,12 +1317,12 @@
             "Bug Rock": "has_bottle"
         },
         "exits": {
-            "Colossus Great Fairy Fountain": "has_explosives or 
+            "Colossus Great Fairy Fountain": "has_explosives or
                 (glitch_colossus_fairy_no_explosives and can_hookshot_jump and can_use(Hover_Boots))",
             "Spirit Temple Lobby": "True",
             "Wasteland Near Colossus": "True",
             "Colossus Grotto": "can_use(Silver_Gauntlets)
-            or (glitch_colossus_grotto_weirdclip and can_weirdslide) 
+            or (glitch_colossus_grotto_weirdclip and can_weirdslide)
             or (is_child and glitch_ledge_cancel and has_explosives and can_shield)",
             "Desert Colossus HP": "(is_adult and here(can_plant_bean)) or (can_hover and adv_wallwalking)",
             "Desert Colossus Hands": "can_use(Hookshot) and can_use(Hover_Boots) and (
@@ -1338,7 +1338,7 @@
         "time_passes": true,
         "locations": {
             "Colossus Freestanding PoH": "True"
-            
+
         },
         "exits": {
             "Desert Colossus": "True"
@@ -1493,8 +1493,8 @@
             "ToT Entrance": "True",
             # Logically require both ages to have access to skipping the door
             # forcing the necessary items onto shared age checks
-            "Beyond Door of Time": "'Opened Door of Time' or 
-                (is_child and can_dotskip_adult and can_dotskip_child) or 
+            "Beyond Door of Time": "'Opened Door of Time' or
+                (is_child and can_dotskip_adult and can_dotskip_child) or
                 (is_adult and can_dotskip_adult and can_dotskip_child)"
         }
     },
@@ -1507,10 +1507,10 @@
             "Master Sword Pedestal": "True"
         },
         "exits": {
-            "Temple of Time": "'Opened Door of Time' or 
+            "Temple of Time": "'Opened Door of Time' or
                 (glitch_dot_skip_adult_hover_recoil and can_use(Hover_Boots) and can_shield) or
                 ((glitch_dot_skip_adult_hovers_bgs or glitch_dot_skip_adult_bgs_only) and can_use(Hover_Boots)) or
-                (glitch_dot_skip_child_lunge and can_use(Kokiri_Sword)) or 
+                (glitch_dot_skip_child_lunge and can_use(Kokiri_Sword)) or
                 (glitch_dot_skip_child_swordless and is_child)",
             "Beyond Door of Time Skippable Locations": "True"
         }
@@ -1618,12 +1618,12 @@
         },
         "exits": {
             "Market": "True",
-            "OGC Great Fairy Fountain": "at_dampe_time and (can_use(Golden_Gauntlets) or (glitch_clipping and 
-                ( (has_explosives and can_live_dmg(0.5,False)) 
+            "OGC Great Fairy Fountain": "at_dampe_time and (can_use(Golden_Gauntlets) or (glitch_clipping and
+                ( (has_explosives and can_live_dmg(0.5,False))
                 or (can_use(Hover_Boots) and can_shield and adv_hovers_recoil)
                 )
                 ))",
-            "Ganons Castle Ledge": "can_build_rainbow_bridge or 
+            "Ganons Castle Ledge": "can_build_rainbow_bridge or
                 (glitch_igc_rainbow_bridge and can_hover_no_trick)"
         }
     },
@@ -1633,9 +1633,9 @@
         "exits": {
             # This exit is only relevant in dungeon entrance shuffle and other ER as it's the
             # only way to end up on this ledge without having already come the other way
-            # In that case, the spawn is moved to be standing on the ledge itself, and the 
+            # In that case, the spawn is moved to be standing on the ledge itself, and the
             # Bridge trigger expanded to include this ledge, allowing a reverse hover
-            "Ganons Castle Grounds": "can_build_rainbow_bridge or 
+            "Ganons Castle Grounds": "can_build_rainbow_bridge or
                 (glitch_igc_rainbow_bridge and can_hover_no_trick)",
             "Ganons Castle Lobby": "at_dampe_time"
         }
@@ -1821,7 +1821,7 @@
             "Market": "True"
         }
     },
-    {   
+    {
         "region_name": "Market Treasure Chest Game",
         "scene": "Market Treasure Chest Game",
         "locations": {
@@ -1962,19 +1962,19 @@
             "Kak Windmill": "True",
             "Graveyard": "True",
             "Kak Bazaar": "(is_adult and (at_day or can_tsc))
-                or 
+                or
                 (glitch_clipping and is_child and (Sticks or Kokiri_Sword))",
             "Kak Shooting Gallery": "is_adult and (at_day or glitch_clipping)",
             "Bottom of the Well": "
                 ('Drain Well' and (is_child or shuffle_dungeon_entrances))
                 or
-                (is_child and 
+                (is_child and
                     ( (glitch_navi_dive and can_jumpslash)
                     or (at_day and (can_isg or Nuts))
                     )
                 )
                 or
-                (is_adult and 
+                (is_adult and
                     ( (glitch_kak_botw_odie and can_live_dmg(0.5))
                         or
                     ((glitch_kak_botw_ledge or glitch_ledge_clip) and has_bombchus and can_live_dmg(0.5,False))
@@ -1988,7 +1988,7 @@
                 or can_hover
                 or (can_use(Hover_Boots) and (can_mega or can_hess or can_superslide))",
             "Kak Odd Medicine Rooftop": "is_adult
-                or (is_child and (at_day or 
+                or (is_child and (at_day or
                     Slingshot or has_bombchus or (logic_kakariko_tower_gs and (Sticks or Kokiri_Sword))
                     or (adv_kak_tower_gs_rang and Boomerang)
                     or (glitch_kakariko_tower_gs_isg and can_isg)
@@ -2213,7 +2213,7 @@
         "hint": "GRAVEYARD",
         "locations": {
             "Graveyard Freestanding PoH": "
-                (is_adult and can_break_crate and 
+                (is_adult and can_break_crate and
                     (here(can_plant_bean) or Longshot or (can_damage_boost and adv_graveyard_hp_damage_boost) or can_hookshot_jump)
                     )
                 or
@@ -2230,7 +2230,7 @@
         },
         "exits": {
             "Graveyard Shield Grave": "is_adult or at_night",
-            "Graveyard Royal Familys Tomb": "can_play(Zeldas_Lullaby) or 
+            "Graveyard Royal Familys Tomb": "can_play(Zeldas_Lullaby) or
                 (is_child and glitch_rft_js_clip_child and (Sticks or (Kokiri_Sword and can_shield)))",
             "Graveyard Heart Piece Grave": "is_adult or at_night",
             "Graveyard Dampes Grave": "is_adult",
@@ -2268,7 +2268,7 @@
         "scene": "Graveyard Royal Familys Tomb",
         "locations": {
             "Graveyard Royal Familys Tomb Chest": "has_fire_source or can_gdv
-                or at('Graveyard Royal Familys Inner Sanctum',can_use(Sticks) and glitch_rft_chest_sticks and 
+                or at('Graveyard Royal Familys Inner Sanctum',can_use(Sticks) and glitch_rft_chest_sticks and
                     can_live_dmg(1.0,False))"
         },
         "exits": {
@@ -2326,7 +2326,7 @@
         },
         "exits": {
             "Graveyard": "True",
-            "Kak Windmill": "(is_adult and (can_play(Song_of_Time) or can_damage_clip)) or 
+            "Kak Windmill": "(is_adult and (can_play(Song_of_Time) or can_damage_clip)) or
                 (is_child and can_groundjump)"
         }
     },
@@ -2401,10 +2401,10 @@
             "Death Mountain Summit": "
                 here(can_blast_or_smash) or
                 (is_adult and here(can_plant_bean and (plant_beans or Progressive_Strength_Upgrade))) or
-                (logic_dmt_climb_hovers and can_use(Hover_Boots)) or 
+                (logic_dmt_climb_hovers and can_use(Hover_Boots)) or
                 (is_adult and can_hookshot_jump and glitch_dmt_hookshot_jump)",
             "Dodongos Cavern Beginning": "
-                has_explosives or Progressive_Strength_Upgrade or is_adult or 
+                has_explosives or Progressive_Strength_Upgrade or is_adult or
                 (glitch_dmt_dc_groundclip and can_live_dmg(0.5))",
             "DMT Storms Grotto": "can_open_storm_grotto"
         }
@@ -2433,9 +2433,9 @@
             "DMC Upper Local": "True",
             "DMT Owl Flight": "is_child",
             "DMT Cow Grotto": "here(can_blast_or_smash)",
-            "DMT Great Fairy Fountain": "here(can_blast_or_smash) or 
-                (glitch_dmt_explosiveless_magic and 
-                    ((is_child and can_lunge_storage) 
+            "DMT Great Fairy Fountain": "here(can_blast_or_smash) or
+                (glitch_dmt_explosiveless_magic and
+                    ((is_child and can_lunge_storage)
                     or (is_adult and glitch_tsc)
                     )
                 )"
@@ -2467,7 +2467,7 @@
             "GC Maze Left Chest": "
                 can_use(Megaton_Hammer) or can_use(Silver_Gauntlets) or
                 (logic_goron_city_leftmost and has_explosives and can_use(Hover_Boots))
-                or can_hess or can_superslide or 
+                or can_hess or can_superslide or
                 (can_use(Hover_Boots) and adv_hovers_recoil and glitch_clipping)",
             "GC Maze Center Chest": "can_blast_or_smash or can_use(Silver_Gauntlets) or
                 (can_use(Hover_Boots) and adv_hovers_recoil and glitch_clipping)",
@@ -2505,7 +2505,7 @@
                 (is_child and (has_explosives or Progressive_Strength_Upgrade or 'Goron City Child Fire' or can_gdv))",
             "GC Darunias Chamber": "
                 (is_adult and ('Stop GC Rolling Goron as Adult' or glitch_gc_darunia_no_explosives)) or
-                (is_child and can_play(Zeldas_Lullaby)) 
+                (is_child and can_play(Zeldas_Lullaby))
                 or can_mega",
             "GC Grotto Platform": "
                 can_hover or (
@@ -2561,7 +2561,7 @@
         "hint": "GORON_CITY",
         "exits": {
             "GC Grotto": "True",
-            "Goron City": "can_hover or 
+            "Goron City": "can_hover or
                 (damage_multiplier != 'ohko' and (damage_multiplier != 'quadruple' or can_use(Goron_Tunic))) or
                 can_use(Nayrus_Love) or (can_play(Song_of_Time) and can_use(Longshot))"
         }
@@ -2729,8 +2729,8 @@
             "DMC Child Blue Rupee 4": "is_child",
             "DMC Child Blue Rupee 5": "is_child",
             "DMC Child Blue Rupee 6": "is_child",
-            "DMC GS Bean Patch": "(can_plant_bugs and can_child_attack) or 
-                at('DMC Upper Local', can_mega and can_live_dmg(0.5) and can_plant_bugs and can_child_attack) or 
+            "DMC GS Bean Patch": "(can_plant_bugs and can_child_attack) or
+                at('DMC Upper Local', can_mega and can_live_dmg(0.5) and can_plant_bugs and can_child_attack) or
                 at('DMC Lower Local', can_mega and can_plant_bugs and can_child_attack) ",
             "Bean Plant Fairy": "is_child and can_plant_bean and can_play(Song_of_Storms) and has_bottle"
         },
@@ -2847,8 +2847,8 @@
             "ZR Child River Wonderitem 26": "is_child",
             "ZR Child River Wonderitem 27": "is_child",
             "ZR GS Ladder": "is_child and at_night and can_child_attack",
-            "ZR GS Near Raised Grottos": "is_adult and at_night and 
-                (can_use(Hookshot) or can_hover or 
+            "ZR GS Near Raised Grottos": "is_adult and at_night and
+                (can_use(Hookshot) or can_hover or
                 (glitch_zr_upper_skull_rang and can_use(Boomerang) and can_shield and has_explosives)
                 )",
             "ZR GS Above Bridge": "is_adult and (can_use(Hookshot) or can_use(Boomerang) or can_hover) and at_night",
@@ -2931,10 +2931,10 @@
         },
         "exits": {
             "ZR Behind Waterfall": "True",
-            "Lake Hylia": "(is_child and (can_dive or can_js_clip or 
+            "Lake Hylia": "(is_child and (can_dive or can_js_clip or
                 (glitch_zd_child_oob and can_live_dmg(0.5,False,False) and has_bombchus and can_shield and can_live_dmg(1.5) )
                 (glitch_zd_zf_burning_stick and Sticks and can_live_dmg(1.0))
-                )) or 
+                )) or
                 (is_adult and can_js_clip and can_live_dmg(1.0))",
             "ZD Behind King Zora": "
                 Deliver_Letter or zora_fountain == 'open' or
@@ -2961,7 +2961,7 @@
             "Zoras Domain": "
                 Deliver_Letter or zora_fountain == 'open' or
                 (is_adult and zora_fountain == 'adult') or
-                ('King Zora Thawed' and can_use(Longshot) and glitch_clipping) or 
+                ('King Zora Thawed' and can_use(Longshot) and glitch_clipping) or
                 (glitch_zd_reverse_kz_adult and can_weirdslide) or
                 (glitch_zd_reverse_kz_child and is_child and has_explosives and can_shield and (first_person_item or Boomerang))
                 ",
@@ -3004,12 +3004,12 @@
                     (glitch_adult_jabu_no_hovers and has_bombchus and can_shield)
                 )
                 )",
-            "ZF Ice Ledge": "is_adult or (is_child and has_bombchus and 
+            "ZF Ice Ledge": "is_adult or (is_child and has_bombchus and
                 (can_hover
                     or (glitch_child_ice and can_shield and can_jumpslash)
                 ))",
-            "ZF Great Fairy Fountain": "has_explosives or 
-                (logic_zf_fairy_no_explosives and can_use(Silver_Gauntlets) and 
+            "ZF Great Fairy Fountain": "has_explosives or
+                (logic_zf_fairy_no_explosives and can_use(Silver_Gauntlets) and
                     Megaton_Hammer)",
             "ZF Underwater": "is_adult and Iron_Boots and (logic_fewer_tunic_requirements or Zora_Tunic)",
             "ZF Hidden Cave Adult": "is_adult and ( (can_use(Silver_Gauntlets) and can_blast_or_smash)
@@ -3095,9 +3095,9 @@
         "scene": "Lon Lon Ranch",
         "hint": "LON_LON_RANCH",
         "events": {
-            "Epona": "(can_play_ocarina(Eponas_Song) and is_adult and at_day) 
+            "Epona": "(can_play_ocarina(Eponas_Song) and is_adult and at_day)
                 or (can_hover and not shuffle_overworld_entrances)",
-            "Links Cow": "(can_play_ocarina(Eponas_Song) and is_adult and at_day) 
+            "Links Cow": "(can_play_ocarina(Eponas_Song) and is_adult and at_day)
                 or (can_hover and not shuffle_overworld_entrances)"
         },
         "locations": {
@@ -3339,14 +3339,14 @@
         "region_name": "HF Cow Grotto",
         "scene": "HF Cow Grotto",
         "locations": {
-            "HF Cow Grotto Cow": "(can_gdv_stick or has_fire_source or 
+            "HF Cow Grotto Cow": "(can_gdv_stick or has_fire_source or
                 (glitch_hf_web_groundclip and is_adult and can_shield and can_live_dmg(0.5,False,False) and Bombs))
                 and can_play(Eponas_Song)",
-            "HF Cow Grotto Pot 1": "(can_gdv_stick or has_fire_source or 
+            "HF Cow Grotto Pot 1": "(can_gdv_stick or has_fire_source or
                 (glitch_hf_web_groundclip and is_adult and can_shield and can_live_dmg(0.5,False,False) and Bombs))",
-            "HF Cow Grotto Pot 2": "(can_gdv_stick or has_fire_source or 
+            "HF Cow Grotto Pot 2": "(can_gdv_stick or has_fire_source or
                 (glitch_hf_web_groundclip and is_adult and can_shield and can_live_dmg(0.5,False,False) and Bombs))",
-            "HF GS Cow Grotto": "((can_gdv_stick or has_fire_source or 
+            "HF GS Cow Grotto": "((can_gdv_stick or has_fire_source or
                 (glitch_hf_web_groundclip and is_adult and can_shield and can_live_dmg(0.5,False,False) and Bombs)) and (can_use(Hookshot) or can_use(Boomerang)))
                 or (can_weirdshot and Longshot)",
             "HF Cow Grotto Gossip Stone": "has_fire_source or can_gdv_stick",
@@ -3415,7 +3415,7 @@
             "HC Storms Grotto Pot 3": "can_break_mud_wall or can_gdv_stick",
             "HC Storms Grotto Pot 4": "can_break_mud_wall or can_gdv_stick",
             "HC GS Storms Grotto": "(logic_castle_storms_gs and can_use(Boomerang)) or (
-                (can_break_mud_wall or can_gdv_stick) and 
+                (can_break_mud_wall or can_gdv_stick) and
                 (can_use(Hookshot) or can_use(Boomerang) or can_hover)
                 )",
             "HC Storms Grotto Gossip Stone": "can_break_mud_wall or can_gdv_stick",

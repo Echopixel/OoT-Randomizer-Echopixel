@@ -17,7 +17,7 @@
                     )
                 )
             ",
-            "Early Adult Spirit Temple": "can_use(Silver_Gauntlets) or 
+            "Early Adult Spirit Temple": "can_use(Silver_Gauntlets) or
                 ( glitch_spirit_adult_block_skip and is_adult and (
                     (Hover_Boots and Bombs and (can_superslide or can_groundjump)) or
                     (can_tsc and can_shield)
@@ -46,7 +46,7 @@
                 can_use(Boomerang) or can_use(Hookshot) or (can_use_projectile and can_use(Hover_Boots)) or
                 ((Silver_Rupee_Spirit_Temple_Child_Early_Torches, 5) and (can_use_projectile or can_use(Sticks) or
                     is_adult or can_use(Dins_Fire)))
-                or 
+                or
                 at('Child Spirit Temple Beyond Right Bridge',
                     logic_spirit_fence_gs and (Kokiri_Sword or is_adult or can_use(Dins_Fire) or can_use(Sticks) or has_explosives)
                 )"
@@ -58,7 +58,7 @@
             "Child Spirit Temple Beyond Right Bridge": "(Silver_Rupee_Spirit_Temple_Child_Early_Torches, 5)
                 or (glitch_clipping and can_use(Hover_Boots))",
             "Child Spirit Before Locked Door": "glitch_spirit_child_side_crawlspace_skip
-                and can_use(Hookshot)   
+                and can_use(Hookshot)
                 and (
                     (can_shield and can_use(Hover_Boots) and can_live_dmg(1.0,True,False))
                     or
@@ -143,7 +143,7 @@
                 can_use(Hookshot) or
                 (glitch_spirit_compass_hoverboots_only and can_use(Hover_Boots)) or
                 (adv_hovers_recoil and can_use(Hover_Boots) and (Megaton_Hammer or (has_explosives and can_live_dmg(0.5,False,True))))
-                or can_hover 
+                or can_hover
                 or (can_use(Hover_Boots) and (can_mega or can_superslide or can_hess))
                 )",
             "Spirit Temple Adult Boulder Silver Rupee Ledge": "can_jumpslash", # Can be collected with a jumpslash.
@@ -307,7 +307,7 @@
         "exits": {
             "Child Spirit Temple Climb": "True",
             "Adult Spirit Temple Climb": "
-                    (is_child and can_hover) or can_use(Hookshot) or 
+                    (is_child and can_hover) or can_use(Hookshot) or
                 (
                 spirit_temple_shortcuts and
                 (can_use(Hookshot) or (logic_spirit_adult_side_hovers and can_use(Hover_Boots)))
@@ -371,7 +371,7 @@
                 (logic_lens_spirit or can_use(Lens_of_Truth))",
             "Spirit Temple Hallway Right Invisible Chest": "
                 (logic_lens_spirit or can_use(Lens_of_Truth))",
-            "Spirit Temple Mirror Shield Chest": "can_kill_iron_knuckle or (is_adult and glitch_clipping) or 
+            "Spirit Temple Mirror Shield Chest": "can_kill_iron_knuckle or (is_adult and glitch_clipping) or
                 at('Desert Colossus Hands',True)"
         }
     },

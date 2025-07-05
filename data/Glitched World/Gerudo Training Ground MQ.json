@@ -155,12 +155,12 @@
         "dungeon": "Gerudo Training Ground",
         "locations": {
             # Very difficult to fight the Stalfos and Stulltulas under the time limit as child.
-            "Gerudo Training Ground MQ Before Heavy Block Chest": "can_kill_stalfos and can_kill_skulltula and 
+            "Gerudo Training Ground MQ Before Heavy Block Chest": "can_kill_stalfos and can_kill_skulltula and
                 (is_adult or adv_gtg_mq_enemy_rooms_as_child)",
             "Blue Fire": "has_bottle"
         },
         "exits": {
-            "Gerudo Training Ground Stalfos Room Alcove": "can_kill_stalfos and can_kill_skulltula and 
+            "Gerudo Training Ground Stalfos Room Alcove": "can_kill_stalfos and can_kill_skulltula and
                 (is_adult or adv_gtg_mq_enemy_rooms_as_child) and (logic_lens_gtg_mq or can_use(Lens_of_Truth)) and
                 (can_play(Song_of_Time) or (logic_gtg_fake_wall and Hover_Boots) or can_groundjump)
                 and (is_adult or can_hover)",
@@ -174,7 +174,7 @@
         },
         "exits": {
             "Gerudo Training Ground Stalfos Room": "True",
-            "Gerudo Training Ground Back Areas": "Blue_Fire or 
+            "Gerudo Training Ground Back Areas": "Blue_Fire or
                 ((is_child and glitch_gtg_mq_blue_fire_skip and (Sticks or Kokiri_Sword)) or
                     (is_adult and glitch_gtg_mq_blue_fire_skip and Hover_Boots and has_explosives and can_shield)
                 )",

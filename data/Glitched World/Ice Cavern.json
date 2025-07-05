@@ -31,7 +31,7 @@
             "Ice Cavern Spinning Scythe Silver Rupee Center Left": "True",
             "Ice Cavern Spinning Scythe Silver Rupee Center Back": "True",
             "Ice Cavern Spinning Scythe Silver Rupee Center Right": "True",
-            "Ice Cavern Spinning Scythe Silver Rupee Ledge": "is_adult or 
+            "Ice Cavern Spinning Scythe Silver Rupee Ledge": "is_adult or
                 (glitch_ice_ledges_child and can_groundjump)",
             "Ice Cavern GS Spinning Scythe Room": "can_use(Hookshot) or can_use(Boomerang) or can_hover
                 or ((can_superslide or can_hess) and can_use(Hover_Boots))"
@@ -39,13 +39,13 @@
         "exits": {
             "Ice Cavern Map Room": "((is_adult or (glitch_ice_ledges_child and can_groundjump)) and (Silver_Rupee_Ice_Cavern_Spinning_Scythe, 5))
                 or (is_adult and can_lunge_storage)",
-            "Ice Cavern Compass Room": "Blue_Fire or 
-                (is_adult and glitch_ledge_clip) or 
+            "Ice Cavern Compass Room": "Blue_Fire or
+                (is_adult and glitch_ledge_clip) or
                 can_lunge_storage",
-            "Ice Cavern Push Block Room": "Blue_Fire or 
+            "Ice Cavern Push Block Room": "Blue_Fire or
                 can_lunge_storage or
-                (is_adult and 
-                    (can_tsc or 
+                (is_adult and
+                    (can_tsc or
                     (glitch_clipping and
                         (Bombs or (adv_hovers_recoil and can_shield and can_use(Hover_Boots)))
                     )
@@ -57,7 +57,7 @@
         "region_name": "Ice Cavern Map Room",
         "dungeon": "Ice Cavern",
         "locations": {
-            "Ice Cavern Map Chest": "Blue_Fire or 
+            "Ice Cavern Map Chest": "Blue_Fire or
                 (has_explosives and can_live_dmg(0.5,False))",
             "Ice Cavern Map Room Recovery Heart 1": "True",
             "Ice Cavern Map Room Recovery Heart 2": "True",
@@ -70,7 +70,7 @@
         "region_name": "Ice Cavern Compass Room",
         "dungeon": "Ice Cavern",
         "locations": {
-            "Ice Cavern Compass Chest": "Blue_Fire or 
+            "Ice Cavern Compass Chest": "Blue_Fire or
                 (has_explosives and can_live_dmg(0.5,False))",
             "Ice Cavern Freestanding PoH": "Blue_Fire or (adv_ice_HP_no_bottle and
                     Bombs and can_shield and can_live_dmg(0.5,False) and is_adult)
@@ -90,7 +90,7 @@
             "Ice Cavern Push Block Silver Rupee Back Left": "True",
             "Ice Cavern Push Block Silver Rupee Back Center": "True",
             "Ice Cavern Push Block Silver Rupee Front Center": "True",
-            "Ice Cavern Push Block Silver Rupee Red Ice": "Blue_Fire or 
+            "Ice Cavern Push Block Silver Rupee Red Ice": "Blue_Fire or
                 (can_jumpslash and logic_ice_push_block_silver)",
             "Ice Cavern Push Block Silver Rupee Front Left": "True",
             "Ice Cavern GS Push Block Room": "
@@ -111,7 +111,7 @@
         },
         "exits": {
             "Ice Cavern End Room": "Blue_Fire or
-                    (glitch_clipping and adv_hovers_recoil and can_use(Hover_Boots)) or 
+                    (glitch_clipping and adv_hovers_recoil and can_use(Hover_Boots)) or
                     can_mega or can_hess or can_superslide
                 ",
             "Ice Cavern Push Block Room": "True"

@@ -4,7 +4,7 @@
         "dungeon": "Shadow Temple",
         "exits": {
             "Graveyard Warp Pad Region": "True",
-            "Shadow Temple Beginning": "is_adult and 
+            "Shadow Temple Beginning": "is_adult and
                 (logic_lens_shadow_mq or can_use(Lens_of_Truth)) and
                 (can_use(Hover_Boots) or can_use(Hookshot) or can_mega)",
             "Farores Wind Warp": "can_use(Farores_Wind)"
@@ -39,7 +39,7 @@
             "Shadow Temple MQ Whispering Walls Before Time Block Flying Pot 2": "has_soul(Flying_Pot)",
         },
         "exits": {
-            "Shadow Temple Whispering Walls Back": "can_play(Song_of_Time) or 
+            "Shadow Temple Whispering Walls Back": "can_play(Song_of_Time) or
                 (can_live_dmg(0.5,False) and Bombs and glitch_clipping)"
         }
     },
@@ -51,7 +51,7 @@
             "Shadow Temple MQ Whispering Walls After Time Block Flying Pot 2": "has_soul(Flying_Pot)"
         },
         "exits": {
-            "Shadow Temple First Dead Hand": "has_soul(Dead_hand) and (Bow or can_use(Slingshot) or 
+            "Shadow Temple First Dead Hand": "has_soul(Dead_hand) and (Bow or can_use(Slingshot) or
                 can_gdv_stick or (has_soul(Redead_and_Gibdo) and has_soul(Flying_Pot) and can_gdv_empty))"
         }
     },
@@ -265,7 +265,7 @@
         "region_name": "Shadow Temple Aboard Boat",
         "dungeon": "Shadow Temple",
         "locations": {
-            
+
         },
         "exits": {
             "Shadow Temple Boat Dock": "True",
@@ -278,7 +278,7 @@
         "region_name": "Shadow Temple Boat Dock",
         "dungeon": "Shadow Temple",
         "locations": {
-            
+
         },
         "exits": {
             "Shadow Temple Aboard Boat": "is_adult",
@@ -378,14 +378,14 @@
             "Shadow Temple MQ GS Near Boss": "has_projectile(adult) or can_use(Dins_Fire)"
         },
         "exits": {
-            "Bongo Bongo Boss Room": "Boss_Key_Shadow_Temple 
+            "Bongo Bongo Boss Room": "Boss_Key_Shadow_Temple
             or (glitch_shadow_bk_skip_boss and has_explosives and can_live_dmg(0.5,False) and is_adult)
                 or at('Shadow Temple First Dead Hand',(
                     glitch_shadow_bk_skip_boat_key and can_use(Hover_Boots) and
                     Bombs and (can_hess or can_superslide)
                         ) or (
                     glitch_shadow_bk_skip_deadhand and is_adult and can_live_dmg(1.0) and
-                    (((can_superslide or can_hess) and Bombs) or first_person_item) 
+                    (((can_superslide or can_hess) and Bombs) or first_person_item)
                     and has_explosives and (can_mega or Hover_Boots)
                     )
                     )

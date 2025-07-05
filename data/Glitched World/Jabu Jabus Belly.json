@@ -35,7 +35,7 @@
             "Jabu Jabus Belly Depths": "can_use(Boomerang) and has_soul(Jabu_Jabu_Tentacle)",
             "Jabu Jabus Belly Before Boss": "
                 (logic_jabu_boss_hover and can_use(Hover_Boots)) or jabu_shortcuts or Jabu_Jabus_Belly_Floor_Lowered or can_mega",
-            "Jabu Jabus Belly Compass Room": "(glitch_jabu_compass_with_death and Fairy) or 
+            "Jabu Jabus Belly Compass Room": "(glitch_jabu_compass_with_death and Fairy) or
                 (glitch_jabu_compass_skip_tentacle and can_use(Hover_Boots) and has_explosives and can_live_dmg(0.5,False))",
             "Jabu Jabus Belly Past Big Octo": "glitch_jabu_biri_hover and can_shield and can_jumpslash and has_soul(Biri_and_Bari)"
         }

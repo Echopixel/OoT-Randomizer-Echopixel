@@ -38,7 +38,7 @@
             "Forest Temple Basement": "
                 (Forest_Temple_Jo_and_Beth and Forest_Temple_Amy_and_Meg) or forest_temple_shortcuts
                 or (glitch_forest_temple_basement and can_use(Hover_Boots) and Bombs and can_mega and can_live_dmg(1.0,True,False))",
-            "Forest Temple Green Poe Room": "can_hover or (can_use(Hover_Boots) and has_explosives and 
+            "Forest Temple Green Poe Room": "can_hover or (can_use(Hover_Boots) and has_explosives and
                 can_live_dmg(0.5))"
         }
     },
@@ -47,7 +47,7 @@
         "dungeon": "Forest Temple",
         "events": {
             "Forest Temple Twisted Hallway Switch": "
-            (logic_forest_mq_hallway_switch_boomerang and can_use(Boomerang)) 
+            (logic_forest_mq_hallway_switch_boomerang and can_use(Boomerang))
                 or
                 (logic_forest_mq_hallway_switch_jumpslash and
                     (can_use(Hover_Boots) or can_js_clip or
@@ -154,7 +154,7 @@
             "Forest Temple MQ Well Recovery Heart 3": "
                 can_use(Iron_Boots) or can_use(Bow) or can_use(Slingshot)",
             "Forest Temple MQ GS Raised Island Courtyard": "
-                can_use(Hookshot) or can_use(Boomerang) or can_hover or 
+                can_use(Hookshot) or can_use(Boomerang) or can_hover or
                 (can_use(Fire_Arrows) and
                     (can_play(Song_of_Time) or (can_use(Hover_Boots) and logic_forest_door_frame)))",
             "Forest Temple MQ GS Well": "
@@ -290,8 +290,8 @@
         "exits": {
             "Forest Temple Basement": "forest_temple_shortcuts",
             "Phantom Ganon Boss Room": "Boss_Key_Forest_Temple or
-                at('Forest Temple Central Area',is_adult and glitch_forest_bk_skip) or 
-                at('Forest Temple NW Outdoors',is_child and has_bombchus and glitch_forest_bk_skip and 
+                at('Forest Temple Central Area',is_adult and glitch_forest_bk_skip) or
+                at('Forest Temple NW Outdoors',is_child and has_bombchus and glitch_forest_bk_skip and
                 can_live_dmg(0.5,False,False))"
         }
     }

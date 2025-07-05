@@ -9,7 +9,7 @@
                 (Small_Key_Fire_Temple, 2) and
                 (logic_fewer_tunic_requirements or can_use(Goron_Tunic))",
             "Fire Temple Lower Locked Door": "
-                ((Small_Key_Fire_Temple, 8) or not keysanity) and 
+                ((Small_Key_Fire_Temple, 8) or not keysanity) and
                 (can_use(Megaton_Hammer) or (can_js_clip and is_adult)
                     or (glitch_fire_child_enemy_room and is_child and has_bombchus and Kokiri_Sword
                         and can_shield and can_live_dmg(0.5,False,True))
@@ -30,7 +30,7 @@
             "Fairy Pot": "has_bottle and (can_use(Hover_Boots) or can_use(Hookshot) or (is_adult and can_mega))"
         },
         "exits": {
-            "Fire Temple Before Boss": "can_mega or 
+            "Fire Temple Before Boss": "can_mega or
                 (fire_temple_shortcuts and (is_adult or (is_child and can_damage_boost))) or
                 (is_adult and (logic_fire_boss_door_jump or Hover_Boots))"
         }
@@ -128,7 +128,7 @@
         "region_name": "Fire Temple Narrow Path Room",
         "dungeon": "Fire Temple",
         "locations": {
-            "Fire Temple Map Chest": "Bow or (Small_Key_Fire_Temple, 7) or 
+            "Fire Temple Map Chest": "Bow or (Small_Key_Fire_Temple, 7) or
                 at('Fire Temple Boulder Maze Upper', True)",
             "Fire Temple Narrow Path Room Recovery Heart 1": "True",
             "Fire Temple Narrow Path Room Recovery Heart 2": "True",
@@ -177,7 +177,7 @@
         "exits": {
             "Fire Temple Before Upper Flare Dancer": "
                 (Small_Key_Fire_Temple, 8) or logic_fire_flame_maze",
-            "Fire Temple Highest Goron": "Megaton_Hammer and 
+            "Fire Temple Highest Goron": "Megaton_Hammer and
                 (can_damage_boost or Hover_Boots or can_groundjump)"
         }
     },
@@ -234,7 +234,7 @@
         "savewarp": "DMC Fire Temple Entrance -> Fire Temple Lower",
         "exits": {
             "Volvagia Boss Room": "Boss_Key_Fire_Temple or
-                at('Fire Temple Near Boss',can_use(Goron_Tunic) and glitch_fire_bk_skip_hover and can_hover_no_trick and has_bombchus) or 
+                at('Fire Temple Near Boss',can_use(Goron_Tunic) and glitch_fire_bk_skip_hover and can_hover_no_trick and has_bombchus) or
                 at('Fire Temple Flame Maze',glitch_ledge_clip and glitch_fire_bk_skip_ledge)"
         }
     }

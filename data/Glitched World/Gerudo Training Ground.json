@@ -36,7 +36,7 @@
             "Gerudo Training Ground Lava Room Silver Rupee Front Left": "True",
             "Gerudo Training Ground Lava Room Silver Rupee Front Right": "True",
             "Gerudo Training Ground Lava Room Silver Rupee Flame Circle": "
-                is_child or can_play(Song_of_Time) or Hover_Boots or 
+                is_child or can_play(Song_of_Time) or Hover_Boots or
                 at('Gerudo Training Ground Lava Room Back', adv_gtg_pillar_jumps and is_adult and can_live_dmg(0.25))"
         },
         "exits": {
@@ -54,7 +54,7 @@
         },
         "exits": {
             "Gerudo Training Ground Central Maze Right": "can_play(Song_of_Time) or can_hover",
-            "Gerudo Training Ground Lava Room Front": "can_use(Hover_Boots) or can_use(Hookshot) or can_mega or 
+            "Gerudo Training Ground Lava Room Front": "can_use(Hover_Boots) or can_use(Hookshot) or can_mega or
                 (is_adult and adv_gtg_pillar_jumps)",
             "Gerudo Training Ground Lava Room Back Upper Ledge": "can_use(Hookshot) or can_hover"
         }
@@ -66,7 +66,7 @@
             "Gerudo Training Ground Underwater Silver Rupee Chest": "
                 (Silver_Rupee_Gerudo_Training_Ground_Water, 5)",
             "Gerudo Training Ground Underwater Silver Rupee Top": "
-                (logic_fewer_tunic_requirements or can_use(Zora_Tunic)) and 
+                (logic_fewer_tunic_requirements or can_use(Zora_Tunic)) and
                 (can_weirdshot or (
                     can_play(Song_of_Time) and
                     (can_use(Iron_Boots) or (logic_gtg_underwater_highest and (Progressive_Scale, 2)))
@@ -151,7 +151,7 @@
         "region_name": "Gerudo Training Ground Eye Statue Upper",
         "dungeon": "Gerudo Training Ground",
         "locations": {
-            "Gerudo Training Ground Near Scarecrow Chest": "can_use(Bow) or 
+            "Gerudo Training Ground Near Scarecrow Chest": "can_use(Bow) or
                 at('Gerudo Training Ground Lobby', can_gtg_vine_clip and is_child)",
             "Gerudo Training Ground Eye Statue Wonderitem": "can_use(Hover_Boots) or (is_adult and logic_gtg_eye_statue_wonderitem)
                 or can_mega or can_hover"
@@ -194,7 +194,7 @@
         },
         "exits": {
             "Gerudo Training Ground Lava Room Back Upper Ledge": "can_kill_keese and can_kill_torch_slug",
-            "Gerudo Training Ground Eye Statue Lower": "can_use(Megaton_Hammer) and 
+            "Gerudo Training Ground Eye Statue Lower": "can_use(Megaton_Hammer) and
                 (can_use(Bow) or can_use(Slingshot))"
         }
     }

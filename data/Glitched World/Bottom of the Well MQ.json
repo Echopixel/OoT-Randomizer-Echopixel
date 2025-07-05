@@ -35,7 +35,7 @@
             "Bottom of the Well MQ Main Area Right Slingshot Wonderitem 4": "can_use(Slingshot)",
             # gdv gets this but it's dumb
             "Bottom of the Well MQ Perimeter Behind Gate Pot": "
-                (can_blast_or_smash and 
+                (can_blast_or_smash and
                     (can_use(Slingshot) or can_use(Bow)
                         or (can_gdv and can_isg))
                 )
@@ -48,7 +48,7 @@
             "Wall Fairy": "has_bottle and can_use(Slingshot)",
             # This is no longer redundant because Adult has access, and you can use a boomerang or just hit it through the wall
             "Fairy Pot": "has_bottle and (
-                (can_blast_or_smash and 
+                (can_blast_or_smash and
                     (can_use(Slingshot) or can_use(Bow)
                         or (can_gdv and can_isg))
                 )

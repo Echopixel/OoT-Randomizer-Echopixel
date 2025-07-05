@@ -10,15 +10,15 @@
         "exits": {
             "DMC Fire Temple Entrance": "True",
             "Fire Temple Near Boss": "
-                (logic_fewer_tunic_requirements or Goron_Tunic) and 
-                (is_adult or logic_fire_mq_child_flame) and 
-                (has_fire_source or 
+                (logic_fewer_tunic_requirements or Goron_Tunic) and
+                (is_adult or logic_fire_mq_child_flame) and
+                (has_fire_source or
                     (can_gdv and (can_isg or is_adult)))",
             "Fire Temple Lower Locked Door": "(Small_Key_Fire_Temple, 5)",
             "Fire Temple Big Lava Room": "
                 (is_adult or logic_fire_mq_child_flame) and
                 can_use(Megaton_Hammer) and (logic_fewer_tunic_requirements or Goron_Tunic)",
-            "Fire Temple Lower Flare Dancer Room": "can_weirdshot and can_shield and Biggoron_Sword and 
+            "Fire Temple Lower Flare Dancer Room": "can_weirdshot and can_shield and Biggoron_Sword and
                 Megaton_Hammer",
             "Farores Wind Warp": "can_use(Farores_Wind)"
         }
@@ -27,7 +27,7 @@
         "region_name": "Fire Temple Near Boss",
         "dungeon": "Fire Temple",
         "locations": {
-            "Fire Temple MQ Near Boss Chest": "can_weirdshot or 
+            "Fire Temple MQ Near Boss Chest": "can_weirdshot or
                 (can_gdv and can_use(Hover_Boots) and glitch_fire_mq_torch_puzzle and Goron_Tunic) or
                 (is_adult and
                 ((logic_fire_mq_near_boss and has_fire_source and Bow) or
@@ -53,7 +53,7 @@
                 (can_use(Hookshot) or can_use(Hover_Boots) or (can_use(Goron_Tunic) and can_mega)) and can_break_heated_crate"
         },
         "exits": {
-            "Fire Temple Before Boss": "can_mega or 
+            "Fire Temple Before Boss": "can_mega or
                 (fire_temple_shortcuts and (is_adult or (is_child and can_damage_boost))) or
                 (is_adult and (logic_fire_boss_door_jump or Hover_Boots))"
         }
@@ -64,7 +64,7 @@
         "savewarp": "DMC Fire Temple Entrance -> Fire Temple Lower",
         "exits": {
             "Volvagia Boss Room": "Boss_Key_Fire_Temple or
-                at('Fire Temple Near Boss',can_use(Goron_Tunic) and glitch_fire_bk_skip_hover and can_hover_no_trick and has_bombchus) or 
+                at('Fire Temple Near Boss',can_use(Goron_Tunic) and glitch_fire_bk_skip_hover and can_hover_no_trick and has_bombchus) or
                 at('Fire Temple Flame Maze',glitch_ledge_clip and glitch_fire_bk_skip_ledge)"
         }
     },
@@ -99,7 +99,7 @@
         "region_name": "Fire Temple Lower Flare Dancer Room",
         "dungeon": "Fire Temple",
         "locations": {
-            "Fire Temple MQ Map Chest": "(has_soul(Flare_Dancer) and can_use(Megaton_Hammer)) or 
+            "Fire Temple MQ Map Chest": "(has_soul(Flare_Dancer) and can_use(Megaton_Hammer)) or
                 at('Fire Temple Lower',can_weirdshot)",
             "Fire Temple MQ Megaton Hammer Chest": "can_kill_flare_dancer and (is_adult or can_groundjump)"
         },
@@ -141,7 +141,7 @@
             "Fire Temple MQ Boss Key Arrow Wonderitem": "(can_use(Hookshot) or can_mega or
                 (adv_fire_mq_bk_chest_flame_skip and (can_live_dmg(0.25,True,True) or can_live_dmg(0.25,False,False))))
                 or (can_use(Bow) and can_use(Boomerang))",
-            "Fairy Pot": "has_bottle and (can_use_projectile or 
+            "Fairy Pot": "has_bottle and (can_use_projectile or
                 (adv_fire_mq_bk_chest_flame_skip and (can_live_dmg(0.25,True,True) or can_live_dmg(0.25,False,False))))"
         },
         "exits": {
@@ -196,7 +196,7 @@
         },
         "exits": {
             "Fire Temple Shortcut": "has_explosives",
-            "Fire Temple Block On Fire Room": "(glitch_fire_scarecrow_hover and can_use(Hover_Boots) and can_hover_no_trick and has_bombchus) or 
+            "Fire Temple Block On Fire Room": "(glitch_fire_scarecrow_hover and can_use(Hover_Boots) and can_hover_no_trick and has_bombchus) or
                 (
                 (Longshot or (can_play(Song_of_Time) and Hookshot)) and
                 (has_explosives or logic_rusted_switches or (Longshot and logic_fire_scarecrow))

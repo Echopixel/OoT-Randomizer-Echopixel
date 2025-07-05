@@ -115,6 +115,7 @@
             "GF HBA 1500 Points"
         ],
         "allowed_tricks": [],
+        "advanced_allowed_tricks": [],
         "starting_equipment": [],
         "starting_inventory": [
             "zeldas_letter"
@@ -331,6 +332,7 @@
             "logic_lens_gtg",
             "logic_lens_castle"
         ],
+        "advanced_allowed_tricks": [],
         "starting_equipment": [
             "deku_shield"
         ],
@@ -544,6 +546,7 @@
             "logic_lens_gtg",
             "logic_lens_castle"
         ],
+        "advanced_allowed_tricks": [],
         "starting_equipment": [
             "deku_shield"
         ],
@@ -760,6 +763,7 @@
             "logic_lens_wasteland",
             "logic_lens_bongo"
         ],
+        "advanced_allowed_tricks": [],
         "starting_equipment": [],
         "starting_inventory": [
             "zeldas_letter"
@@ -973,6 +977,7 @@
             "logic_lens_shadow",
             "logic_lens_spirit"
         ],
+        "advanced_allowed_tricks": [],
         "starting_equipment": [
             "deku_shield"
         ],
@@ -1189,6 +1194,7 @@
             "logic_dc_scarecrow_gs",
             "logic_deku_b1_webs_with_bow"
         ],
+        "advanced_allowed_tricks": [],
         "starting_equipment": [],
         "starting_inventory": [
             "ocarina",
@@ -1461,6 +1467,7 @@
             "logic_deku_basement_gs",
             "logic_deku_b1_skip",
             "logic_deku_b1_webs_with_bow",
+            "logic_deku_mq_lobby_gs",
             "logic_deku_mq_compass_gs",
             "logic_deku_mq_log",
             "logic_dc_scarecrow_gs",
@@ -1591,6 +1598,7 @@
             "logic_shadow_trial_mq",
             "logic_light_trial_mq"
         ],
+        "advanced_allowed_tricks": [],
         "starting_equipment": [],
         "starting_inventory": [],
         "starting_songs": [],
@@ -1790,6 +1798,7 @@
             "logic_lens_bongo",
             "logic_lens_spirit"
         ],
+        "advanced_allowed_tricks": [],
         "starting_equipment": [],
         "starting_inventory": [],
         "starting_songs": [],
@@ -2008,6 +2017,7 @@
             "logic_crater_bean_poh_with_hovers",
             "logic_dc_jump"
         ],
+        "advanced_allowed_tricks": [],
         "starting_equipment": [
             "deku_shield"
         ],
@@ -2235,6 +2245,7 @@
             "logic_lens_bongo",
             "logic_lens_spirit"
         ],
+        "advanced_allowed_tricks": [],
         "starting_equipment": [],
         "starting_inventory": [
             "ocarina",
@@ -2426,6 +2437,7 @@
         "logic_no_night_tokens_without_suns_song": false,
         "disabled_locations": [],
         "allowed_tricks": [],
+        "advanced_allowed_tricks": [],
         "starting_equipment": [],
         "starting_inventory": [
             "zeldas_letter"

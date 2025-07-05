@@ -21,7 +21,7 @@
             "Farores Wind Warp": "can_use(Farores_Wind)"
         }
     },
-    { 
+    {
         "region_name": "Jabu Jabus Belly Elevator Room",
         "dungeon": "Jabu Jabus Belly",
         "locations": {
@@ -43,7 +43,7 @@
         },
         "exits": {
             "Jabu Jabus Belly Main": "
-                here(is_child or can_dive or Iron_Boots or logic_jabu_alcove_jump_dive) or 
+                here(is_child or can_dive or Iron_Boots or logic_jabu_alcove_jump_dive) or
                     ((is_child or can_use(Hover_Boots)) and can_isg)",
             "Jabu Jabus Belly Before Slimy Thing": "can_mega or
                 can_use(Hover_Boots) or (can_use(Hookshot) and here(can_use(Slingshot))) or
@@ -84,7 +84,7 @@
             "Jabu Jabus Belly MQ GS Invisible Enemies Room": "
                 (can_use(Hookshot) and
                     (Hover_Boots or (can_use(Fire_Arrows) and (Longshot or Iron_Boots)))) or
-                (can_mega and (glitch_groundjump and Bombs and can_shield) and is_adult) or    
+                (can_mega and (glitch_groundjump and Bombs and can_shield) and is_adult) or
                 (has_soul(Keese) and has_soul(Stinger) and
                     (logic_lens_jabu_mq or can_use(Lens_of_Truth)) and
                     here(can_use(Slingshot) or can_use(Bow) or can_use(Longshot) or has_bombchus or

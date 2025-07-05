@@ -9,9 +9,9 @@
         "events": {
             # You don't have to hit her for her to climb, just maneouvre to the other
             # side of a pillar
-            "Defeat Queen Gohma": "has_soul(Queen_Gohma) and 
+            "Defeat Queen Gohma": "has_soul(Queen_Gohma) and
                 (Nuts or can_use(Slingshot) or can_use(Hookshot) or can_use(Boomerang) or
-                    can_use(Bow)) 
+                    can_use(Bow))
                 and can_jumpslash"
         },
         "locations": {
@@ -40,7 +40,7 @@
                 has_soul(King_Dodongo) and
                 ( (can_use(Megaton_Hammer) and logic_dc_hammer_floor) or
                     has_explosives or king_dodongo_shortcuts
-                    or can_gdv) 
+                    or can_gdv)
                     and
                 (((Bombs or Progressive_Strength_Upgrade or (adv_kd_chus and is_adult and has_bombchus)) and can_jumpslash) or deadly_bonks == 'ohko')"
         },

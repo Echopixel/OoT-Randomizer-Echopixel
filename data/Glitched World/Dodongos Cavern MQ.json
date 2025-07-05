@@ -4,7 +4,7 @@
         "dungeon": "Dodongos Cavern",
         "exits": {
             "Death Mountain": "True",
-            "Dodongos Cavern Lobby": "dodongos_cavern_shortcuts or 
+            "Dodongos Cavern Lobby": "dodongos_cavern_shortcuts or
                 here(can_break_mud_wall or Progressive_Strength_Upgrade or can_gdv_stick)",
             "Farores Wind Warp": "can_use(Farores_Wind)"
         }
@@ -28,7 +28,7 @@
             "Dodongos Cavern Elevator": "DC_MQ_Lobby_Switch_Under_Boulder_Pressed or
                 (glitch_death_hookshot_jump and can_use(Hookshot) and Fairy and not_ohko)",
             "Dodongos Cavern Lower Right Side": "here(can_break_mud_wall or can_gdv)",
-            "Dodongos Cavern Poes Room": "is_adult or can_groundjump or 
+            "Dodongos Cavern Poes Room": "is_adult or can_groundjump or
                 (glitch_groundjump and Progressive_Strength_Upgrade and can_shield)",
             "Dodongos Cavern Mouth": "dodongos_cavern_shortcuts or (logic_dc_chu_eyes and has_bombchus)"
         }
@@ -38,7 +38,7 @@
         "dungeon": "Dodongos Cavern",
         "exits": {
             "Dodongos Cavern Lower Staircase": "True",
-            "Dodongos Cavern Torch Puzzle Upper": "DC_Elevator_Boulders_Passed or 
+            "Dodongos Cavern Torch Puzzle Upper": "DC_Elevator_Boulders_Passed or
                 (adv_dc_mq_hoverboots_boulder_jump and can_use(Hover_Boots))",
             "Dodongos Cavern Poes Room": "
                 logic_dc_mq_child_bombs and (Kokiri_Sword or Sticks) and can_live_dmg(0.5)",
@@ -278,7 +278,7 @@
             "Dodongos Cavern Hall Before Lower Lizalfos": "can_kill_lizalfos", # Reverse access to the lower right side
             "Dodongos Cavern Lower Lizalfos": "True",
             "Dodongos Cavern Lower Lizalfos Enemies": "True",
-            "Dodongos Cavern Lower Scrubs Room": "can_use(Bow) or has_explosives or Progressive_Strength_Upgrade or can_use(Dins_Fire) 
+            "Dodongos Cavern Lower Scrubs Room": "can_use(Bow) or has_explosives or Progressive_Strength_Upgrade or can_use(Dins_Fire)
                 or can_gdv_stick or (can_gdv_ledge and can_isg)"
         }
     },

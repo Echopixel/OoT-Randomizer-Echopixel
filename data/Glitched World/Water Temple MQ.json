@@ -6,21 +6,21 @@
             # Use Child_Water_Temple for cases where child assists after the water is lowered.
             "Child Water Temple": "is_child",
             # Use Reset_Water_Level to ensure the water level can be raised if it were to be lowered.
-            "Reset Water Level": "can_use(Hookshot) or can_use(Hover_Boots) 
+            "Reset Water Level": "can_use(Hookshot) or can_use(Hover_Boots)
                 or (is_adult and can_mega) or (is_child and can_hover)"
         },
         "locations": {
-            "Water Temple MQ Central Pillar Upper Crate 1": "(is_adult and can_break_crate and Iron_Boots and 
+            "Water Temple MQ Central Pillar Upper Crate 1": "(is_adult and can_break_crate and Iron_Boots and
                 (Zora_Tunic or logic_fewer_tunic_requirements))
                 or at('Water Temple Lowered Water', can_use(Hookshot) and can_break_crate)",
-            "Water Temple MQ Central Pillar Upper Crate 2": "(is_adult and can_break_crate and Iron_Boots and 
+            "Water Temple MQ Central Pillar Upper Crate 2": "(is_adult and can_break_crate and Iron_Boots and
                 (Zora_Tunic or logic_fewer_tunic_requirements))
                 or at('Water Temple Lowered Water', can_use(Hookshot) and can_break_crate)",
-            "Water Temple MQ Lizalfos Hallway Pot 1": "(is_adult and Hookshot and Iron_Boots) or 
+            "Water Temple MQ Lizalfos Hallway Pot 1": "(is_adult and Hookshot and Iron_Boots) or
                 at('Water Temple Middle South',True)",
-            "Water Temple MQ Lizalfos Hallway Pot 2": "(is_adult and Hookshot and Iron_Boots) or 
+            "Water Temple MQ Lizalfos Hallway Pot 2": "(is_adult and Hookshot and Iron_Boots) or
                 at('Water Temple Middle South',True)",
-            "Water Temple MQ Lizalfos Hallway Pot 3": "(is_adult and Hookshot and Iron_Boots) or 
+            "Water Temple MQ Lizalfos Hallway Pot 3": "(is_adult and Hookshot and Iron_Boots) or
                 at('Water Temple Middle South',True)",
             "Water Temple MQ Lizalfos Hallway Hall Crate 1": "(is_adult and Iron_Boots and can_bonk) or
                 at('Water Temple Middle South',can_break_crate)",
@@ -38,28 +38,28 @@
                 at('Water Temple Middle South',can_break_crate)",
             "Water Temple MQ Lizalfos Hallway Room Crate 5": "(is_adult and Iron_Boots and can_bonk) or
                 at('Water Temple Middle South',can_break_crate)",
-            
+
             "Water Temple MQ Lizalfos Hallway Hookshot Wonderitem": "(is_adult and Iron_Boots and Hookshot) or
                 at('Water Temple Middle South',can_use(Hookshot))"
         },
         "exits": {
             "Lake Hylia": "True",
-            "Water Temple Alcove Ledge Clip": "is_adult and Reset_Water_Level and 
+            "Water Temple Alcove Ledge Clip": "is_adult and Reset_Water_Level and
                 glitch_ledge_clip",
-            "Water Temple East Column": "(glitch_water_bottle_dive and can_use(Hover_Boots) and (Fish or Bugs)) or 
+            "Water Temple East Column": "(glitch_water_bottle_dive and can_use(Hover_Boots) and (Fish or Bugs)) or
                 (
                 is_adult and (Zora_Tunic or logic_fewer_tunic_requirements) and Iron_Boots
                 )",
-            "Water Temple Storage Room": "is_adult and Iron_Boots and 
+            "Water Temple Storage Room": "is_adult and Iron_Boots and
                 (Zora_Tunic or logic_fewer_tunic_requirements) and Hookshot",
-            "Water Temple Before Boss Lower": "can_use(Longshot) or 
+            "Water Temple Before Boss Lower": "can_use(Longshot) or
                 (adv_hovers_recoil and can_use(Hover_Boots) and Megaton_Hammer) or
                 ((can_mega or can_hess or can_superslide) and can_use(Hover_Boots)) or
                 can_hover",
             "Water Temple After Waterfall Room": "
                 (Small_Key_Water_Temple, 2) and is_adult and
                 (Longshot or (logic_water_mq_dark_link and Hover_Boots and Hookshot))",
-            "Water Temple Below Central Pillar": "is_adult and Iron_Boots and Zora_Tunic and 
+            "Water Temple Below Central Pillar": "is_adult and Iron_Boots and Zora_Tunic and
                 ((logic_water_mq_central_pillar and can_use(Fire_Arrows))
                 or (can_use(Dins_Fire) and can_play(Song_of_Time))
                 )",
@@ -101,7 +101,7 @@
             "Water Temple South Basement": "glitch_water_south_basement_clip or (Zora_Tunic and Iron_Boots)",
             "Water Temple North Basement": "
                 (glitch_water_bk_area_antigrav and can_live_dmg(0.5))
-                or (Longshot or (logic_water_north_basement and Hover_Boots) or can_hover)", 
+                or (Longshot or (logic_water_north_basement and Hover_Boots) or can_hover)",
             "Water Temple Boss Key Cage": "True",
             "Water Temple Bottom Gates Switch": "can_use(Iron_Boots)",
             "Water Temple Boss Key Spout": "glitch_water_mq_bk_pit"
@@ -133,7 +133,7 @@
         "region_name": "Water Temple Lowered Water",
         "dungeon": "Water Temple",
         "locations": {
-            "Water Temple MQ Longshot Chest": "can_use(Hookshot) or 
+            "Water Temple MQ Longshot Chest": "can_use(Hookshot) or
                 at('Water Temple East Column',is_adult and Iron_Boots and glitch_underwater_chests and Hookshot)",
              "Water Temple MQ Longshot Chest Hookshot Wonderitem": "can_use(Hookshot) or
                 at('Water Temple East Column',is_adult and Iron_Boots and Hookshot)",
@@ -146,7 +146,7 @@
             "Water Temple Lobby": "Reset_Water_Level",
             "Water Temple Storage Room": "can_use(Hookshot)",
             "Water Temple Middle South": "True",
-            "Water Temple Below Central Pillar": "is_adult and glitch_ledge_clip and 
+            "Water Temple Below Central Pillar": "is_adult and glitch_ledge_clip and
                 ((has_explosives and can_shield) or Megaton_Hammer)",
             "Water Temple Middle West": "can_use(Hookshot)",
             "Water Temple Bottom Gates Switch": "can_weirdshot"
@@ -238,20 +238,20 @@
         "region_name": "Water Temple Middle South",
         "dungeon": "Water Temple",
         "locations": {
-            "Water Temple MQ Lizalfos Hallway Gate Pot 1": "can_use(Dins_Fire) or can_use(Fire_Arrows) or can_gdv or 
-                (glitch_clipping and can_jumpslash) 
+            "Water Temple MQ Lizalfos Hallway Gate Pot 1": "can_use(Dins_Fire) or can_use(Fire_Arrows) or can_gdv or
+                (glitch_clipping and can_jumpslash)
                 or at('Water Temple Lobby',is_adult and Iron_Boots and Zora_Tunic and Hookshot and glitch_water_torch_clip)",
-            "Water Temple MQ Lizalfos Hallway Gate Pot 2": "can_use(Dins_Fire) or can_use(Fire_Arrows) or can_gdv or 
-                (glitch_clipping and can_jumpslash) 
+            "Water Temple MQ Lizalfos Hallway Gate Pot 2": "can_use(Dins_Fire) or can_use(Fire_Arrows) or can_gdv or
+                (glitch_clipping and can_jumpslash)
                 or at('Water Temple Lobby',is_adult and Iron_Boots and Zora_Tunic and Hookshot and glitch_water_torch_clip)",
-            "Water Temple MQ Lizalfos Hallway Gate Crate 1": "((can_use(Dins_Fire) or can_use(Fire_Arrows) or can_gdv or 
-                (glitch_clipping and can_jumpslash)) and can_break_crate) 
+            "Water Temple MQ Lizalfos Hallway Gate Crate 1": "((can_use(Dins_Fire) or can_use(Fire_Arrows) or can_gdv or
+                (glitch_clipping and can_jumpslash)) and can_break_crate)
                 or at('Water Temple Lobby',is_adult and Iron_Boots and Zora_Tunic and Hookshot and glitch_water_torch_clip and can_bonk)",
-            "Water Temple MQ Lizalfos Hallway Gate Crate 2": "((can_use(Dins_Fire) or can_use(Fire_Arrows) or can_gdv or 
-                (glitch_clipping and can_jumpslash)) and can_break_crate) 
+            "Water Temple MQ Lizalfos Hallway Gate Crate 2": "((can_use(Dins_Fire) or can_use(Fire_Arrows) or can_gdv or
+                (glitch_clipping and can_jumpslash)) and can_break_crate)
                 or at('Water Temple Lobby',is_adult and Iron_Boots and Zora_Tunic and Hookshot and glitch_water_torch_clip and can_bonk)",
-            "Water Temple MQ GS Lizalfos Hallway": "((can_use(Dins_Fire) or can_use(Fire_Arrows) or can_gdv or 
-                (glitch_clipping and can_jumpslash)) and can_break_crate) 
+            "Water Temple MQ GS Lizalfos Hallway": "((can_use(Dins_Fire) or can_use(Fire_Arrows) or can_gdv or
+                (glitch_clipping and can_jumpslash)) and can_break_crate)
                 or at('Water Temple Lobby',is_adult and Iron_Boots and Zora_Tunic and Hookshot and glitch_water_torch_clip and can_bonk)"
         }
     },
@@ -368,7 +368,7 @@
         "exits": {
             "Water Temple Bottom Gates Switch": "can_use(Iron_Boots) and Hookshot",
             "Water Temple Boss Key Spout": "can_weirdshot or can_gdv or has_fire_source",
-            "Water Temple Dragon Head Room": "can_weirdshot or 
+            "Water Temple Dragon Head Room": "can_weirdshot or
                 ((can_gdv or has_fire_source) and (can_use(Hover_Boots) or has_projectile_adult)
                 )"
         }
@@ -406,29 +406,29 @@
         "region_name": "Water Temple Dragon Head Room",
         "dungeon": "Water Temple",
         "locations": {
-            "Water Temple MQ Dragon Statue By Torches Crate 1": "can_break_crate and 
+            "Water Temple MQ Dragon Statue By Torches Crate 1": "can_break_crate and
                 (can_dive or can_use(Iron_Boots) or can_use(Longshot) or at('Water Temple Lower River',is_adult and glitch_ledge_clip))",
-            "Water Temple MQ Dragon Statue By Torches Crate 2": "can_break_crate and 
+            "Water Temple MQ Dragon Statue By Torches Crate 2": "can_break_crate and
                 (can_dive or can_use(Iron_Boots) or can_use(Longshot) or at('Water Temple Lower River',is_adult and glitch_ledge_clip))",
             "Water Temple MQ Dragon Statue By Torches Small Wooden Crate 1": "
                 (can_dive or can_use(Iron_Boots) or can_use(Longshot) or at('Water Temple Lower River',is_adult and glitch_ledge_clip))",
             "Water Temple MQ Dragon Statue By Torches Small Wooden Crate 2": "
                 (can_dive or can_use(Iron_Boots) or can_use(Longshot) or at('Water Temple Lower River',is_adult and glitch_ledge_clip))",
-            "Water Temple MQ Dragon Statue By Torches Small Wooden Crate 3": " 
+            "Water Temple MQ Dragon Statue By Torches Small Wooden Crate 3": "
                 (can_dive or can_use(Iron_Boots) or can_use(Longshot) or at('Water Temple Lower River',is_adult and glitch_ledge_clip))",
             "Water Temple MQ Dragon Statue Submerged Crate 1": "
-                (can_use(Iron_Boots) and can_bonk) or (has_bombchus and (can_dive or can_use(Iron_Boots) 
+                (can_use(Iron_Boots) and can_bonk) or (has_bombchus and (can_dive or can_use(Iron_Boots)
                     or at('Water Temple Lower River', glitch_ledge_clip and is_adult)))",
             "Water Temple MQ Dragon Statue Submerged Crate 2": "
-                (can_use(Iron_Boots) and can_bonk) or (has_bombchus and (can_dive or can_use(Iron_Boots) 
+                (can_use(Iron_Boots) and can_bonk) or (has_bombchus and (can_dive or can_use(Iron_Boots)
                     or at('Water Temple Lower River', glitch_ledge_clip and is_adult)))",
             "Water Temple MQ Dragon Statue Submerged Crate 3": "
-                (can_use(Iron_Boots) and can_bonk) or (has_bombchus and (can_dive or can_use(Iron_Boots) 
+                (can_use(Iron_Boots) and can_bonk) or (has_bombchus and (can_dive or can_use(Iron_Boots)
                     or at('Water Temple Lower River', glitch_ledge_clip and is_adult)))",
             "Water Temple MQ Dragon Statue Submerged Crate 4": "
-                (can_use(Iron_Boots) and can_bonk) or (has_bombchus and (can_dive or can_use(Iron_Boots) 
+                (can_use(Iron_Boots) and can_bonk) or (has_bombchus and (can_dive or can_use(Iron_Boots)
                     or at('Water Temple Lower River', glitch_ledge_clip and is_adult)))",
-            "Water Temple MQ Dragon Statue Crates Hookshot Wonderitem": "can_use(Hookshot) and 
+            "Water Temple MQ Dragon Statue Crates Hookshot Wonderitem": "can_use(Hookshot) and
                 (can_dive or can_use(Iron_Boots) or can_use(Longshot) or at('Water Temple Lower River',is_adult and glitch_ledge_clip))",
             "Water Temple MQ Dragon Statue Eyes Hookshot Wonderitem 1": "can_use(Iron_Boots) and can_use(Hookshot)",
             "Water Temple MQ Dragon Statue Eyes Hookshot Wonderitem 2": "can_use(Iron_Boots) and can_use(Hookshot)"

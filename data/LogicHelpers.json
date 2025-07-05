@@ -62,14 +62,14 @@
         and song and (not shuffle_individual_ocarina_notes or has_all_notes_for_song(song))",
     "can_play_item(song)": "(Ocarina or can_oi_with_item)
         and song and (not shuffle_individual_ocarina_notes or has_all_notes_for_song(song))",
-    
+
 
     "can_open_bomb_grotto": "can_blast_or_smash and (Stone_of_Agony or logic_grottos_without_agony)",
     "can_open_storm_grotto": "can_play(Song_of_Storms) and (Stone_of_Agony or logic_grottos_without_agony)",
     # The last case in a conditional still needs a check, to prevent failure from falling through
     # into what should be the 'else' case.
-    "can_use_projectile": "has_explosives or 
-        (is_adult and (Bow or Hookshot or can_use(Boomerang) or can_use(Slingshot))) or 
+    "can_use_projectile": "has_explosives or
+        (is_adult and (Bow or Hookshot or can_use(Boomerang) or can_use(Slingshot))) or
         (is_child and (Slingshot or Boomerang))",
     "has_projectile(for_age)": "has_explosives
             or (for_age == child and (Slingshot or Boomerang))
@@ -82,7 +82,7 @@
     "can_break_lower_beehive": "can_use(Boomerang) or can_use(Hookshot) or Bombs or (logic_beehives_bombchus and has_bombchus)",
     "can_break_upper_beehive": "can_use(Boomerang) or can_use(Hookshot) or (logic_beehives_bombchus and has_bombchus)",
     "can_mow_the_lawn": "is_adult or (is_child and (Sticks or Kokiri_Sword or Progressive_Strength_Upgrade or Boomerang or has_explosives))",
-    
+
     # can_use and helpers
     # The parser reduces this to smallest form based on item category.
     # Note that can_use(item) is False for any item not covered here.
@@ -106,7 +106,7 @@
     # Otherwise, to get to Biggoron requires: a trick, clearing boulders on DMT, or Darunia's Chamber
     "guarantee_trade_path": "disable_trade_revert or plant_beans or can_blast_or_smash or 'Stop GC Rolling Goron as Adult' or (logic_dmt_climb_hovers and can_use(Hover_Boots)) or (logic_biggoron_bolero and not warp_songs and can_play(Bolero_of_Fire) and at('DMC Central Local', can_use(Hookshot) or can_use(Hover_Boots) or can_plant_bean))",
     "guarantee_hint": "(hints == 'mask' and Mask_of_Truth) or (hints == 'agony' and Stone_of_Agony) or (hints != 'mask' and hints != 'agony')",
-    
+
     "has_fire_source": "can_use(Dins_Fire) or can_use(Fire_Arrows)",
     "has_fire_source_with_torch": "has_fire_source or can_use(Sticks)",
 
@@ -205,7 +205,7 @@
 
     # New Item Groups
     "first_person_item": "(is_adult and (Bow or Fire_Arrows or Ice_Arrows or Blue_Fire_Arrows or Light_Arrows or Hookshot or (
-        can_equip_swap_adult and Slingshot))) or 
+        can_equip_swap_adult and Slingshot))) or
         (is_child and (Slingshot or (can_equip_swap_child and (Bow or Fire_Arrows or Ice_Arrows or Blue_Fire_Arrows or Light_Arrows))))",
     "child_trade_item": "'Weird Egg' or 'Chicken' or 'Zeldas Letter' or 'Keaton Mask' or 'Skull Mask' or 'Spooky Mask'
         or 'Mask of Truth' or 'Goron Mask' or 'Zora Mask' or  'Gerudo Mask' or 'Bunny Hood'",
@@ -228,7 +228,7 @@
         or magic_spell)",
     "can_equip_swap_adult": "glitch_equip_swap and is_adult and (magic_spell)",
 
-    
+
     "can_mega": "glitch_megaflip and has_explosives and can_shield",
     "can_isg": "glitch_isg and can_shield and (is_adult or Sticks or Kokiri_Sword or can_use(Megaton_Hammer))",
     "can_hover": "glitch_hovering and can_isg and has_both_explosives",
@@ -238,28 +238,28 @@
     "can_lunge_storage": "glitch_lunge_storage and (is_adult or Kokiri_Sword or Sticks)",
     "can_oi": "glitch_oi and (Bugs or Fish)",
     "can_oi_with_item": "can_oi and (is_adult or Sticks or can_use(Megaton_Hammer)
-        or has_explosives or Slingshot or Boomerang or Kokiri_Sword or 
+        or has_explosives or Slingshot or Boomerang or Kokiri_Sword or
         (can_equip_swap_child and (Bow or Fire_Arrows or Ice_Arrows or Light_Arrows or Blue_Fire_Arrows)))",
     "can_superslide": "glitch_superslide and can_shield and Bombs",
     "can_hess": "glitch_hess and has_explosives and can_shield",
-    
+
     "can_gdv_empty": "glitch_damage_value and can_jumpslash and can_shield",
     "can_gdv_stick": "glitch_damage_value and (
-        (is_child and Sticks and (Nuts or Weird_Egg or Chicken or Zeldas_Letter)) or 
-        (is_adult and can_equip_swap_adult and Sticks and (Nuts or 
-            Pocket_Egg or Pocket_Cucco or Cojiro or Odd_Mushroom or Odd_Potion or Poachers_Saw or 
+        (is_child and Sticks and (Nuts or Weird_Egg or Chicken or Zeldas_Letter)) or
+        (is_adult and can_equip_swap_adult and Sticks and (Nuts or
+            Pocket_Egg or Pocket_Cucco or Cojiro or Odd_Mushroom or Odd_Potion or Poachers_Saw or
             Broken_Sword or Eyeball_Frog or Eyedrops or Claim_Check
             )
             )
         )",
     "can_gdv": "can_gdv_empty or can_gdv_stick",
-    
+
     "can_hookshot_jump": "glitch_hookshot_jump and is_adult and Hookshot
         and deadly_bonks == 'none'",
-    "can_dotskip_adult": "(glitch_dot_skip_adult_hover_recoil and Hover_Boots and can_shield) or 
+    "can_dotskip_adult": "(glitch_dot_skip_adult_hover_recoil and Hover_Boots and can_shield) or
         (glitch_dot_skip_adult_hovers_bgs and (Biggoron_Sword or Giants_Knife) and Hover_Boots) or
         (glitch_dot_skip_adult_bgs_only and (Biggoron_Sword or Giants_Knife))",
-    "can_dotskip_child": "(glitch_dot_skip_child_lunge and Kokiri_Sword and glitch_lunge_storage) or 
+    "can_dotskip_child": "(glitch_dot_skip_child_lunge and Kokiri_Sword and glitch_lunge_storage) or
         (glitch_dot_skip_child_swordless)",
 
     "can_damage_clip": "glitch_clipping and has_explosives and can_live_dmg(0.5,False)",

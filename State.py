@@ -144,7 +144,7 @@ class State:
         mult = self.world.settings.damage_multiplier
         nl = self.has(Nayrus_Love) and self.has(Magic_Meter) and allow_nayrus
         fairy = self.Fairy(self) and allow_revive
-        if mult == 'ohko': 
+        if mult == 'ohko':
             return fairy or nl
         elif mult == 'quad':
             return (hearts < 0.75) or fairy or nl
@@ -195,7 +195,7 @@ class State:
 
     def region_has_shortcuts(self, region_name: str) -> bool:
         return self.world.region_has_shortcuts(region_name)
-    
+
     # Glitch logic makes liberal use of this function as it was built with enemy souls in mind
     # To avoid having to change logic, insert this pass function to be implemented properly later
     def has_soul(self, enemy: str, **kwargs) -> bool:

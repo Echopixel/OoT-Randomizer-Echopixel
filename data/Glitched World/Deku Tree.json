@@ -36,7 +36,7 @@
             "Deku Tree Basement Chest": "True",
             "Deku Tree GS Basement Gate": "is_adult or can_child_attack",
             "Deku Tree GS Basement Vines": "
-                can_use_projectile or can_use(Dins_Fire) or 
+                can_use_projectile or can_use(Dins_Fire) or
                 (logic_deku_basement_gs and (Kokiri_Sword or Sticks or is_adult))"
         },
         "exits": {
@@ -50,7 +50,7 @@
         "locations": {
         },
         "exits": {
-            "Deku Tree Basement Spinning Log Room": "here(can_use(Bow) or can_use(Slingshot) or 
+            "Deku Tree Basement Spinning Log Room": "here(can_use(Bow) or can_use(Slingshot) or
                 ((is_adult or Sticks) and can_gdv and can_isg) )"
         }
     },
@@ -113,7 +113,7 @@
             "Deku Tree Basement Ledge": "deku_tree_shortcuts",
             "Queen Gohma Boss Room": "at('Deku Tree Lobby',is_adult and glitch_deku_boss_door_skip) or
                 (
-                deku_tree_shortcuts or (here(has_shield or 
+                deku_tree_shortcuts or (here(has_shield or
                 (adv_231_hammer and can_use(Megaton_Hammer)) ) and has_soul(Deku_Scrub))
                 )"
         }

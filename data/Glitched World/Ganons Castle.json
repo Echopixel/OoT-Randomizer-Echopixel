@@ -38,7 +38,7 @@
             "Ganons Castle Forest Trial Chest": "can_kill_wolfos"
         },
         "exits": {
-            "Ganons Castle Forest Trial Wind Room": "can_use(Fire_Arrows) or 
+            "Ganons Castle Forest Trial Wind Room": "can_use(Fire_Arrows) or
                 ((can_use(Dins_Fire) or can_gdv) and (can_use(Bow) or can_use(Hookshot)))"
         }
     },
@@ -180,10 +180,10 @@
         },
         "exits": {
             "Ganons Castle Fire Trial Ending": "
-                is_adult and 
+                is_adult and
                 (Longshot or (Hover_Boots and Goron_Tunic and (can_mega or can_superslide or can_hess) )
                     or (Hover_Boots and Goron_Tunic and has_bombchus and Bombs and can_live_dmg(0.5,False,False) and can_shield and logic_fire_trial_longshot_skip)
-                ) and 
+                ) and
                 (Silver_Rupee_Ganons_Castle_Fire_Trial, 5) and
                 (shuffle_silver_rupees or Goron_Tunic)"
         }
