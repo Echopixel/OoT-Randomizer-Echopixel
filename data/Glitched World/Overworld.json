@@ -2473,7 +2473,7 @@
                 or
                 (glitch_clipping and (
                     (can_use(Hover_Boots) and adv_hovers_recoil)
-                    can_hess or can_superslide or
+                    or can_hess or can_superslide
                     )
                 )",
             "GC Maze Right Chest": "can_blast_or_smash or can_use(Silver_Gauntlets)
