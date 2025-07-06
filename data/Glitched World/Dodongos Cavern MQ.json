@@ -182,9 +182,7 @@
             "Dodongos Cavern MQ After Upper Lizalfos Pot 1": "True",
             "Dodongos Cavern MQ After Upper Lizalfos Pot 2": "True",
             "Dodongos Cavern MQ After Upper Lizalfos Crate 1": "can_break_crate",
-            "Dodongos Cavern MQ After Upper Lizalfos Crate 2": "can_break_crate",
-            "Dodongos Cavern MQ After Upper Lizalfos Keese 1": "can_kill_keese_stationary",
-            "Dodongos Cavern MQ After Upper Lizalfos Keese Near Bomb Flower": "can_kill_keese_stationary"
+            "Dodongos Cavern MQ After Upper Lizalfos Crate 2": "can_break_crate"
         },
         "exits": {
             "Dodongos Cavern Upper Lizalfos": "True",

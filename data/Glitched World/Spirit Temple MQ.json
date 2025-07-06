@@ -123,7 +123,7 @@
         "locations": {
             "Spirit Temple MQ Child Climb South Chest": "(Small_Key_Spirit_Temple, 7) and has_explosives",
             "Spirit Temple MQ Statue Room Lullaby Chest": "can_play(Zeldas_Lullaby) and can_break_crate",
-            "Spirit Temple MQ Statue Room Invisible Chest": "logic_lens_spirit_mq or can_use(Lens_of_Truth)",
+            "Spirit Temple MQ Statue Room Invisible Chest": "logic_lens_spirit_mq or can_use(Lens_of_Truth)"
         },
         "exits": {
             "Spirit Temple Shared": "True",
@@ -280,8 +280,7 @@
         "region_name": "Spirit Temple Adult Knuckle Room",
         "dungeon": "Spirit Temple",
         "locations": {
-            "Spirit Temple Mirror Shield Chest": "has_soul(Iron_Knuckle)",
-            "Spirit Temple MQ Before Adult Knuckle Floormaster": "True"
+            "Spirit Temple Mirror Shield Chest": "has_soul(Iron_Knuckle)"
         }
     },
     {
@@ -306,8 +305,6 @@
         "locations": {
             "Spirit Temple MQ After Shifting Wall Room Pot 1": "True",
             "Spirit Temple MQ After Shifting Wall Room Pot 2": "True",
-            "Spirit Temple MQ Nine Thrones Room Iron Knuckle": "
-                has_soul(Iron_Knuckle) and (Small_Key_Spirit_Temple, 7)",
             "Spirit Temple MQ GS Nine Thrones Room West": "(Small_Key_Spirit_Temple, 7)",
             "Spirit Temple MQ GS Nine Thrones Room North": "(Small_Key_Spirit_Temple, 7)"
         },

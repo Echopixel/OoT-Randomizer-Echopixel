@@ -87,7 +87,7 @@
         "region_name": "Forest Temple Twisted Hall",
         "dungeon": "Forest Temple",
         "locations": {
-            "Forest Temple MQ Boss Key Chest": "True",
+            "Forest Temple MQ Boss Key Chest": "True"
         },
         "exits": {
             "Forest Temple Floormaster Room": "True",
@@ -176,7 +176,7 @@
         "region_name": "Forest Temple Outdoors High Balconies",
         "dungeon": "Forest Temple",
         "locations": {
-            "Forest Temple MQ Raised Island Courtyard Upper Chest": "True",
+            "Forest Temple MQ Raised Island Courtyard Upper Chest": "True"
         },
         "exits": {
             "Forest Temple NE Outdoors": "True",

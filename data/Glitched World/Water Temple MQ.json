@@ -500,8 +500,7 @@
         "locations": {
             "Water Temple MQ Room After Dark Link Pot 1": "True",
             "Water Temple MQ Room After Dark Link Pot 2": "True",
-            "Water Temple MQ After Dark Link Hookshot Wonderitem": "True",
-            "Water Temple MQ Dark Link": "True"
+            "Water Temple MQ After Dark Link Hookshot Wonderitem": "True"
         },
         "exits": {
             "Water Temple Upper River": "Hookshot"
