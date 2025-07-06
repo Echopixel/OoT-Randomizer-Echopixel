@@ -819,7 +819,7 @@
                     or can_hovers_recoil
                     )
                 )",
-            "GV Carpenter Tent": "is_adult or logic_gv_tent_child",
+            "GV Carpenter Tent": "is_adult or adv_gv_tent_child",
             "GV Storms Grotto": "is_adult and can_open_storm_grotto"
         }
     },
@@ -911,8 +911,8 @@
         },
         "exits": {
             "GF Kitchen Roof Access": "can_use(Longshot) and Gerudo_Membership_Card",
-            "Gerudo Training Ground Lobby": "logic_gf_unload",
-            "GF Outside Gate": "logic_gf_unload"
+            "Gerudo Training Ground Lobby": "adv_gf_unload",
+            "GF Outside Gate": "adv_gf_unload"
         }
     },
     {
@@ -939,8 +939,8 @@
             "GF Roof Gold Skulltula": "True",
             # child can damage boost from the GS alcove, but it's really precise
             # got it once, will have to find a setup
-            "GF Break Room Entrance": "can_hover or can_mega or (is_adult and (logic_gf_break_room_jump or Hover_Boots))",
-            "Gerudo Fortress Archery Range": "logic_gf_archery_no_card",
+            "GF Break Room Entrance": "can_hover or can_mega or (is_adult and (adv_gf_break_room_jump or Hover_Boots))",
+            "Gerudo Fortress Archery Range": "adv_gf_archery_no_card",
             "Gerudo Training Ground Lobby": "glitch_ledge_clip and is_adult"
         }
     },
@@ -1217,7 +1217,7 @@
         "exits": {
             "GF Break Room Entrance": "True",
             "Hideout Hall to Balcony": "can_use(Hookshot) or
-                (logic_th_breakroom_to_balcony_child and can_damage_boost and can_jumpslash)
+                (adv_th_breakroom_to_balcony_child and can_damage_boost and can_jumpslash)
                 or can_hover"
         }
     },

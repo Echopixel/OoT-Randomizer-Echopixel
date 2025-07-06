@@ -2150,8 +2150,8 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     Hover Boots to cross the broken bridge.
                     '''},
     '(Advanced) GV Tent as Child': {
-        'name'    : 'logic_gv_tent_child',
-        'tags'    : ("Glitch","Child","Entrance Shuffle",),
+        'name'    : 'adv_gv_tent_child',
+        'tags'    : ("Glitchless","Child","Entrance Shuffle",),
         'tooltip' : '''\
                     The tent while invisible, the loading zone
                     can be reached as child. Including this trick
@@ -2198,7 +2198,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                      towards the gate and pass. Can be done day or night.
                     '''},
     '(Advanced) GF Unload with Antigrav': {
-        'name'    : 'logic_gf_unload',
+        'name'    : 'adv_gf_unload',
         'tags'    : ("Glitchless","Child","Adult","Entrance Shuffle",),
         'tooltip' : '''\
                     Unload the bottom level of GF by wall walking
@@ -2209,7 +2209,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     also be met. Child can access always.
                     '''},
     '(Advanced) GF Archery Area without Gerudo Card as Adult': {
-        'name'    : 'logic_gf_archery_no_card',
+        'name'    : 'adv_gf_archery_no_card',
         'tags'    : ("Glitch","Adult","Entrance Shuffle",),
         'tooltip' : '''\
                     Day or night, pass the guard on the hill
@@ -2224,7 +2224,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     Gerudo Card. Can be done day or night.
                     '''},
     '(Advanced) TH Breakroom to Balcony as Child': {
-        'name'    : 'logic_th_breakroom_to_balcony_child',
+        'name'    : 'adv_th_breakroom_to_balcony_child',
         'tags'    : ("Glitchless","Child","Entrance Shuffle",),
         'tooltip' : '''\
                     Jump from the breakroom to the balcony entrance
