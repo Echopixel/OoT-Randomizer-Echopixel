@@ -939,7 +939,7 @@
             "GF Roof Gold Skulltula": "True",
             # child can damage boost from the GS alcove, but it's really precise
             # got it once, will have to find a setup
-            "GF Break Room Entrance": "can_hover or can_mega or (is_adult and (adv_gf_break_room_jump or Hover_Boots))",
+            "GF Break Room Entrance": "can_hover or can_mega or (is_adult and (logic_gf_break_room_jump or Hover_Boots))",
             "Gerudo Fortress Archery Range": "adv_gf_archery_no_card",
             "Gerudo Training Ground Lobby": "glitch_ledge_clip and is_adult"
         }
