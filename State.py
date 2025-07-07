@@ -155,7 +155,7 @@ class State:
         elif mult == 'half':
             return (hearts < 6) or fairy or nl
         else:
-            False
+            return False
 
 
     # Use the guarantee_hint rule defined in json.
