@@ -6,6 +6,8 @@
 * The `Free Scarecrow's Song` setting has been renamed to `Scarecrow Behavior`, with a new `Fast` option.
 * New options `Deku Theater Skull Mask` and `Deku Theater Mask of Truth` for the `Misc. Hints` setting.
 * New setting `Shuffle 100 Skulltula Reward` along with a new `House of Skulltula: 100` option for the `Misc. Hints` setting.
+* Glitched logic has been renamed to `Advanced` and been revamped to work with any settings, including Entrance Randomization.
+* A slew of advanced tricks and glitches have been added for the new `Advanced` logic setting.
 
 ## Bug fixes
 * The Deku Shield pot in the Spirit Temple is no longer shuffled when both `Fix Broken Drops` and `Include Empty Pots` are off.
