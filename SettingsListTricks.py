@@ -1997,14 +1997,6 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     are the Desert Colossus GS on the rock, and grabbing
                     the Lake Hylia underwater rupees with the Boomerang.
                     '''},
-    '(Advanced) Glitchless Megaflip': {
-        'name'    : 'logic_glitchless_megaflip',
-        'tags'    : ("Glitchless",),
-        'tooltip' : '''\
-                    Perform a megaflip using enemy damage boosting
-                    for a glitchless variation. This is niche and is not
-                    linked to the glitch megaflip version.
-                    '''},
     '(Glitch) Hookshot Jumps': {
         'name'    : 'glitch_hookshot_jump',
         'tags'    : ("Glitch","Adult",),
@@ -2134,7 +2126,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     Cross the GV bridge with Hookshot Extension.
                     '''},
     '(Advanced) GV Broken Bridge Cucco Jump': {
-        'name'    : 'logic_cucco_jump',
+        'name'    : 'adv_cucco_jump',
         'tags'    : ("Glitch","Child",),
         'tooltip' : '''\
                     Jump over the gerudo guard and gate at
@@ -2671,7 +2663,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     Does not require other glitches to be enabled.
                     '''},
     '(Advanced) ZF Great Fairy Fountain without Explosives': {
-        'name'    : 'logic_zf_fairy_no_explosives',
+        'name'    : 'adv_zf_fairy_no_explosives',
         'tags'    : ("Glitchless","Adult","Entrance Shuffle",),
         'tooltip' : '''\
                     Climb onto the wall, and walk along the floor
@@ -2762,14 +2754,6 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     It's possible to jump around the Skulltulas
                     blocking the path above the stairs.
                     '''},
-    '(Advanced) MQ DC Upper Lizalfos Boulder Skip': {
-        'name'    : 'logic_dc_mq_upper_lizalfos_boulder_skip',
-        'tags'    : ("Glitchless","Adult","Dodongo's Cavern MQ","Bouldersanity",),
-        'tooltip' : '''\
-                    Megajump with hover boots from in front of the boulders and
-                    jumpslash onto the platform on the other side to skip
-                    the boulder requirements to pass.
-                    '''},
     '(Glitch) Jabu First Switch Hover': {
         'name'    : 'glitch_jabu_switch_hover',
         'tags'    : ("Glitch","Child","Adult","Jabu Jabu's Belly",),
@@ -2799,7 +2783,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     Hover to reach the rooms after Big Octo.
                     '''},
     '(Advanced) Jabu Jabu GS Near Boss with Jumpslash': {
-        'name'    : 'logic_jabu_gs_near_boss_js',
+        'name'    : 'adv_jabu_gs_near_boss_js',
         'tags'    : ("Child","Adult","Jabu Jabu's Belly",),
         'tooltip' : '''\
                     You can kill this Gold Skulltula through
@@ -2985,7 +2969,7 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     bounds water.
                     '''},
     '(Advanced) Shadow Temple Double Damage Boosts': {
-        'name'    : 'logic_shadow_double_boosts',
+        'name'    : 'adv_shadow_double_boosts',
         'tags'    : ("Glitch","Adult","Shadow Temple",),
         'tooltip' : '''\
                     Hoverboots no longer needed to traverse Shadow Temple.
@@ -3095,8 +3079,8 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     Point Glich and survive a void.
                     '''},
     '(Advanced) Spirit Compass with just Hoverboots': {
-        'name'    : 'glitch_spirit_compass_hoverboots_only',
-        'tags'    : ("Glitch","Adult","Spirit Temple",),
+        'name'    : 'adv_spirit_compass_hoverboots_only',
+        'tags'    : ("Glitchless","Adult","Spirit Temple",),
         'tooltip' : '''\
                     Glitchless movement to reach the compass chest without hookshot.
                     '''},
@@ -3200,14 +3184,14 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     In MQ, this goes to the compass room.
                     '''},
     '(Advanced) Ice Cavern HP without Bottle': {
-        'name'    : 'adv_ice_HP_no_bottle',
+        'name'    : 'adv_ice_hp_no_bottle',
         'tags'    : ("Advanced","Adult","Ice Cavern",),
         'tooltip' : '''\
                     Bomb push into the ice to obtain the freestanding item.
                     This puts the trick directly into logic.
                     '''},
     '(Advanced) Ice Cavern Push Block Silver Rupee Jumpslash': {
-        'name'    : 'logic_ice_push_block_silver',
+        'name'    : 'adv_ice_push_block_silver',
         'tags'    : ("Glitch","Adult","Ice Cavern",),
         'tooltip' : '''\
                     Previously, a bottle is required to dispel the ice.
@@ -3327,11 +3311,11 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     variations that can make it easier if they are available.
                     '''},
     '(Advanced) Fire Trial Longshot Skip': {
-        'name'    : 'logic_fire_trial_longshot_skip',
-        'tags'    : ("Glitch","Adult","Inside Ganon's Castle",),
+        'name'    : 'adv_fire_trial_longshot_skip',
+        'tags'    : ("Glitchless","Adult","Inside Ganon's Castle",),
         'tooltip' : '''\
                     Damage boost hoverslide to the door without the need
-                    for longshot. This is equivalent in glitched or GGJ playthrough.
-                    Glitched rulesets can megaflip or HESS or other alteratives.
+                    for the Longshot. Enabling damage boosts in general
+                    is not required, this trick stands alone.
                     '''}
 }

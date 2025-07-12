@@ -181,8 +181,9 @@
         "exits": {
             "Ganons Castle Fire Trial Ending": "
                 is_adult and
-                (Longshot or (Hover_Boots and Goron_Tunic and (can_mega or can_superslide or can_hess) )
-                    or (Hover_Boots and Goron_Tunic and has_bombchus and Bombs and can_live_dmg(0.5,False,False) and can_shield and logic_fire_trial_longshot_skip)
+                (Longshot
+                    or (Hover_Boots and Goron_Tunic and (can_mega or can_superslide or can_hess) )
+                    or (Hover_Boots and Goron_Tunic and has_bombchus and Bombs and can_live_dmg(0.5,False,False) and can_shield and adv_fire_trial_longshot_skip)
                 ) and
                 (Silver_Rupee_Ganons_Castle_Fire_Trial, 5) and
                 (shuffle_silver_rupees or Goron_Tunic)"

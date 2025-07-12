@@ -80,7 +80,7 @@
         "savewarp": "Zoras Fountain -> Jabu Jabus Belly Beginning",
         "locations": {
             "Jabu Jabus Belly GS Near Boss": "can_use_projectile or can_use(Dins_Fire) or
-                (logic_jabu_gs_near_boss_js and (is_adult or Kokiri_Sword or Sticks))"
+                (adv_jabu_gs_near_boss_js and (is_adult or Kokiri_Sword or Sticks))"
         },
         "exits": {
             "Jabu Jabus Belly Main": "True",
