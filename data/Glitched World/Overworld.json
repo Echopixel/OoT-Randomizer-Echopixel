@@ -697,6 +697,8 @@
         "hint": "GERUDO_VALLEY",
         "time_passes": true,
         "locations": {
+            "GV Adult Upper Waterfall Wonderitem": "is_adult",
+            "GV Adult Lower Waterfall Wonderitem": "is_adult",
             "GV GS Small Bridge": "is_child and at_night and (can_hover or Boomerang)",
             "Bug Rock": "is_child and has_bottle"
         },
@@ -731,8 +733,6 @@
             "GV Waterfall Freestanding PoH": "True",
             "GV Cow": "is_child and can_play(Eponas_Song)",
             "GV Crate Near Cow": "is_child and can_break_crate",
-            "GV Adult Upper Waterfall Wonderitem": "is_adult",
-            "GV Adult Lower Waterfall Wonderitem": "is_adult",
             "GV GS Bean Patch": "can_plant_bugs and can_child_attack",
             "GV Gossip Stone": "True",
             "Gossip Stone Fairy": "can_summon_gossip_fairy and has_bottle",
