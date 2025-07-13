@@ -10,6 +10,7 @@ if TYPE_CHECKING:
     from Location import Location
     from Search import Search
     from World import World
+    from RulesCommon import AccessRule
 
 Triforce_Piece: int = ItemInfo.solver_ids['Triforce_Piece']
 Triforce: int = ItemInfo.solver_ids['Triforce']
