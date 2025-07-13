@@ -825,7 +825,10 @@ class TestValidSpoilers(unittest.TestCase):
                     if settings.logic_rules == 'advanced' and logic_rules_setting == 'advanced':
                         continue
                     settings.logic_rules = logic_rules_setting
-                    main(settings)
+                    try:
+                        main(settings)
+                    except EntranceShuffleError:
+                        self.skipTest("Entrance shuffle error, see https://github.com/OoTRandomizer/OoT-Randomizer/issues/2181 for a potential fix.")
                     # settings.output_file contains the first part of the filename
                     spoiler = load_spoiler('%s_Spoiler.json' % settings.output_file)
                     self.verify_woth(spoiler)

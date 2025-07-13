@@ -72,7 +72,7 @@
         "locations": {
             "Ice Cavern Compass Chest": "Blue_Fire or
                 (has_explosives and can_live_dmg(0.5,False))",
-            "Ice Cavern Freestanding PoH": "Blue_Fire or (adv_ice_HP_no_bottle and
+            "Ice Cavern Freestanding PoH": "Blue_Fire or (adv_ice_hp_no_bottle and
                     Bombs and can_shield and can_live_dmg(0.5,False) and is_adult)
                     or (logic_boomerang_boulders and can_use(Boomerang))",
             "Ice Cavern GS Heart Piece Room": "can_use(Hookshot) or can_use(Boomerang)",
@@ -91,7 +91,7 @@
             "Ice Cavern Push Block Silver Rupee Back Center": "True",
             "Ice Cavern Push Block Silver Rupee Front Center": "True",
             "Ice Cavern Push Block Silver Rupee Red Ice": "Blue_Fire or
-                (can_jumpslash and logic_ice_push_block_silver)",
+                (can_jumpslash and adv_ice_push_block_silver)",
             "Ice Cavern Push Block Silver Rupee Front Left": "True",
             "Ice Cavern GS Push Block Room": "
                 can_use(Hookshot) or can_use(Boomerang) or

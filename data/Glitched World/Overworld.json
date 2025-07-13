@@ -716,10 +716,8 @@
                 )
                 ) or
                 (is_child and
-                ((logic_cucco_jump and Kokiri_Sword) or can_mega or can_damage_boost)
-                )",
-            "GV Octorok Grotto": "(glitch_ledge_cancel and is_adult and has_explosives and can_shield and can_live_dmg(0.5,False))
-                or can_mega"
+                ((adv_cucco_jump and Kokiri_Sword) or can_mega or can_damage_boost)
+                )"
         }
     },
     {
@@ -731,9 +729,9 @@
             "GV Waterfall Freestanding PoH": "True",
             "GV Cow": "is_child and can_play(Eponas_Song)",
             "GV Crate Near Cow": "is_child and can_break_crate",
+            "GV GS Bean Patch": "can_plant_bugs and can_child_attack",
             "GV Adult Upper Waterfall Wonderitem": "is_adult",
             "GV Adult Lower Waterfall Wonderitem": "is_adult",
-            "GV GS Bean Patch": "can_plant_bugs and can_child_attack",
             "GV Gossip Stone": "True",
             "Gossip Stone Fairy": "can_summon_gossip_fairy and has_bottle",
             "Bean Plant Fairy": "is_child and can_plant_bean and can_play(Song_of_Storms) and has_bottle"
@@ -760,7 +758,9 @@
         "time_passes": true,
         "exits": {
             "GV Lower Stream": "True",
-            "GV Octorok Grotto": "can_use(Silver_Gauntlets) or can_weirdslide",
+            "GV Octorok Grotto": "can_use(Silver_Gauntlets) or can_weirdslide
+                or at('Gerudo Valley',(glitch_ledge_cancel and is_adult and has_explosives and can_shield and can_live_dmg(0.5,False))
+                    or can_mega)",
             "GV Crate Ledge": "can_use(Longshot) or can_hover or
                 (adv_hovers_recoil and can_use(Hover_Boots))",
             "GV Upper Stream": "can_mega or (adv_damage_boost and can_live_dmg(0.5,False) and has_explosives)
@@ -2219,7 +2219,7 @@
                 or
                 (logic_graveyard_poh and can_use(Boomerang))
                 or can_hover",
-            "Graveyard Freestanding PoH Crate": "(is_adult and can_break_crate and (here(can_plant_bean) or Longshot or (can_damage_boost and logic_graveyard_hp_damage_boost) or can_hookshot_jump))
+            "Graveyard Freestanding PoH Crate": "(is_adult and can_break_crate and (here(can_plant_bean) or Longshot or (can_damage_boost and adv_graveyard_hp_damage_boost) or can_hookshot_jump))
                 or can_hover",
             "Graveyard Dampe Gravedigging Tour": "is_child and at_dampe_time",
             "Graveyard GS Wall": "is_child and (Boomerang or can_hover) and at_night",
@@ -3036,7 +3036,7 @@
                     or (glitch_child_ice and can_shield and can_jumpslash)
                 ))",
             "ZF Great Fairy Fountain": "has_explosives or
-                (logic_zf_fairy_no_explosives and can_use(Silver_Gauntlets) and
+                (adv_zf_fairy_no_explosives and can_use(Silver_Gauntlets) and
                     Megaton_Hammer)",
             "ZF Underwater": "is_adult and Iron_Boots and (logic_fewer_tunic_requirements or Zora_Tunic)",
             "ZF Hidden Cave Adult": "is_adult and ( (can_use(Silver_Gauntlets) and can_blast_or_smash)

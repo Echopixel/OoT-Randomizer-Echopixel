@@ -31,7 +31,7 @@
         },
         "exits": {
             "Shadow Temple First Beamos": "can_use(Hover_Boots) or can_mega or
-                (logic_shadow_double_boosts and can_damage_boost and can_live_dmg(1.0,False))"
+                (adv_shadow_double_boosts and can_damage_boost and can_live_dmg(1.0,False))"
         }
     },
     {
