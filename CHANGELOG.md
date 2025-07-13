@@ -16,6 +16,7 @@
 ## Other changes
 * Big poe souls can now be collected while riding Epona.
 * Ice traps have a new item model that's displayed instead of nothing after being picked up.
+* The professor in the lakeside lab now only takes 1 second instead of 6 to prepare the eyeball frog.
 
 # 8.3
 
