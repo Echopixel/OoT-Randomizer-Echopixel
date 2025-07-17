@@ -1027,6 +1027,8 @@ class WorldDistribution:
                     stone_id = int(match[1], base=16)
                 else:
                     raise RuntimeError('Gossip stone unknown or already assigned in world %d: %r. %s' % (self.id + 1, name, build_close_match(name, 'stone')))
+            if len(record.text) > 1200:
+                raise ValueError(f'Gossip text length ({len(record.text)} characters) exceeds maximum safe length (1200 characters)')
             spoiler.hints[self.id][stone_id] = GossipText(text=record.text, colors=record.colors, prefix='')
 
     def give_items(self, world: World, save_context: SaveContext) -> None:
