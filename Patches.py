@@ -981,6 +981,23 @@ def patch_rom(spoiler: Spoiler, world: World, rom: Rom) -> Rom:
     else:
         rom.write_int32(symbol, 0)
 
+    symbol = rom.sym('DOT_CONDITION')
+    if world.settings.open_door_of_time == 'open':
+        rom.write_byte(symbol, 0)
+        save_context.write_bits(0xEDC, 0x08)  # "Opened the Door of Time"
+    elif world.settings.open_door_of_time == 'sot':
+        rom.write_byte(symbol, 1)
+    elif world.settings.open_door_of_time == 'oot_sot':
+        rom.write_byte(symbol, 2)
+    elif world.settings.open_door_of_time == 'stones':
+        rom.write_byte(symbol, 3)
+    elif world.settings.open_door_of_time == 'stones_sot':
+        rom.write_byte(symbol, 4)
+    elif world.settings.open_door_of_time == 'stones_oot_sot':
+        rom.write_byte(symbol, 5)
+    else:
+        raise NotImplementedError(f'Unknown open_door_of_time option {world.settings.open_door_of_time!r}')
+
     # "fast-ganon" stuff
     symbol = rom.sym('NO_ESCAPE_SEQUENCE')
     if world.settings.no_escape_sequence:
