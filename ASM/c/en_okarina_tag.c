@@ -1,4 +1,5 @@
 #include "z64.h"
+#include "door_of_time.h"
 #include "en_okarina_tag.h"
 #include "util.h"
 
