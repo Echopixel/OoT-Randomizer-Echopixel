@@ -287,16 +287,6 @@
       "app_type": "generator",
       "sections": [
         {
-          "name": "main_section",
-          "text": "",
-          "col_span": 4,
-          "row_span": [2,2,1],
-          "settings": [
-            "add_random_starting_items",
-            "add_random_starting_items_amount"
-          ]
-        },
-        {
           "name": "starting_equipment_section",
           "text": "Starting Equipment",
           "col_span": 2,
@@ -329,6 +319,7 @@
           "col_span": 2,
           "row_span": [1,1,1],
           "settings": [
+            "add_random_starting_items",
             "start_with_consumables",
             "start_with_rupees",
             "starting_hearts"

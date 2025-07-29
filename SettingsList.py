@@ -3211,29 +3211,6 @@ class SettingInfos:
 
     # Starting Inventory
 
-    add_random_starting_items = Checkbutton(
-        gui_text       = 'Additional Random Starting Items',
-        gui_tooltip    = '''\
-            Begin the game with randomly selected items in addition to your
-            selections from the tables below.
-            'Amount of Items': Sets the amount of random items to add to
-            the current selections.
-        ''',
-        disable        = {
-            False: {'settings': ['add_random_starting_items_amount']}
-        },
-        shared         = True,
-    )
-
-    add_random_starting_items_amount = Scale(
-        gui_text         = 'Amount of Items',
-        default          = 1,
-        disabled_default = 0,
-        minimum          = 1,
-        maximum          = 10,
-        shared           = True,
-    )
-
     starting_items = SettingInfoDict(None, None, True, {})
 
     starting_equipment = SearchBox(
@@ -3275,6 +3252,18 @@ class SettingInfos:
         gui_tooltip    = '''\
             Begin the game with the selected songs already learnt.
         ''',
+    )
+
+    add_random_starting_items = Scale(
+        gui_text         = 'Additional Random Starting Items',
+        gui_tooltip    = '''\
+            Begin the game with this many randomly selected items in
+            addition to your selections from the tables.
+        ''',
+        default          = 0,
+        minimum          = 0,
+        maximum          = len(StartingItems.everything),
+        shared           = True,
     )
 
     start_with_consumables = Checkbutton(
