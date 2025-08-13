@@ -121,6 +121,7 @@
             "zeldas_letter"
         ],
         "starting_songs": [],
+        "add_random_starting_items": 0,
         "start_with_consumables": true,
         "start_with_rupees": true,
         "starting_hearts": 3,
@@ -341,6 +342,7 @@
             "zeldas_letter"
         ],
         "starting_songs": [],
+        "add_random_starting_items": 0,
         "start_with_consumables": true,
         "start_with_rupees": false,
         "starting_hearts": 3,
@@ -551,6 +553,7 @@
             "zeldas_letter"
         ],
         "starting_songs": [],
+        "add_random_starting_items": 0,
         "start_with_consumables": true,
         "start_with_rupees": false,
         "starting_hearts": 3,
@@ -763,6 +766,7 @@
             "zeldas_letter"
         ],
         "starting_songs": [],
+        "add_random_starting_items": 0,
         "start_with_consumables": false,
         "start_with_rupees": false,
         "starting_hearts": 3,
@@ -983,6 +987,7 @@
         "starting_songs": [
             "prelude"
         ],
+        "add_random_starting_items": 0,
         "start_with_consumables": true,
         "start_with_rupees": true,
         "starting_hearts": 4,
@@ -1197,6 +1202,7 @@
             "zeldas_letter"
         ],
         "starting_songs": [],
+        "add_random_starting_items": 0,
         "start_with_consumables": true,
         "start_with_rupees": true,
         "starting_hearts": 3,
@@ -1422,6 +1428,7 @@
         "starting_songs": [
             "prelude"
         ],
+        "add_random_starting_items": 0,
         "start_with_consumables": true,
         "start_with_rupees": false,
         "starting_hearts": 3,
@@ -1823,6 +1830,7 @@
         "starting_equipment": [],
         "starting_inventory": [],
         "starting_songs": [],
+        "add_random_starting_items": 0,
         "start_with_consumables": false,
         "start_with_rupees": false,
         "starting_hearts": 3,
@@ -2023,6 +2031,7 @@
         "starting_equipment": [],
         "starting_inventory": [],
         "starting_songs": [],
+        "add_random_starting_items": 0,
         "start_with_consumables": false,
         "start_with_rupees": false,
         "starting_hearts": 3,
@@ -2251,6 +2260,7 @@
         "starting_songs": [
             "prelude"
         ],
+        "add_random_starting_items": 0,
         "start_with_consumables": true,
         "start_with_rupees": true,
         "starting_hearts": 3,
@@ -2475,6 +2485,7 @@
             "zeldas_letter"
         ],
         "starting_songs": [],
+        "add_random_starting_items": 0,
         "start_with_consumables": true,
         "start_with_rupees": true,
         "starting_hearts": 3,
@@ -2664,6 +2675,7 @@
             "zeldas_letter"
         ],
         "starting_songs": [],
+        "add_random_starting_items": 0,
         "start_with_consumables": false,
         "start_with_rupees": true,
         "starting_hearts": 3,
@@ -2935,6 +2947,7 @@
             "zeldas_letter"
         ],
         "starting_songs": [],
+        "add_random_starting_items": 0,
         "start_with_consumables": false,
         "start_with_rupees": false,
         "starting_hearts": 3,

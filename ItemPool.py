@@ -310,6 +310,14 @@ child_trade_items: tuple[str, ...] = (
     "Mask of Truth",
 )
 
+ocarina_buttons: tuple[str, ...] = (
+    'Ocarina A Button',
+    'Ocarina C down Button',
+    'Ocarina C right Button',
+    'Ocarina C left Button',
+    'Ocarina C up Button',
+)
+
 normal_bottles: list[str] = [bottle for bottle in sorted(ItemInfo.bottles) if bottle not in ('Deliver Letter', 'Sell Big Poe')] + ['Bottle with Big Poe']
 reward_list: list[str] = [item.name for item in sorted([i for n, i in ItemInfo.items.items() if i.type == 'DungeonReward'], key=lambda x: x.special['item_id'])]
 song_list: list[str] = [item.name for item in sorted([i for n, i in ItemInfo.items.items() if i.type == 'Song'], key=lambda x: x.index if x.index is not None else 0)]
@@ -532,16 +540,12 @@ def get_pool_core(world: World) -> tuple[list[str], dict[str, Item]]:
         if world.settings.shuffle_song_items == 'any':
             pending_junk_pool.extend(song_list)
         if world.settings.shuffle_individual_ocarina_notes:
-            pending_junk_pool.extend(['Ocarina A Button', 'Ocarina C up Button', 'Ocarina C left Button', 'Ocarina C down Button', 'Ocarina C right Button'])
+            pending_junk_pool.extend(ocarina_buttons)
 
     if world.settings.triforce_hunt:
         pending_junk_pool.extend(['Triforce Piece'] * world.settings.triforce_count_per_world)
     if world.settings.shuffle_individual_ocarina_notes:
-        pending_junk_pool.append('Ocarina A Button')
-        pending_junk_pool.append('Ocarina C up Button')
-        pending_junk_pool.append('Ocarina C left Button')
-        pending_junk_pool.append('Ocarina C down Button')
-        pending_junk_pool.append('Ocarina C right Button')
+        pending_junk_pool.extend(ocarina_buttons)
 
     # Use the vanilla items in the world's locations when appropriate.
     vanilla_items_processed = Counter()
@@ -1070,10 +1074,7 @@ def get_pool_core(world: World) -> tuple[list[str], dict[str, Item]]:
     world.distribution.collect_starters(world.state)
 
     if not world.settings.shuffle_individual_ocarina_notes:
-        world.state.collect(ItemFactory('Ocarina A Button', world))
-        world.state.collect(ItemFactory('Ocarina C up Button', world))
-        world.state.collect(ItemFactory('Ocarina C down Button', world))
-        world.state.collect(ItemFactory('Ocarina C left Button', world))
-        world.state.collect(ItemFactory('Ocarina C right Button', world))
+        for ocarina_button in ocarina_buttons:
+            world.state.collect(ItemFactory(ocarina_button, world))
 
     return pool, placed_items

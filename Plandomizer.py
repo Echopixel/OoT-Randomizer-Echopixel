@@ -15,7 +15,7 @@ from EntranceShuffle import EntranceShuffleError, change_connections, confirm_re
 from Fill import FillError
 from Hints import HintArea, gossipLocations, GossipText
 from Item import ItemFactory, ItemInfo, ItemIterator, is_item, Item
-from ItemPool import item_groups, get_junk_item, song_list, trade_items, child_trade_items
+from ItemPool import item_groups, get_junk_item, song_list, trade_items, child_trade_items, ocarina_buttons
 from JSONDump import dump_obj, CollapseList, CollapseDict, AlignedDict, SortedDict
 from Location import Location, LocationIterator, LocationFactory
 from LocationList import location_groups, location_table
@@ -1284,7 +1284,56 @@ class Distribution:
                 # removing an extra 4 pieces in case of an odd number since there's 9*4 of them but only 8 containers
                 data['Piece of Heart'].count += 4 * math.ceil(num_hearts_to_collect / 2)
                 data['Heart Container'].count += math.floor(num_hearts_to_collect / 2)
-        self.settings.starting_items = data
+        # add random starting items
+        if self.settings.add_random_starting_items > 0:
+            available_items: list[StartingItems.Entry] = []
+            for entry in StartingItems.everything.values():
+                if not entry.special:
+                    item = entry.item_name
+                else:
+                    if entry.item_name == 'Rutos Letter' and self.settings.zora_fountain != 'open':
+                        item = 'Rutos Letter'
+                    elif entry.item_name in ('Bottle', 'Rutos Letter'):
+                        item = 'Bottle'
+                    else:
+                        raise KeyError(f'invalid special item: {entry.item_name}')
+                if entry.i >= data[item].count:
+                    available_items.append(item)
+
+            if data['Giants Knife'].count > 0 or data['Biggoron Sword'].count > 0:
+                if 'Giants Knife' in available_items:
+                    available_items.remove('Giants Knife')
+                if 'Biggoron Sword' in available_items:
+                    available_items.remove('Biggoron Sword')
+            elif 'Giants Knife' in available_items and 'Biggoron Sword' in available_items:
+                available_items.remove(random.choice(('Giants Knife', 'Biggoron Sword')))
+            if self.settings.plant_beans and 'Magic Bean' in available_items:
+                available_items.remove('Magic Bean')
+            for item_name in child_trade_items:
+                if item_name not in self.settings.shuffle_child_trade and item_name in available_items:
+                    available_items.remove(item_name)
+            for item_name in trade_items:
+                if item_name not in self.settings.adult_trade_start and item_name in available_items:
+                    available_items.remove(item_name)
+            if not self.settings.adult_trade_shuffle:
+                # only allow one adult trade item
+                available_trade_items = [item_name for item_name in trade_items if item_name in available_items]
+                for item_name in available_trade_items:
+                    available_items.remove(item_name)
+                if not any(data[item_name].count > 0 for item_name in trade_items):
+                    available_items.append(random.choice(available_trade_items))
+            for item_name in ocarina_buttons:
+                if not self.settings.shuffle_individual_ocarina_notes and item_name in available_items:
+                    available_items.remove(item_name)
+
+            if self.settings.add_random_starting_items < len(available_items):
+                selected_items = random.sample(available_items, self.settings.add_random_starting_items)
+            else:
+                # if there's not enough items to select, just start with all items rather than erroring
+                selected_items = available_items
+            for item_name in selected_items:
+                add_starting_item_with_ammo(data, item_name)
+        self.settings.starting_items = {item_name: record for item_name, record in data.items() if record.count != 0}
 
     def to_json(self, include_output: bool = True, spoiler: bool = True) -> dict[str, Any]:
         self_dict = {
