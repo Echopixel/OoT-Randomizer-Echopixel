@@ -1021,8 +1021,8 @@ def get_pool_core(world: World) -> tuple[list[str], dict[str, Item]]:
         pool.remove(selected_item)
         pool.extend(get_junk_item())
     for item, count in world.randomized_starting_items.items():
+        item = ItemFactory(item, world)
         for _ in range(count):
-            item = ItemFactory(item, world)
             if item.solver_id is not None:
                 world.state.collect(item)
     world.distribution.randomized_starting_items = world.randomized_starting_items
