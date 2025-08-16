@@ -1015,14 +1015,16 @@ def get_pool_core(world: World) -> tuple[list[str], dict[str, Item]]:
             world.state.collect(ItemFactory(ocarina_button, world))
 
     for _ in range(world.settings.add_random_starting_items):
-        random_starting_items_pool = sorted({item for item in pool if item not in item_groups['Junk']}) # give each item the same weight regardless of how many copies there are
+        random_starting_items_pool = sorted({item for item in pool if item not in ItemInfo.junk_weight}) # give each item the same weight regardless of how many copies there are
         selected_item = random.choice(random_starting_items_pool)
         world.randomized_starting_items[selected_item] = world.randomized_starting_items.get(selected_item, 0) + 1
         pool.remove(selected_item)
         pool.extend(get_junk_item())
     for item, count in world.randomized_starting_items.items():
         for _ in range(count):
-            world.state.collect(ItemFactory(item, world))
+            item = ItemFactory(item, world)
+            if item.solver_id is not None:
+                world.state.collect(item)
     world.distribution.randomized_starting_items = world.randomized_starting_items
 
     if world.settings.junk_ice_traps in ('custom_count', 'custom_percent'):
