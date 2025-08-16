@@ -1008,6 +1008,23 @@ def get_pool_core(world: World) -> tuple[list[str], dict[str, Item]]:
             pool.remove(junk_item)
             pool.append(pending_item)
 
+    world.distribution.collect_starters(world.state)
+
+    if not world.settings.shuffle_individual_ocarina_notes:
+        for ocarina_button in ocarina_buttons:
+            world.state.collect(ItemFactory(ocarina_button, world))
+
+    for _ in range(world.settings.add_random_starting_items):
+        random_starting_items_pool = sorted({item for item in pool if item not in item_groups['Junk']}) # give each item the same weight regardless of how many copies there are
+        selected_item = random.choice(random_starting_items_pool)
+        world.randomized_starting_items[selected_item] = world.randomized_starting_items.get(selected_item, 0) + 1
+        pool.remove(selected_item)
+        pool.extend(get_junk_item())
+    for item, count in world.randomized_starting_items.items():
+        for _ in range(count):
+            world.state.collect(ItemFactory(item, world))
+    world.distribution.randomized_starting_items = world.randomized_starting_items
+
     if world.settings.junk_ice_traps in ('custom_count', 'custom_percent'):
         junk_pool[:] = [('Ice Trap', 1)]
         # Get a list of all "junk" type items
@@ -1070,11 +1087,5 @@ def get_pool_core(world: World) -> tuple[list[str], dict[str, Item]]:
         # Fix for unit tests reusing globals after ludicrous pool mutates them
         item_groups['Junk'] = remove_junk_items
         world.distribution.distribution.search_groups['Junk'] = remove_junk_items
-
-    world.distribution.collect_starters(world.state)
-
-    if not world.settings.shuffle_individual_ocarina_notes:
-        for ocarina_button in ocarina_buttons:
-            world.state.collect(ItemFactory(ocarina_button, world))
 
     return pool, placed_items

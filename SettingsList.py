@@ -3262,7 +3262,7 @@ class SettingInfos:
         ''',
         default          = 0,
         minimum          = 0,
-        maximum          = len(StartingItems.everything),
+        maximum          = 10,
         shared           = True,
     )
 
