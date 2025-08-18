@@ -1145,10 +1145,12 @@ def get_junk_hint(spoiler: Spoiler, world: World, checked: set[str]) -> HintRetu
 
 def get_important_check_hint(spoiler: Spoiler, world: World, checked: set[str]) -> HintReturn:
     top_level_locations = []
+    empty_dungeons = [dungeon for dungeon in world.precompleted_dungeons if world.precompleted_dungeons[dungeon]]
     for location in world.get_filled_locations():
         if (HintArea.at(location).text(world.settings.clearer_hints) not in top_level_locations
                 and (HintArea.at(location).text(world.settings.clearer_hints) + ' Important Check') not in checked
                 and HintArea.at(location) != HintArea.ROOT
+                and HintArea.at(location).dungeon_name not in empty_dungeons # prevent pre-completed dungeons from being hinted
                 and not location.locked): # prevent areas with unshuffled checks from being hinted
             top_level_locations.append(HintArea.at(location).text(world.settings.clearer_hints))
     hint_loc = random.choice(top_level_locations)
