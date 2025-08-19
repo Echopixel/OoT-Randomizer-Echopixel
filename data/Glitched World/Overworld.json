@@ -2236,8 +2236,6 @@
             "Graveyard Dampes Grave": "is_adult",
             "Graveyard Dampes House": "is_adult or at_dampe_time",
             "Kakariko Village": "True",
-            "Graveyard Warp Pad Region": "(is_adult and glitch_graveyard_shadow_early_hookshot and Hookshot
-                and can_isg) or (glitch_graveyard_shadow_early_hover and can_hover)",
             "Shadow Temple Entryway": "(is_adult and glitch_graveyard_shadow_early_hookshot and Hookshot
                 and can_isg) or (glitch_graveyard_shadow_early_hover and can_hover)"
         }
