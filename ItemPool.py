@@ -1108,7 +1108,7 @@ def configure_random_starting_items_pool(world: World, pool: list[str]) -> set[s
             exclude_list.extend([item for item in item_groups['HealthUpgrade']] + ['Double Defense'])
         elif exclusion == 'junk':
             exclude_list.extend([item for item in ItemInfo.junk_weight])
-            
+
     ret = {item for item in item_pool if item not in exclude_list} # give each item the same weight regardless of how many copies there are
 
     return ret
