@@ -1015,7 +1015,7 @@ def get_pool_core(world: World) -> tuple[list[str], dict[str, Item]]:
             world.state.collect(ItemFactory(ocarina_button, world))
 
     for _ in range(world.settings.random_starting_items_count):
-        random_starting_items_pool = sorted(configure_random_starting_items_pool(world, pool))
+        random_starting_items_pool = configure_random_starting_items_pool(world, pool)
         selected_item = random.choice(random_starting_items_pool)
         world.randomized_starting_items[selected_item] = world.randomized_starting_items.get(selected_item, 0) + 1
         pool.remove(selected_item)
@@ -1093,7 +1093,7 @@ def get_pool_core(world: World) -> tuple[list[str], dict[str, Item]]:
     return pool, placed_items
 
 
-def configure_random_starting_items_pool(world: World, pool: list[str]) -> set[str]:
+def configure_random_starting_items_pool(world: World, pool: list[str]) -> list[str]:
     exclude_list = []
 
     for exclusion in world.settings.random_starting_items_exclude:
@@ -1108,6 +1108,6 @@ def configure_random_starting_items_pool(world: World, pool: list[str]) -> set[s
         elif exclusion == 'junk':
             exclude_list.extend([item for item in ItemInfo.junk_weight])
 
-    ret = {item for item in pool if item not in exclude_list} # give each item the same weight regardless of how many copies there are
+    ret = sorted({item for item in pool if item not in exclude_list}) # give each item the same weight regardless of how many copies there are
 
     return ret
