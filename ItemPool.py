@@ -1094,12 +1094,11 @@ def get_pool_core(world: World) -> tuple[list[str], dict[str, Item]]:
 
 
 def configure_random_starting_items_pool(world: World, pool: list[str]) -> set[str]:
-    item_pool = pool.copy()
     exclude_list = []
 
     for exclusion in world.settings.random_starting_items_exclude:
         if exclusion == 'bombchus':
-            exclude_list.extend([item for item in item_pool if 'Bombchus' in item])
+            exclude_list.extend([item for item in pool if 'Bombchus' in item])
         elif exclusion == 'shields':
             exclude_list.extend([item for item in item_groups['Shield']])
         elif exclusion == 'deku_upgrades':
@@ -1109,6 +1108,6 @@ def configure_random_starting_items_pool(world: World, pool: list[str]) -> set[s
         elif exclusion == 'junk':
             exclude_list.extend([item for item in ItemInfo.junk_weight])
 
-    ret = {item for item in item_pool if item not in exclude_list} # give each item the same weight regardless of how many copies there are
+    ret = {item for item in pool if item not in exclude_list} # give each item the same weight regardless of how many copies there are
 
     return ret
