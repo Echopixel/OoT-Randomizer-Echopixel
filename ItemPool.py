@@ -1104,7 +1104,7 @@ def configure_random_starting_items_pool(world: World, pool: list[str]) -> list[
         elif exclusion == 'deku_upgrades':
             exclude_list.extend(['Deku Stick Capacity', 'Deku Nut Capacity'])
         elif exclusion == 'health_upgrades':
-            exclude_list.extend([item for item in item_groups['HealthUpgrade']] + ['Double Defense'])
+            exclude_list.extend([item for item in item_groups['HealthUpgrade']])
         elif exclusion == 'junk':
             exclude_list.extend([item for item in ItemInfo.junk_weight])
 
