@@ -1153,14 +1153,14 @@ def get_important_check_hint(spoiler: Spoiler, world: World, checked: set[str]) 
                 and HintArea.at(location).dungeon_name not in empty_dungeons # prevent pre-completed dungeons from being hinted
                 and not location.locked): # prevent areas with unshuffled checks from being hinted
             top_level_locations.append(HintArea.at(location).text(world.settings.clearer_hints))
+    if not top_level_locations:
+        return None
     hint_loc = random.choice(top_level_locations)
     item_count = 0
     for location in world.get_filled_locations():
         region = HintArea.at(location).text(world.settings.clearer_hints)
         if region == hint_loc:
             if (location.item.majoritem
-                # exclude locked items
-                and not location.locked
                 # exclude triforce pieces as it defeats the idea of a triforce hunt
                 and not location.item.name == 'Triforce Piece'
                 and not (location.name == 'Song from Impa' and 'Zeldas Letter' in world.settings.starting_items and 'Zeldas Letter' not in world.settings.shuffle_child_trade)
