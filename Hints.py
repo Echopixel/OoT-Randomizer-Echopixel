@@ -1161,6 +1161,8 @@ def get_important_check_hint(spoiler: Spoiler, world: World, checked: set[str]) 
         region = HintArea.at(location).text(world.settings.clearer_hints)
         if region == hint_loc:
             if (location.item.majoritem
+                # exclude locked items
+                and not location.locked
                 # exclude triforce pieces as it defeats the idea of a triforce hunt
                 and not location.item.name == 'Triforce Piece'
                 and not (location.name == 'Song from Impa' and 'Zeldas Letter' in world.settings.starting_items and 'Zeldas Letter' not in world.settings.shuffle_child_trade)
