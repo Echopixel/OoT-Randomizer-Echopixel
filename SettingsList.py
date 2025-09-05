@@ -1234,7 +1234,7 @@ class SettingInfos:
             With any of "Shuffle Interior Entrances" set to "All", "Shuffle
             Overworld Entrances" on, "Randomize Warp Song Destinations" on,
             "Randomize Overworld Spawns" on, or "Randomize Overworld Spawns" on
-            with Advanced Logic, Closed Forest will instead be treated as 
+            with Advanced Logic, Closed Forest will instead be treated as
             Closed Deku with starting age Child and WILL NOT
             guarantee that these items are available in the forest area.
         ''',
