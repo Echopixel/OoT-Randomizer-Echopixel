@@ -18,22 +18,8 @@ typedef struct {
     uint8_t silver_rupee_puzzles_mq[4];
 } dungeon_entry_t;
 
-typedef struct {
-    uint8_t index;
-    uint8_t has_map;
-    char name[10];
-} dungeon_entrance_t;
-
-typedef struct {
-    uint8_t index;
-    uint8_t has_map;
-    char name[10];
-} boss_entry_t;
-
 extern int dungeon_count;
 extern dungeon_entry_t dungeons[14];
-extern dungeon_entrance_t dungeon_entrances[12];
-extern boss_entry_t bosses[12];
 
 void draw_dungeon_info(z64_disp_buf_t* db);
 void draw_world_info(z64_disp_buf_t* db);

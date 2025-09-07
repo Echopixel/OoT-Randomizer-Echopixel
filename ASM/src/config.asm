@@ -333,10 +333,16 @@ CFG_ADULT_TRADE_SHUFFLE:
 CFG_CHILD_TRADE_SHUFFLE:
 .byte 0x00
 
-.area 0xC, 0x00
+.area 14, 0x00
+CFG_DUNGEON_BOSS_INFO:
+.endarea
+; First two bytes determine if dungeons and bosses are shuffled or mixed (0 : not shuffled, 1 : shuffled in their pool, 2 : mixed)
+; Next 12 bytes say if the dungeon in the i-th entrance has a map
+
+.area 12 * 0x9, 0x00
 CFG_DUNGEON_ENTRANCES:
 .endarea
-.area 0xC, 0x00
+.area 12 * 0x9, 0x00
 CFG_BOSSES:
 .endarea
 

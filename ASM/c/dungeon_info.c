@@ -29,40 +29,6 @@ dungeon_entry_t dungeons[] = {
     { 16, 1, 0, 0, 0, 0x00, "Chest Game",{-1, -1, -1, -1}, {-1, -1, -1, -1 }},
 };
 
-dungeon_entrance_t dungeon_entrances[] = {
-    {  0, 1, "Deku"},
-    {  1, 1, "Dodongo"},
-    {  2, 1, "Jabu"},
-
-    {  3, 1, "Forest"},
-    {  4, 1, "Fire"},
-    {  5, 1, "Water"},
-    {  7, 1, "Shadow"},
-    {  6, 1, "Spirit"},
-
-    {  8, 1, "BotW"},
-    {  9, 1, "Ice"},
-    { 11, 0, "GTG"},
-    { 13, 0, "Ganon"}
-};
-
-boss_entry_t bosses[] = {
-    {  0, 1, "Gohma"},
-    {  1, 1, "KD"},
-    {  2, 1, "Bari"},
-
-    {  3, 1, "PG"},
-    {  4, 1, "Volv"},
-    {  5, 1, "Morpha"},
-    {  7, 1, "Bongo"},
-    {  6, 1, "Twin"},
-
-    {  8, 1, "-"},
-    {  9, 1, "-"},
-    { 11, 0, "-"},
-    { 13, 0, "Ganon"}
-};
-
 typedef struct {
     uint8_t idx;
     uint8_t r;
@@ -100,8 +66,9 @@ extern uint8_t CFG_DUNGEON_REWARD_WORLDS[9];
 extern uint8_t CFG_DUNGEON_INFO_SILVER_RUPEES;
 
 extern int8_t CFG_DUNGEON_PRECOMPLETED[14];
-extern uint8_t CFG_DUNGEON_ENTRANCES[12];
-extern uint8_t CFG_BOSSES[12];
+extern char CFG_DUNGEON_BOSS_INFO[14];
+extern char CFG_DUNGEON_ENTRANCES[12][0x9];
+extern char CFG_BOSSES[12][0x9];
 
 extern extended_savecontext_static_t extended_savectx;
 extern silver_rupee_data_t silver_rupee_vars[0x16][2];
@@ -207,19 +174,17 @@ void draw_boss_key(z64_game_t* globalCtx, z64_disp_buf_t* db) {
 }
 
 void draw_world_info(z64_disp_buf_t* db) {
-    show_dungeon_info = 0;
-    pad_t pad_held = z64_ctxt.input[0].raw.pad;
     if (!CAN_DRAW_WORLD_INFO) {
         return;
     }
-    // Since no dungeon can be duped, this means the setting is not enabled.
-    bool show_dungeons = CFG_DUNGEON_ENTRANCES[0] != CFG_DUNGEON_ENTRANCES[1];
-    // Same for bosses.
-    bool show_bosses = CFG_BOSSES[0] != CFG_BOSSES[1];
+    show_dungeon_info = 0;
+    bool show_dungeons = CFG_DUNGEON_BOSS_INFO[0] > 0;
+    bool show_bosses = CFG_DUNGEON_BOSS_INFO[1] > 0;
     // If neither setting is on, don't display this menu at all.
     if (!show_dungeons && !show_bosses) {
         return;
     }
+    bool mixed = CFG_DUNGEON_BOSS_INFO[0] > 1 || CFG_DUNGEON_BOSS_INFO[0] > 1;
 
     if (z64_ctxt.input[0].pad_pressed.a) {
         world_display = world_display ? false : true;
@@ -240,22 +205,22 @@ void draw_world_info(z64_disp_buf_t* db) {
         int padding = 1;
         int rows = 13;
         int boss_width = show_bosses ?
-            ((10 * font_width) + padding) :
+            ((8 * font_width) + padding) :
             0;
         int bg_width = show_dungeons ?
-            13 * 2 * font_width + boss_width :
-            13 * font_width + boss_width;
+            10 * 2 * font_width + boss_width :
+            10 * font_width + boss_width;
         int bg_height = (rows * font_height) + ((rows + 1) * padding);
         int bg_left = (Z64_SCREEN_WIDTH - bg_width) / 2;
         int bg_top = (Z64_SCREEN_HEIGHT - bg_height) / 2;
 
-        int start_top = bg_top + padding;
+        int start_top = bg_top + padding + 1;
         uint16_t left = bg_left + padding;
         uint16_t left_dungeon = 0;
         if (show_dungeons) {
-            left_dungeon = left + 80;
+            left_dungeon = left + 60;
         }
-        uint16_t left_boss = show_dungeons ? left + 2*80 : left + 80;
+        uint16_t left_boss = show_dungeons ? left + 2*60 : left + 60;
 
         // Draw background
         gDPSetCombineMode(db->p++, G_CC_PRIMITIVE, G_CC_PRIMITIVE);
@@ -290,43 +255,45 @@ void draw_world_info(z64_disp_buf_t* db) {
         }
         gDPSetPrimColor(db->p++, 0, 0, 0xFF, 0xFF, 0xFF, 0xFF);
         // Draw the list of dungeons entrances.
-        for (int i = 0; i < rows - 1; i++) {
+        uint16_t top = start_top;
+        for (uint8_t i = 0; i < rows; i++) {
             gDPPipeSync(db->p++);
-            dungeon_entrance_t* d = &(dungeon_entrances[i]);
-            int top = start_top + ((font_height + padding) * (i + 1)) + 1;
-            text_print_size(db, d->name, left, top, font_width, font_height);
+            // Skip Hideout for this menu.
+            if (i == 10) {
+                continue;
+            }
+            dungeon_entry_t dungeon = dungeons[i];
+            top += font_height + padding;
+            text_print_size(db, dungeon.name, left, top, font_width, font_height);
         }
 
         // Draw the list of dungeons interiors.
         if (show_dungeons) {
-            for (int i = 0; i < rows - 1; i++) {
+            for (uint8_t i = 0; i < rows - 1; i++) {
                 gDPPipeSync(db->p++);
-                dungeon_entrance_t* d = &(dungeon_entrances[CFG_DUNGEON_ENTRANCES[i]]);
-                if (d->has_map && !z64_file.dungeon_items[d->index].map) {
+                if (CFG_DUNGEON_BOSS_INFO[i + 2] < 10 && !z64_file.dungeon_items[CFG_DUNGEON_BOSS_INFO[i + 2]].map) {
                     continue;
                 }
-                int top = start_top + ((font_height + padding) * (i + 1)) + 1;
-                text_print_size(db, d->name, left_dungeon, top, font_width, font_height);
+                uint16_t top = start_top + ((font_height + padding) * (i + 1)) + 1;
+                text_print_size(db, CFG_DUNGEON_ENTRANCES[i], left_dungeon, top, font_width, font_height);
 
                 // If boss ER is also on, display the boss on the same line as the actual dungeon.
                 if (show_bosses) {
                     gDPPipeSync(db->p++);
-                    boss_entry_t* boss = &(bosses[CFG_BOSSES[CFG_DUNGEON_ENTRANCES[i]]]);
-                    int top = start_top + ((font_height + padding) * (i + 1)) + 1;
-                    text_print_size(db, boss->name, left_boss, top, font_width, font_height);
-                 }
+                    uint16_t top = start_top + ((font_height + padding) * (i + 1));
+                    text_print_size(db, CFG_BOSSES[i], left_boss, top, font_width, font_height);
+                }
             }
         }
         else {
             if (show_bosses) {
-                for (int i = 0; i < rows - 1; i++) {
+                for (uint8_t i = 0; i < rows - 1; i++) {
                     gDPPipeSync(db->p++);
-                    boss_entry_t* boss = &(bosses[CFG_BOSSES[i]]);
-                    if (boss->has_map && !z64_file.dungeon_items[boss->index].map) {
+                    if (CFG_DUNGEON_BOSS_INFO[i + 2] < 10 && !z64_file.dungeon_items[CFG_DUNGEON_BOSS_INFO[i + 2]].map) {
                         continue;
                     }
-                    int top = start_top + ((font_height + padding) * (i + 1)) + 1;
-                    text_print_size(db, boss->name, left_boss, top, font_width, font_height);
+                    uint16_t top = start_top + ((font_height + padding) * (i + 1));
+                    text_print_size(db, CFG_BOSSES[i], left_boss, top, font_width, font_height);
                 }
             }
         }
