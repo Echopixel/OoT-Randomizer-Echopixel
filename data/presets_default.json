@@ -411,13 +411,13 @@
         "custom_ice_trap_count": 100,
         "ice_trap_appearance": "anything"
     },
-    "Standard Weekly (2025-08-16)": {
+    "Standard Weekly (2025-09-13)": {
         "aliases": [
             "Standard Weekly (Latest)",
             "weekly"
         ],
         "show_seed_info": true,
-        "user_message": "Standard Weekly (2025-08-16)",
+        "user_message": "Standard Weekly (2025-09-13)",
         "world_count": 1,
         "create_spoiler": true,
         "password_lock": false,
@@ -433,7 +433,7 @@
         "lacs_rewards": 9,
         "lacs_tokens": 100,
         "lacs_hearts": 20,
-        "bridge": "vanilla",
+        "bridge": "dungeons",
         "bridge_medallions": 6,
         "bridge_stones": 3,
         "bridge_rewards": 9,
@@ -441,7 +441,7 @@
         "bridge_hearts": 20,
         "trials_random": false,
         "trials": 0,
-        "shuffle_ganon_bosskey": "medallions",
+        "shuffle_ganon_bosskey": "remove",
         "ganon_bosskey_medallions": 6,
         "ganon_bosskey_stones": 3,
         "ganon_bosskey_rewards": 9,
@@ -452,13 +452,16 @@
         "open_door_of_time": "open",
         "zora_fountain": "closed",
         "gerudo_fortress": "fast",
-        "dungeon_shortcuts_choice": "off",
-        "dungeon_shortcuts": [],
+        "dungeon_shortcuts_choice": "choice",
+        "dungeon_shortcuts": [
+            "Jabu Jabus Belly",
+            "Forest Temple"
+        ],
         "starting_age": "random",
         "mq_dungeons_mode": "vanilla",
         "mq_dungeons_specific": [],
         "mq_dungeons_count": 0,
-        "empty_dungeons_mode": "none",
+        "empty_dungeons_mode": "count",
         "empty_dungeons_specific": [],
         "empty_dungeons_rewards": [],
         "empty_dungeons_count": 2,
@@ -474,10 +477,11 @@
         "owl_drops": false,
         "warp_songs": false,
         "spawn_positions": [
-            "child"
+            "child",
+            "adult"
         ],
         "free_bombchu_drops": false,
-        "shuffle_song_items": "song",
+        "shuffle_song_items": "dungeon",
         "shopsanity": "off",
         "special_deal_price_distribution": "betavariate",
         "special_deal_price_min": 0,
@@ -517,11 +521,11 @@
         "key_rings_choice": "off",
         "key_rings": [],
         "keyring_give_bk": false,
-        "shuffle_bosskeys": "dungeon",
+        "shuffle_bosskeys": "vanilla",
         "shuffle_silver_rupees": "vanilla",
         "silver_rupee_pouches_choice": "off",
         "silver_rupee_pouches": [],
-        "enhance_map_compass": false,
+        "enhance_map_compass": true,
         "logic_no_night_tokens_without_suns_song": false,
         "disabled_locations": [
             "Deku Theater Mask of Truth"
@@ -552,7 +556,9 @@
             "ocarina",
             "zeldas_letter"
         ],
-        "starting_songs": [],
+        "starting_songs": [
+            "prelude"
+        ],
         "add_random_starting_items": 0,
         "start_with_consumables": true,
         "start_with_rupees": false,
@@ -565,14 +571,14 @@
         "complete_mask_quest": false,
         "useful_cutscenes": false,
         "fast_chests": true,
-        "scarecrow_behavior": "vanilla",
+        "scarecrow_behavior": "free",
         "fast_bunny_hood": true,
         "auto_equip_masks": false,
         "plant_beans": false,
         "easier_fire_arrow_entry": false,
         "fae_torch_count": 3,
-        "ruto_already_f1_jabu": false,
-        "fast_shadow_boat": false,
+        "ruto_already_f1_jabu": true,
+        "fast_shadow_boat": true,
         "chicken_count_random": false,
         "chicken_count": 3,
         "big_poe_count_random": false,
@@ -603,7 +609,7 @@
         "minor_items_as_major_chest": [],
         "invisible_chests": false,
         "correct_potcrate_appearances": "off",
-        "key_appearance_match_dungeon": true,
+        "key_appearance_match_dungeon": false,
         "potcrate_textures_specific": [],
         "soa_unlocks_potcrate_texture": false,
         "ocarina_songs": [],
@@ -613,7 +619,7 @@
         "starting_tod": "default",
         "blue_fire_arrows": true,
         "fix_broken_drops": false,
-        "tcg_requires_lens": true,
+        "tcg_requires_lens": false,
         "no_collectible_hearts": false,
         "one_item_per_dungeon": false,
         "item_pool_value": "balanced",
