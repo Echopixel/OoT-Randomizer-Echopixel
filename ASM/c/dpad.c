@@ -178,7 +178,7 @@ void draw_dpad_and_menu_utilities() {
         }
         sprite_draw(db, &dpad_sprite, 0, left_main_dpad, top_main_dpad, 16, 16);
 
-        // Menu dpad
+        // Menu dpad, items screen
         if (CAN_DRAW_DUNGEON_INFO && CFG_DPAD_DUNGEON_INFO_ENABLE) {
             // Zora sapphire on D-down
             sprite_load(db, &stones_sprite, 2, 1);
@@ -187,6 +187,22 @@ void draw_dpad_and_menu_utilities() {
             // small key on D-right
             sprite_load(db, &quest_items_sprite, 17, 1);
             sprite_draw(db, &quest_items_sprite, 0, left_main_dpad + 14, top_main_dpad + 2, 12, 12);
+
+            // map on D-left
+            sprite_load(db, &quest_items_sprite, 16, 1);
+            sprite_draw(db, &quest_items_sprite, 0, left_main_dpad - 11, top_main_dpad + 2, 12, 12);
+
+        }
+        // Menu dpad, map screen
+        else if (CAN_DRAW_WORLD_INFO && CFG_DPAD_DUNGEON_INFO_ENABLE) {
+            bool mixed_dungeons = CFG_DUNGEON_BOSS_INFO[0] > 1;
+            bool mixed_bosses = CFG_DUNGEON_BOSS_INFO[0] > 1;
+            bool mixed = mixed_dungeons || mixed_bosses;
+            if (mixed) {
+            // boss key on D-right
+                sprite_load(db, &quest_items_sprite, 14, 1);
+                sprite_draw(db, &quest_items_sprite, 0, left_main_dpad + 14, top_main_dpad + 2, 12, 12);
+            }
 
             // map on D-left
             sprite_load(db, &quest_items_sprite, 16, 1);

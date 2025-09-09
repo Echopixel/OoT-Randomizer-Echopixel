@@ -2651,23 +2651,35 @@ def configure_dungeon_info(rom: Rom, world: World) -> None:
 
     # Mixed pools
     # In this case, the dungeon location should point to the world area instead.
+    #dungeon_entrances_reverse_list = ['Deku Tree Lobby -> KF Outside Deku Tree', 'Dodongos Cavern Beginning -> Death Mountain', 'Jabu Jabus Belly Beginning -> Zoras Fountain',
+    #                                'Forest Temple Lobby -> SFM Forest Temple Entrance Ledge', 'Fire Temple Lower -> DMC Fire Temple Entrance', 'Water Temple Lobby -> Lake Hylia',
+    #                                'Shadow Temple Entryway -> Graveyard Warp Pad Region', 'Spirit Temple Lobby -> Desert Colossus From Spirit Lobby', 'Bottom of the Well -> Kakariko Village',
+    #                                'Ice Cavern Beginning -> ZF Ice Ledge', 'Gerudo Training Ground Lobby -> Gerudo Fortress', 'Ganons Castle Lobby -> Castle Grounds From Ganons Castle']
     #if 'map_dungeon_location' in world.settings.enhance_map_compass and world.settings.shuffle_dungeon_entrances != 'off':
     #    dungeon_info.append(2)
-    #    for dungeon_entrance in dungeon_entrances_list:
-    #        connected_region = world.get_entrance(dungeon_entrance).connected_region
+    #    areas = []
+        # This won't work for Decoupled.
+    #    for dungeon_entrance_reverse in dungeon_entrances_reverse_list:
+    #        connected_region = world.get_entrance(dungeon_entrance_reverse).connected_region
     #        area = HintArea.at(connected_region)
-    #        dungeon_entrances += area.short_name.encode('ascii').ljust(0x16) + b'\0'
+    #        areas.append(area)
+    #        # Every area probably needs a shorter name.
+    #        dungeon_entrances += area.shorter_name.encode('ascii').ljust(0x8) + b'\0'
     #else:
-    #     dungeon_info.append(0)
+    #    dungeon_info.append(0)
+
+    #boss_lobby_list = ['Queen Gohma Boss Room', 'King Dodongo Boss Room', 'Barinade Boss Room',
+    #                   'Phantom Ganon Boss Room', 'Volvagia Boss Room', 'Morpha Boss Room',
+    #                   'Bongo Bongo Boss Room', 'Twinrova Boss Room', 'Ganons Castle Tower']
 
     # Same for bosses
     #if 'map_boss_location' in world.settings.enhance_map_compass and world.settings.shuffle_bosses != 'off':
     #    dungeon_info.append(2)
     #    for boss_region in boss_lobby_list:
     #        area = HintArea.at(world.get_region(boss_region))
-    #        bosses += area.short_name.encode('ascii').ljust(0x16) + b'\0'
+    #        bosses += area.shorter_name.encode('ascii').ljust(0x8) + b'\0'
     #else:
-    #     dungeon_info.append(0)
+    #    dungeon_info.append(0)
 
     rom.write_int32(rom.sym('CFG_DUNGEON_INFO_ENABLE'), 2)
     rom.write_int32(rom.sym('CFG_DUNGEON_INFO_MQ_ENABLE'), int(mq_enable))

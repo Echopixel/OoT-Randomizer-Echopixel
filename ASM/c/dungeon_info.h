@@ -18,6 +18,12 @@ typedef struct {
     uint8_t silver_rupee_puzzles_mq[4];
 } dungeon_entry_t;
 
+typedef struct {
+    uint8_t index;
+    uint8_t has_map;
+    char name[10];
+} boss_entry_t;
+
 extern int dungeon_count;
 extern dungeon_entry_t dungeons[14];
 
@@ -31,6 +37,9 @@ int dungeon_info_is_drawn();
 extern unsigned char CFG_DUNGEON_IS_MQ[14];
 extern uint32_t CFG_DUNGEON_INFO_ENABLE;
 extern uint8_t CFG_DPAD_DUNGEON_INFO_ENABLE;
+extern char CFG_DUNGEON_BOSS_INFO[14];
+extern char CFG_DUNGEON_ENTRANCES[12][0x9];
+extern char CFG_BOSSES[12][0x9];
 
 static int show_dungeon_info = 0;
 
