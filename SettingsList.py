@@ -925,7 +925,7 @@ class SettingInfos:
             ],
         },
     )
-    
+
     bridge_medallions_random = Checkbutton(
         gui_text         = "Random Number of Medallions for Rainbow Bridge",
         gui_tooltip      = '''\
@@ -958,7 +958,7 @@ class SettingInfos:
             'distribution':       [(6, 1)],
         },
     )
-    
+
     bridge_stones_random = Checkbutton(
         gui_text         = "Random Number of Spiritual Stones for Rainbow Bridge",
         gui_tooltip      = '''\
@@ -991,7 +991,7 @@ class SettingInfos:
             'distribution':       [(3, 1)],
         },
     )
-    
+
     bridge_rewards_random = Checkbutton(
         gui_text         = "Random Number of Dungeon Rewards for Rainbow Bridge",
         gui_tooltip      = '''\
@@ -1149,7 +1149,7 @@ class SettingInfos:
 
             'Hearts': Ganon's Castle Boss Key will be awarded
             when reaching the target number of hearts.
-            
+
             'Random': Ganon's Castle Boss Key requirement will be random excluding
             Gold Skulltulas or Hearts.
         ''',

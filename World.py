@@ -482,7 +482,7 @@ class World:
             or self.settings.bridge_rewards_random)
             and ('bridge' not in dist_keys
              or self.distribution.distribution.src_dict['_settings']['bridge'] == 'random')):
-            
+
             if self.settings.bridge == 'random':
                 possible_bridge_requirements = ["open", "medallions", "dungeons", "stones", "vanilla"]
                 self.settings.bridge = random.choice(possible_bridge_requirements)
