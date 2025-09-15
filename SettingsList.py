@@ -706,7 +706,7 @@ class SettingInfos:
             'randomize_key': 'randomize_settings',
         },
         disable        = {
-            True:  {'settings': ['shuffle_ganon_bosskey', 'ganon_bosskey_stones', 'ganon_bosskey_medallions', 'ganon_bosskey_stones_random', 'ganon_bosskey_medallions_random', 'ganon_bosskey_rewards_random' 'ganon_bosskey_rewards', 'ganon_bosskey_tokens', 'ganon_bosskey_hearts']},
+            True:  {'settings': ['shuffle_ganon_bosskey', 'ganon_bosskey_stones', 'ganon_bosskey_medallions', 'ganon_bosskey_stones_random', 'ganon_bosskey_medallions_random', 'ganon_bosskey_rewards_random', 'ganon_bosskey_rewards', 'ganon_bosskey_tokens', 'ganon_bosskey_hearts']},
             False: {'settings': ['triforce_count_per_world', 'triforce_goal_per_world']},
         },
     )
