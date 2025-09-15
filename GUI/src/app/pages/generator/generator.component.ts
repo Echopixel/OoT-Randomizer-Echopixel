@@ -1216,6 +1216,30 @@ export class GeneratorComponent implements OnInit {
       }
     }
 
+    // Per-option controls_visibility_section: disable targets only when that option is selected
+    for (const { setting: controller } of allSettings) {
+      if (!Array.isArray(controller.options) || controller.options.length === 0) continue;
+      const controllerType = detectType(controller);
+
+      for (const opt of controller.options) {
+        const rawSections = opt?.controls_visibility_section || '';
+        if (!rawSections) continue;
+
+        const sections = String(rawSections)
+          .split(',')
+          .map((t: string) => t.trim())
+          .filter((t: string) => t.length > 0);
+
+        const targets = sections.flatMap(expandSectionSettings);
+
+        for (const target of targets) {
+          if (target === controller.name) continue; // avoid self-disable
+          const bucket = touchControllerBucket(target, controller.name, controllerType);
+          bucket.clauses.push({ value: opt.name, negated: false });
+        }
+      }
+    }
+
     // controls_visibility_tab -> expand to all settings in those tabs
     for (const { setting: controller } of allSettings) {
       const rawTabs = controller.controls_visibility_tab || '';
@@ -1461,29 +1485,11 @@ export class GeneratorComponent implements OnInit {
     }
 
   private triggerSectionVisibility(targetSetting: any, targetValue: boolean, triggeredChange: boolean) {
-      targetSetting["controls_visibility_section"].split(",").forEach((sectionName: string) => {
-      let targetSection: any = null;
-
-      for (const tab of (this.global.getGlobalVar('generatorSettingsArray') || [])) {
-        const sec = tab?.sections?.find((s: any) => s?.name === sectionName);
-        if (sec) { targetSection = sec; break; }
-      }
-      if (!targetSection?.settings) return;
-
-      targetSection.settings.forEach((s: any) => {
-        if (!(s?.name in this.global.generator_settingsVisibilityMap)) return;
-        const prev = !!this.global.generator_settingsVisibilityMap[s.name];
-        if (prev !== targetValue) {
-          this.global.generator_settingsVisibilityMap[s.name] = targetValue;
-          triggeredChange = true;
-          this.visibilityDirty = true;
-        }
-      });
-    });
-    return triggeredChange;
-
-
-    }
+      // No imperative updates; section visibility is handled by recomputeVisibility using visibilityIndex.
+      // Just flag that visibility needs recomputation.
+      this.visibilityDirty = true;
+      return true;
+  }
 
   private triggerSettingVisibility(targetSetting: any, targetValue: boolean, triggeredChange: boolean) {
       targetSetting["controls_visibility_setting"].split(",").forEach(settingName => {
