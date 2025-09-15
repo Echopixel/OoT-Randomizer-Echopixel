@@ -908,9 +908,9 @@ class SettingInfos:
         ''',
         shared         = True,
         disable        = {
-            '!stones':     {'settings': ['bridge_stones']},
-            '!medallions': {'settings': ['bridge_medallions']},
-            '!dungeons':   {'settings': ['bridge_rewards']},
+            '!stones':     {'settings': ['bridge_stones', 'bridge_stones_random']},
+            '!medallions': {'settings': ['bridge_medallions', 'bridge_medallions_random']},
+            '!dungeons':   {'settings': ['bridge_rewards', 'bridge_rewards_random']},
             '!tokens':     {'settings': ['bridge_tokens']},
             '!hearts':     {'settings': ['bridge_hearts']},
         },
@@ -923,6 +923,22 @@ class SettingInfos:
                 ('medallions', 1),
                 ('dungeons',   1),
             ],
+        },
+    )
+    
+    bridge_medallions_random = Checkbutton(
+        gui_text         = "Random Number of Medallions for Rainbow Bridge",
+        gui_tooltip      = '''\
+            Sets a random number of medallions to spawn the rainbow bridge.
+        ''',
+        shared           = True,
+        disable          = {
+            True: {'settings': ['bridge_medallions']},
+        },
+        disabled_default = False,
+        gui_params       = {
+            'randomize_key': 'randomize_settings',
+            "hide_when_disabled": True,
         },
     )
 
@@ -942,6 +958,22 @@ class SettingInfos:
             'distribution':       [(6, 1)],
         },
     )
+    
+    bridge_stones_random = Checkbutton(
+        gui_text         = "Random Number of Spiritual Stones for Rainbow Bridge",
+        gui_tooltip      = '''\
+            Sets a random number of spiritual stones to spawn the rainbow bridge.
+        ''',
+        shared           = True,
+        disable          = {
+            True: {'settings': ['bridge_stones']},
+        },
+        disabled_default = False,
+        gui_params       = {
+            'randomize_key': 'randomize_settings',
+            "hide_when_disabled": True,
+        },
+    )
 
     bridge_stones = Scale(
         gui_text         = "Spiritual Stones Required for Bridge",
@@ -957,6 +989,22 @@ class SettingInfos:
             "randomize_key":      "randomize_settings",
             "hide_when_disabled": True,
             'distribution':       [(3, 1)],
+        },
+    )
+    
+    bridge_rewards_random = Checkbutton(
+        gui_text         = "Random Number of Dungeon Rewards for Rainbow Bridge",
+        gui_tooltip      = '''\
+            Sets a random number of dungeon rewards to spawn the rainbow bridge.
+        ''',
+        shared           = True,
+        disable          = {
+            True: {'settings': ['bridge_rewards']},
+        },
+        disabled_default = False,
+        gui_params       = {
+            'randomize_key': 'randomize_settings',
+            "hide_when_disabled": True,
         },
     )
 
@@ -1159,9 +1207,9 @@ class SettingInfos:
     )
 
     ganon_bosskey_stones_random = Checkbutton(
-        gui_text         = "Random Number of Stones for Ganon's BK",
+        gui_text         = "Random Number of Spiritual Stones for Ganon's BK",
         gui_tooltip      = '''\
-            Sets a random number of medallions to receive Ganon's Castle Boss Key.
+            Sets a random number of spiritual stones to receive Ganon's Castle Boss Key.
         ''',
         shared           = True,
         disable          = {
@@ -1192,9 +1240,9 @@ class SettingInfos:
     )
 
     ganon_bosskey_rewards_random = Checkbutton(
-        gui_text         = "Random Number of Stones for Ganon's BK",
+        gui_text         = "Random Number of Dungeon Rewards for Ganon's BK",
         gui_tooltip      = '''\
-            Sets a random number of medallions to receive Ganon's Castle Boss Key.
+            Sets a random number of dungeon rewards to receive Ganon's Castle Boss Key.
         ''',
         shared           = True,
         disable          = {
