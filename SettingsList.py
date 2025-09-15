@@ -5730,6 +5730,3 @@ for info in SettingInfos.setting_infos.values():
             for tab in disabling.get('tabs', []):
                 for setting_name in get_settings_from_tab(tab):
                     SettingInfos.setting_infos[setting_name].create_dependency(info, option, negative)
-# SettingInfos.setting_infos['ganon_bosskey_medallions'].dependency = \
-#     lambda settings: (settings.get('shuffle_ganon_bosskey') != 'medallions') or (settings.get('ganon_bosskey_medallions_random'))
-
