@@ -395,6 +395,17 @@ class World:
             self.settings.bridge_stones = random.randint(1, 3)
             self.randomized_list.append('bridge_stones')
 
+    def set_random_ganon_bosskey_values(self) -> None:
+        if self.settings.shuffle_ganon_bosskey == 'medallions':
+            self.settings.ganon_bosskey_medallions = random.randint(1, 6)
+            self.randomized_list.append('ganon_bosskey_medallions')
+        if self.settings.ganon_bosskey_rewards == 'dungeons':
+            self.settings.ganon_bosskey_rewards = random.randint(1, 9)
+            self.randomized_list.append('ganon_bosskey_rewards')
+        if self.settings.shuffle_ganon_bosskey == 'stones':
+            self.settings.ganon_bosskey_stones = random.randint(1, 3)
+            self.randomized_list.append('ganon_bosskey_stones')
+
     def resolve_random_settings(self) -> None:
         # evaluate settings (important for logic, nice for spoiler)
         self.randomized_list = []
@@ -549,6 +560,23 @@ class World:
 
         self.settings.mq_dungeons_count = list(self.dungeon_mq.values()).count(True)
         self.distribution.configure_randomized_settings(self)
+
+        # Handle random Ganon Boss Key condition and determine requirements
+        if ((self.settings.shuffle_ganon_bosskey == 'random'
+                or self.settings.ganon_bosskey_stones_random
+                or self.settings.ganon_bosskey_medallions_random
+                or self.settings.ganon_bosskey_rewards_random)
+                and ('shuffle_ganon_bosskey' not in dist_keys
+                     or self.distribution.distribution.src_dict['_settings']['shuffle_ganon_bosskey'] == 'random')):
+
+            # Select the random boss key requirement if it is set to Random in general
+            if self.settings.shuffle_ganon_bosskey == 'random':
+                possible_ganon_boss_key_requirements = ["remove", "vanilla", "dungeon", "regional", "overworld",
+                                                    "any_dungeon", "keysanity", "on_lacs", "stones", "medallions",
+                                                    "dungeons"]
+                self.settings.shuffle_ganon_bosskey = random.choice(possible_ganon_boss_key_requirements)
+            self.set_random_ganon_bosskey_values()
+            self.randomized_list.append('shuffle_ganon_bosskey')
 
         # Determine puzzles with silver rupee pouches
         if self.settings.silver_rupee_pouches_choice == 'random':

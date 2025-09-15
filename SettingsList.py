@@ -1059,6 +1059,7 @@ class SettingInfos:
             'dungeons':        "Dungeon Rewards",
             'tokens':          "Tokens",
             'hearts':          "Hearts",
+            'random':          "Random",
         },
         gui_tooltip      = '''\
             'Remove': Ganon's Castle Boss Key is removed
@@ -1100,12 +1101,15 @@ class SettingInfos:
 
             'Hearts': Ganon's Castle Boss Key will be awarded
             when reaching the target number of hearts.
+            
+            'Random': Ganon's Castle Boss Key requirement will be random excluding
+            Gold Skulltulas or Hearts.
         ''',
         shared           = True,
         disable          = {
-            '!stones':      {'settings': ['ganon_bosskey_stones']},
+            '!stones':      {'settings': ['ganon_bosskey_stones', 'ganon_bosskey_stones_random']},
             '!medallions':  {'settings': ['ganon_bosskey_medallions', 'ganon_bosskey_medallions_random']},
-            '!dungeons':    {'settings': ['ganon_bosskey_rewards']},
+            '!dungeons':    {'settings': ['ganon_bosskey_rewards', 'ganon_bosskey_rewards_random']},
             '!tokens':      {'settings': ['ganon_bosskey_tokens']},
             '!hearts':      {'settings': ['ganon_bosskey_hearts']},
         },
@@ -1122,15 +1126,16 @@ class SettingInfos:
     )
 
     ganon_bosskey_medallions_random = Checkbutton(
-        gui_text="Random Number of Medallions for Ganon's BK",
-        gui_tooltip='''\
-                Sets a random number of medallions to receive Ganon's Castle Boss Key.
-            ''',
-        shared=True,
-        disable= {
+        gui_text         = "Random Number of Medallions for Ganon's BK",
+        gui_tooltip      = '''\
+            Sets a random number of medallions to receive Ganon's Castle Boss Key.
+        ''',
+        shared           = True,
+        disable          = {
             True: {'settings': ['ganon_bosskey_medallions']},
         },
-        gui_params={
+        disabled_default = False,
+        gui_params       = {
             'randomize_key': 'randomize_settings',
             "hide_when_disabled": True,
         },
@@ -1153,6 +1158,22 @@ class SettingInfos:
         },
     )
 
+    ganon_bosskey_stones_random = Checkbutton(
+        gui_text         = "Random Number of Stones for Ganon's BK",
+        gui_tooltip      = '''\
+            Sets a random number of medallions to receive Ganon's Castle Boss Key.
+        ''',
+        shared           = True,
+        disable          = {
+            True: {'settings': ['ganon_bosskey_stones']},
+        },
+        disabled_default = False,
+        gui_params       = {
+            'randomize_key': 'randomize_settings',
+            "hide_when_disabled": True,
+        },
+    )
+
     ganon_bosskey_stones = Scale(
         gui_text         = "Spiritual Stones Required for Ganon's BK",
         default          = 3,
@@ -1167,6 +1188,22 @@ class SettingInfos:
             "randomize_key":      "randomize_settings",
             "hide_when_disabled": True,
             'distribution':       [(3, 1)],
+        },
+    )
+
+    ganon_bosskey_rewards_random = Checkbutton(
+        gui_text         = "Random Number of Stones for Ganon's BK",
+        gui_tooltip      = '''\
+            Sets a random number of medallions to receive Ganon's Castle Boss Key.
+        ''',
+        shared           = True,
+        disable          = {
+            True: {'settings': ['ganon_bosskey_rewards']},
+        },
+        disabled_default = False,
+        gui_params       = {
+            'randomize_key': 'randomize_settings',
+            "hide_when_disabled": True,
         },
     )
 
