@@ -1405,30 +1405,30 @@ def update_warp_song_text(messages: list[Message], world: World) -> None:
             update_message_by_id(messages, id, new_msg)
 
 def update_map_compass_messages(messages: list[Message], world: World):
-    from Hints import HintArea
+    from Hints import HintArea, GossipText
     if world.settings.enhance_map_compass and world.settings.shuffle_mapcompass != 'remove' and world.settings.world_count == 1:
         dungeon_list = {
             #                      dungeon name                      compass map  name of the entrance leading to the boss
-            'Deku Tree':          ("the \x05\x42Deku Tree",          0x62, 0x88, 'Deku Tree Before Boss -> Queen Gohma Boss Room'),
-            'Dodongos Cavern':    ("\x05\x41Dodongo\'s Cavern",      0x63, 0x89, 'Dodongos Cavern Before Boss -> King Dodongo Boss Room'),
-            'Jabu Jabus Belly':   ("\x05\x43Jabu Jabu\'s Belly",     0x64, 0x8a, 'Jabu Jabus Belly Before Boss -> Barinade Boss Room'),
-            'Forest Temple':      ("the \x05\x42Forest Temple",      0x65, 0x8b, 'Forest Temple Before Boss -> Phantom Ganon Boss Room'),
-            'Fire Temple':        ("the \x05\x41Fire Temple",        0x7c, 0x8c, 'Fire Temple Before Boss -> Volvagia Boss Room'),
-            'Water Temple':       ("the \x05\x43Water Temple",       0x7d, 0x8e, 'Water Temple Before Boss -> Morpha Boss Room'),
-            'Spirit Temple':      ("the \x05\x46Spirit Temple",      0x7e, 0x8f, 'Shadow Temple Before Boss -> Bongo Bongo Boss Room'),
+            'Deku Tree':          ("the \x05\x42Deku Tree",          0x62, 0x88, "Deku Tree Before Boss -> Queen Gohma Boss Room"),
+            'Dodongos Cavern':    ("\x05\x41Dodongo\'s Cavern",      0x63, 0x89, "Dodongos Cavern Before Boss -> King Dodongo Boss Room"),
+            'Jabu Jabus Belly':   ("\x05\x43Jabu Jabu\'s Belly",     0x64, 0x8a, "Jabu Jabus Belly Before Boss -> Barinade Boss Room"),
+            'Forest Temple':      ("the \x05\x42Forest Temple",      0x65, 0x8b, "Forest Temple Before Boss -> Phantom Ganon Boss Room"),
+            'Fire Temple':        ("the \x05\x41Fire Temple",        0x7c, 0x8c, "Fire Temple Before Boss -> Volvagia Boss Room"),
+            'Water Temple':       ("the \x05\x43Water Temple",       0x7d, 0x8e, "Water Temple Before Boss -> Morpha Boss Room"),
+            'Spirit Temple':      ("the \x05\x46Spirit Temple",      0x7e, 0x8f, "Shadow Temple Before Boss -> Bongo Bongo Boss Room"),
             'Ice Cavern':         ("the \x05\x44Ice Cavern",         0x87, 0x92),
             'Bottom of the Well': ("the \x05\x45Bottom of the Well", 0xa2, 0xa5),
-            'Shadow Temple':      ("the \x05\x45Shadow Temple",      0x7f, 0xa3, 'Spirit Temple Before Boss -> Twinrova Boss Room'),
+            'Shadow Temple':      ("the \x05\x45Shadow Temple",      0x7f, 0xa3, "Spirit Temple Before Boss -> Twinrova Boss Room"),
         }
-        dungeon_entrances_list = ['KF Outside Deku Tree -> Deku Tree Lobby', 'Death Mountain -> Dodongos Cavern Beginning', 'Zoras Fountain -> Jabu Jabus Belly Beginning',
-                              'SFM Forest Temple Entrance Ledge -> Forest Temple Lobby', 'DMC Fire Temple Entrance -> Fire Temple Lower', 'Lake Hylia -> Water Temple Lobby',
-                              'Graveyard Warp Pad Region -> Shadow Temple Entryway', 'Desert Colossus -> Spirit Temple Lobby', 'Kakariko Village -> Bottom of the Well',
-                              'ZF Ice Ledge -> Ice Cavern Beginning', 'Gerudo Fortress -> Gerudo Training Ground Lobby', 'Ganons Castle Ledge -> Ganons Castle Lobby']
+        dungeon_entrances_list = ["KF Outside Deku Tree -> Deku Tree Lobby", "Death Mountain -> Dodongos Cavern Beginning", "Zoras Fountain -> Jabu Jabus Belly Beginning",
+                              "SFM Forest Temple Entrance Ledge -> Forest Temple Lobby", "DMC Fire Temple Entrance -> Fire Temple Lower", "Lake Hylia -> Water Temple Lobby",
+                              "Graveyard Warp Pad Region -> Shadow Temple Entryway", "Desert Colossus -> Spirit Temple Lobby", "Kakariko Village -> Bottom of the Well",
+                              "ZF Ice Ledge -> Ice Cavern Beginning", "Gerudo Fortress -> Gerudo Training Ground Lobby", "Ganons Castle Ledge -> Ganons Castle Lobby"]
 
-        dungeon_textbox_list = ['the \x05\x42Deku Tree', '\x05\x41Dodongo\'s Cavern', '\x05\x43Jabu Jabu\'s Belly',
-                              'the \x05\x42Forest Temple', 'the \x05\x41Fire Temple', 'the \x05\x43Water Temple',
-                              'the \x05\x45Shadow Temple', 'the \x05\x46Spirit Temple', 'the \x05\x45Bottom of the Well',
-                              'the \x05\x44Ice Cavern', '\x05\x46Gerudo Training Grounds', '\x05\x41Ganons Castle']
+        dungeon_textbox_list = ["the \x05\x42Deku Tree", "\x05\x41Dodongo\'s Cavern", "\x05\x43Jabu Jabu\'s Belly",
+                              "the \x05\x42Forest Temple", "the \x05\x41Fire Temple", "the \x05\x43Water Temple",
+                              "the \x05\x45Shadow Temple", "the \x05\x46Spirit Temple", "the \x05\x45Bottom of the Well",
+                              "the \x05\x44Ice Cavern", '\x05\x46Gerudo Training Grounds', "\x05\x41Ganons Castle"]
 
         dungeon_entrances = []
         if 'map_dungeon_location' in world.settings.enhance_map_compass and world.settings.shuffle_dungeon_entrances != 'off':
@@ -1436,16 +1436,16 @@ def update_map_compass_messages(messages: list[Message], world: World):
                 connected_region = world.get_entrance(dungeon_entrance).connected_region
                 dungeon_entrances.append(connected_region.name)
 
-        boss_textboxes = {'Queen Gohma Boss Room': '\x05\x41Queen Gohma',
-                          'King Dodongo Boss Room': '\x05\x41King Dodongo',
-                          'Barinade Boss Room': '\x05\x41Barinade',
-                          'Phantom Ganon Boss Room': '\x05\x41Phantom Ganon',
-                          'Volvagia Boss Room': '\x05\x41Volvagia',
-                          'Morpha Boss Room': '\x05\x41Morpha',
-                          'Bongo Bongo Boss Room': '\x05\x41Bongo Bongo',
-                          'Twinrova Boss Room': '\x05\x41Twinrova',
-                          'Ganons Castle Tower': '\x05\x41Ganondorf',
-                        }
+        boss_textboxes = {'Queen Gohma Boss Room': "\x05\x41Queen Gohma",
+                          'King Dodongo Boss Room': "\x05\x41King Dodongo",
+                          'Barinade Boss Room': "\x05\x41Barinade",
+                          'Phantom Ganon Boss Room': "\x05\x41Phantom Ganon",
+                          'Volvagia Boss Room': "\x05\x41Volvagia",
+                          'Morpha Boss Room': "\x05\x41Morpha",
+                          'Bongo Bongo Boss Room': "\x05\x41Bongo Bongo",
+                          'Twinrova Boss Room': "\x05\x41Twinrova",
+                          'Ganons Castle Tower': "\x05\x41Ganondorf",
+        }
 
         for dungeon in world.dungeons:
             if dungeon.name in ('Gerudo Training Ground', 'Ganons Castle'):
@@ -1457,13 +1457,13 @@ def update_map_compass_messages(messages: list[Message], world: World):
                     if dungeon.name not in ('Dodongos Cavern', 'Jabu Jabus Belly'):
                         dungeon_name = dungeon_name.split(' ', 1)[1] # Remove the "the" to make room.
                     if 'map_mq' in world.settings.enhance_map_compass and (world.settings.mq_dungeons_mode == 'random' or world.settings.mq_dungeons_count != 0 and world.settings.mq_dungeons_count != 12):
-                        map_message = f"\x13\x76\x08You found the \x05\x41Map\x05\x40 for {'\x05\x41masterful' if world.dungeon_mq[dungeon.name] else '\x05\x42ordinary'}\x01{dungeon_name}\x05\x40! This dungeon\x01is at {dungeon_textbox_list[dungeon_index[0]]}!\x05\x40\x09"
+                        map_message = f"\x13\x76\x08You found the \x05\x41Map\x05\x40 for {COLOR_MAP['Red'] + 'masterful' if world.dungeon_mq[dungeon.name] else COLOR_MAP['Green'] + 'ordinary'}\x01{dungeon_name}\x05\x40! This dungeon\x01is at {dungeon_textbox_list[dungeon_index[0]]}!\x05\x40\x09"
                     else:
                         map_message = f"\x13\x76\x08You found the \x05\x41Map\x05\x40 for\x01{dungeon_name}\x05\x40!\x01This dungeon is at \x01{dungeon_textbox_list[dungeon_index[0]]}!\x05\x40\x09"
                     update_message_by_id(messages, map_id, map_message, allow_duplicates=True)
                 else:
                     if 'map_mq' in world.settings.enhance_map_compass:
-                        map_message = f"\x13\x76\x08You found the \x05\x41Map\x05\x40\x01for {dungeon_name}\x05\x40!\x01It\'s {'\x05\x41masterful' if world.dungeon_mq[dungeon.name] else '\x05\x42ordinary'}!\x09"
+                        map_message = f"\x13\x76\x08You found the \x05\x41Map\x05\x40\x01for {dungeon_name}\x05\x40!\x01It\'s {COLOR_MAP['Red'] + 'masterful' if world.dungeon_mq[dungeon.name] else COLOR_MAP['Green'] + 'ordinary'}!\x09"
                         if world.settings.mq_dungeons_mode == 'random' or world.settings.mq_dungeons_count != 0 and world.settings.mq_dungeons_count != 12:
                             update_message_by_id(messages, map_id, map_message, allow_duplicates=True)
             else:
@@ -1491,12 +1491,12 @@ def update_map_compass_messages(messages: list[Message], world: World):
                     if 'map_boss_location' in world.settings.enhance_map_compass and world.settings.shuffle_bosses != 'off':
                         boss_room = world.get_entrance(boss_entrance).connected_region.name
                         if 'map_mq' in world.settings.enhance_map_compass and (world.settings.mq_dungeons_mode == 'random' or world.settings.mq_dungeons_count != 0 and world.settings.mq_dungeons_count != 12):
-                            map_message = f"\x13\x76\x08You found the \x05\x41Map\x05\x40 for {'\x05\x41masterful' if world.dungeon_mq[dungeon.name] else '\x05\x42ordinary'}\x01{dungeon_name}\x05\x40! This dungeon\x01is at {dungeon_textbox_list[dungeon_index[0]]}\x05\x40,\x01and {boss_textboxes[boss_room]}\x05\x40 lurks within!\x05\x40\x09"
+                            map_message = f"\x13\x76\x08You found the \x05\x41Map\x05\x40 for {COLOR_MAP['Red'] + 'masterful' if world.dungeon_mq[dungeon.name] else COLOR_MAP['Green'] + 'ordinary'}\x01{dungeon_name}\x05\x40! This dungeon\x01is at {dungeon_textbox_list[dungeon_index[0]]}\x05\x40,\x01and {boss_textboxes[boss_room]}\x05\x40 lurks within!\x05\x40\x09"
                         else:
                             map_message = f"\x13\x76\x08You found the \x05\x41Map\x05\x40 for\x01{dungeon_name}\x05\x40! This dungeon is\x01at {dungeon_textbox_list[dungeon_index[0]]}\x05\x40, and\x01{boss_textboxes[boss_room]}\x05\x40 lurks within!\x05\x40\x09"
                     else:
                         if 'map_mq' in world.settings.enhance_map_compass and (world.settings.mq_dungeons_mode == 'random' or world.settings.mq_dungeons_count != 0 and world.settings.mq_dungeons_count != 12):
-                            map_message = f"\x13\x76\x08You found the \x05\x41Map\x05\x40 for {'\x05\x41masterful' if world.dungeon_mq[dungeon.name] else '\x05\x42ordinary'}\x01{dungeon_name}\x05\x40! This dungeon\x01is at {dungeon_textbox_list[dungeon_index[0]]}\x05\x40!\x09"
+                            map_message = f"\x13\x76\x08You found the \x05\x41Map\x05\x40 for {COLOR_MAP['Red'] + 'masterful' if world.dungeon_mq[dungeon.name] else COLOR_MAP['Green'] + 'ordinary'}\x01{dungeon_name}\x05\x40! This dungeon\x01is at {dungeon_textbox_list[dungeon_index[0]]}\x05\x40!\x09"
                         else:
                             map_message = f"\x13\x76\x08You found the \x05\x41Map\x05\x40 for\x01{dungeon_name}\x05\x40! This dungeon is\x01at {dungeon_textbox_list[dungeon_index[0]]}\x05\x40!\x09"
                     update_message_by_id(messages, map_id, map_message, allow_duplicates=True)
@@ -1506,10 +1506,10 @@ def update_map_compass_messages(messages: list[Message], world: World):
                         if dungeon.name not in ('Dodongos Cavern', 'Jabu Jabus Belly'):
                             dungeon_name = dungeon_name.split(' ', 1)[1] # Remove the "the" to make room.
                         if 'map_mq' in world.settings.enhance_map_compass and (world.settings.mq_dungeons_mode == 'random' or world.settings.mq_dungeons_count != 0 and world.settings.mq_dungeons_count != 12):
-                            map_message = f"\x13\x76\x08You found the \x05\x41Map\x05\x40 for {'\x05\x41masterful' if world.dungeon_mq[dungeon.name] else '\x05\x42ordinary'}\x01{dungeon_name}\x05\x40!\x01In this dungeon, {boss_textboxes[boss_room]}\x05\x40\x01lurks within!\x05\x40\x09"
+                            map_message = f"\x13\x76\x08You found the \x05\x41Map\x05\x40 for {COLOR_MAP['Red'] + 'masterful' if world.dungeon_mq[dungeon.name] else COLOR_MAP['Green'] + 'ordinary'}\x01{dungeon_name}\x05\x40!\x01In this dungeon, {boss_textboxes[boss_room]}\x05\x40\x01lurks within!\x05\x40\x09"
                         else:
                             map_message = f"\x13\x76\x08You found the \x05\x41Map\x05\x40 for\x01{dungeon_name}\x05\x40!\x01In this dungeon, {boss_textboxes[boss_room]}\x05\x40\x01lurks within!\x05\x40\x09"
                     else:
                         if 'map_mq' in world.settings.enhance_map_compass and (world.settings.mq_dungeons_mode == 'random' or world.settings.mq_dungeons_count != 0 and world.settings.mq_dungeons_count != 12):
-                            map_message = f"\x13\x76\x08You found the \x05\x41Map\x05\x40 for\x01{dungeon_name}\x05\x40!\x01It\'s {'\x05\x41masterful' if world.dungeon_mq[dungeon.name] else '\x05\x42ordinary'}!\x09"
+                            map_message = f"\x13\x76\x08You found the \x05\x41Map\x05\x40 for\x01{dungeon_name}\x05\x40!\x01It\'s {COLOR_MAP['Red'] + 'masterful' if world.dungeon_mq[dungeon.name] else COLOR_MAP['Green'] + 'ordinary'}!\x09"
                     update_message_by_id(messages, map_id, map_message, allow_duplicates=True)

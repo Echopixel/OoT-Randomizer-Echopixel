@@ -420,6 +420,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "address": "034A4E38",
         "length": 0
     },
@@ -453,6 +454,13 @@
     "DPAD_RESOURCE_END": {
         "address": "034A6570",
 >>>>>>> 05e66414 (More mixed pools preparation, put menu on dpad and improve map textbox)
+=======
+        "address": "034A5D78",
+        "length": 0
+    },
+    "DPAD_RESOURCE_END": {
+        "address": "034A6578",
+>>>>>>> b21d07df (Fix Messages errors and don't show dpad if setting is disabled)
         "length": 0
     },
     "DUNGEONS_SHUFFLED": {
@@ -504,6 +512,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "address": "034A4BC0",
         "length": 4
     },
@@ -528,17 +537,21 @@
 =======
         "address": "034A5AF8",
 >>>>>>> 05e66414 (More mixed pools preparation, put menu on dpad and improve map textbox)
+=======
+        "address": "034A5B00",
+>>>>>>> b21d07df (Fix Messages errors and don't show dpad if setting is disabled)
         "length": 4
     },
     "FONT_CHAR_TEX_WIDTH": {
-        "address": "034A5AFC",
+        "address": "034A5B04",
         "length": 4
     },
     "FONT_RESOURCE": {
-        "address": "034A6570",
+        "address": "034A6578",
         "length": 0
     },
     "FONT_RESOURCE_END": {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -553,6 +566,9 @@
 =======
         "address": "034A7A38",
 >>>>>>> 05e66414 (More mixed pools preparation, put menu on dpad and improve map textbox)
+=======
+        "address": "034A7A40",
+>>>>>>> b21d07df (Fix Messages errors and don't show dpad if setting is disabled)
         "length": 0
     },
     "FREE_BOMBCHU_DROPS": {
@@ -680,6 +696,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "address": "034A4BBC",
 =======
         "address": "034A52BC",
@@ -693,6 +710,9 @@
 =======
         "address": "034A5AF4",
 >>>>>>> 05e66414 (More mixed pools preparation, put menu on dpad and improve map textbox)
+=======
+        "address": "034A5AFC",
+>>>>>>> b21d07df (Fix Messages errors and don't show dpad if setting is disabled)
         "length": 4
     },
     "OCARINAS_SHUFFLED": {
@@ -792,6 +812,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "address": "034A4818",
 =======
         "address": "034A4F18",
@@ -805,6 +826,9 @@
 =======
         "address": "034A5750",
 >>>>>>> 05e66414 (More mixed pools preparation, put menu on dpad and improve map textbox)
+=======
+        "address": "034A5758",
+>>>>>>> b21d07df (Fix Messages errors and don't show dpad if setting is disabled)
         "length": 1
     },
     "REWARDS_AS_ITEMS": {
@@ -920,6 +944,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "address": "034A6B00",
         "length": 0
     },
@@ -953,6 +978,13 @@
     "TRIFORCE_SPRITE_RESOURCE_END": {
         "address": "034A8A38",
 >>>>>>> 05e66414 (More mixed pools preparation, put menu on dpad and improve map textbox)
+=======
+        "address": "034A7A40",
+        "length": 0
+    },
+    "TRIFORCE_SPRITE_RESOURCE_END": {
+        "address": "034A8A40",
+>>>>>>> b21d07df (Fix Messages errors and don't show dpad if setting is disabled)
         "length": 0
     },
     "TWINROVA_ACTION_TIMER": {
@@ -1679,19 +1711,19 @@
         "length": 3
     },
     "debug_text_height": {
-        "address": "034A5538",
+        "address": "034A5540",
         "length": 1
     },
     "debug_text_width": {
-        "address": "034A5539",
+        "address": "034A5541",
         "length": 1
     },
     "defaultDDHeart": {
-        "address": "034A57C4",
+        "address": "034A57CC",
         "length": 6
     },
     "defaultHeart": {
-        "address": "034A57CC",
+        "address": "034A57D4",
         "length": 6
     },
     "deku_rooms": {
@@ -1759,7 +1791,7 @@
         "length": 312
     },
     "freecam_modes": {
-        "address": "034A55F8",
+        "address": "034A5600",
         "length": 66
     },
     "ganon_rooms": {
@@ -1795,7 +1827,7 @@
         "length": 260
     },
     "icon_sprites": {
-        "address": "034A56C8",
+        "address": "034A56D0",
         "length": 12
     },
     "illegal_model": {
@@ -1807,19 +1839,19 @@
         "length": 2
     },
     "input_icon_height": {
-        "address": "034A57DE",
+        "address": "034A57E6",
         "length": 1
     },
     "input_icon_width": {
-        "address": "034A57DF",
+        "address": "034A57E7",
         "length": 1
     },
     "input_number_height": {
-        "address": "034A57DC",
+        "address": "034A57E4",
         "length": 1
     },
     "input_number_width": {
-        "address": "034A57DD",
+        "address": "034A57E5",
         "length": 1
     },
     "item_digit_sprite": {
@@ -1867,7 +1899,7 @@
         "length": 4
     },
     "left_alignment": {
-        "address": "034A57DA",
+        "address": "034A57E2",
         "length": 2
     },
     "linkhead_skull_sprite": {
@@ -1963,7 +1995,7 @@
         "length": 256
     },
     "rupee_colors": {
-        "address": "034A57B8",
+        "address": "034A57C0",
         "length": 12
     },
     "rupee_digit_sprite": {
@@ -2035,11 +2067,11 @@
         "length": 4
     },
     "text_height": {
-        "address": "034A5940",
+        "address": "034A5948",
         "length": 4
     },
     "text_width": {
-        "address": "034A5944",
+        "address": "034A594C",
         "length": 4
     },
     "texture_table": {
@@ -2047,11 +2079,11 @@
         "length": 496
     },
     "top_alignment": {
-        "address": "034A57D8",
+        "address": "034A57E0",
         "length": 2
     },
     "trade_quest_items": {
-        "address": "034A5B08",
+        "address": "034A5B10",
         "length": 616
     },
     "treasure_chest_game_show_message": {
