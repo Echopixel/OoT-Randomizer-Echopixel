@@ -386,13 +386,13 @@ class World:
 
     def set_random_bridge_values(self) -> None:
         if self.settings.bridge == 'medallions':
-            self.settings.bridge_medallions = 6
+            self.settings.bridge_medallions = random.randint(1, 6)
             self.randomized_list.append('bridge_medallions')
         if self.settings.bridge == 'dungeons':
-            self.settings.bridge_rewards = 9
+            self.settings.bridge_rewards = random.randint(1, 9)
             self.randomized_list.append('bridge_rewards')
         if self.settings.bridge == 'stones':
-            self.settings.bridge_stones = 3
+            self.settings.bridge_stones = random.randint(1, 3)
             self.randomized_list.append('bridge_stones')
 
     def resolve_random_settings(self) -> None:

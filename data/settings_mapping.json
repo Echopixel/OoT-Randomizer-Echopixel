@@ -233,6 +233,7 @@
             "keyring_give_bk",
             "shuffle_bosskeys",
             "shuffle_ganon_bosskey",
+            "ganon_bosskey_medallions_random",
             "ganon_bosskey_medallions",
             "ganon_bosskey_stones",
             "ganon_bosskey_rewards",

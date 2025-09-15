@@ -706,7 +706,7 @@ class SettingInfos:
             'randomize_key': 'randomize_settings',
         },
         disable        = {
-            True:  {'settings': ['shuffle_ganon_bosskey', 'ganon_bosskey_stones', 'ganon_bosskey_medallions', 'ganon_bosskey_rewards', 'ganon_bosskey_tokens', 'ganon_bosskey_hearts']},
+            True:  {'settings': ['shuffle_ganon_bosskey', 'ganon_bosskey_stones', 'ganon_bosskey_medallions', 'ganon_bosskey_medallions_random', 'ganon_bosskey_rewards', 'ganon_bosskey_tokens', 'ganon_bosskey_hearts']},
             False: {'settings': ['triforce_count_per_world', 'triforce_goal_per_world']},
         },
     )
@@ -1104,7 +1104,7 @@ class SettingInfos:
         shared           = True,
         disable          = {
             '!stones':      {'settings': ['ganon_bosskey_stones']},
-            '!medallions':  {'settings': ['ganon_bosskey_medallions']},
+            '!medallions':  {'settings': ['ganon_bosskey_medallions', 'ganon_bosskey_medallions_random']},
             '!dungeons':    {'settings': ['ganon_bosskey_rewards']},
             '!tokens':      {'settings': ['ganon_bosskey_tokens']},
             '!hearts':      {'settings': ['ganon_bosskey_hearts']},
@@ -1118,6 +1118,21 @@ class SettingInfos:
                 ('keysanity',       4),
                 ('on_lacs',         1),
             ],
+        },
+    )
+
+    ganon_bosskey_medallions_random = Checkbutton(
+        gui_text="Random Number of Medallions for Ganon's BK",
+        gui_tooltip='''\
+                Sets a random number of medallions to receive Ganon's Castle Boss Key.
+            ''',
+        shared=True,
+        disable= {
+            True: {'settings': ['ganon_bosskey_medallions']},
+        },
+        gui_params={
+            'randomize_key': 'randomize_settings',
+            "hide_when_disabled": True,
         },
     )
 
@@ -5715,3 +5730,6 @@ for info in SettingInfos.setting_infos.values():
             for tab in disabling.get('tabs', []):
                 for setting_name in get_settings_from_tab(tab):
                     SettingInfos.setting_infos[setting_name].create_dependency(info, option, negative)
+# SettingInfos.setting_infos['ganon_bosskey_medallions'].dependency = \
+#     lambda settings: (settings.get('shuffle_ganon_bosskey') != 'medallions') or (settings.get('ganon_bosskey_medallions_random'))
+
