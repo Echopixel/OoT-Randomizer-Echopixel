@@ -1586,7 +1586,7 @@ export class GeneratorComponent implements OnInit {
     this.inputOldValue = this.global.generator_settingsMap[settingName];
   }
 
-  inputFocusOut(settingName: string, saveOnly: boolean, forceNewValue: any = null) {
+  inputFocusOut(settingName: string, saveOnly: boolean, forceNewValue: any = null, setting: object | null = null) {
 
     let newValue = forceNewValue != null ? forceNewValue : this.global.generator_settingsMap[settingName];
 
@@ -1594,7 +1594,11 @@ export class GeneratorComponent implements OnInit {
     if (newValue != this.inputOldValue) {
       setTimeout(() => {
         this.global.generator_settingsMap[settingName] = newValue;
-        this.afterSettingChange(saveOnly);
+        if (setting == null) {
+          this.afterSettingChange(saveOnly);
+        } else {
+          this.checkVisibility(newValue, setting);
+        }
       }, 0);
     }
   }
@@ -1631,7 +1635,7 @@ export class GeneratorComponent implements OnInit {
         setTimeout(() => {
           this.global.generator_settingsMap[setting["name"]] = settingMin;
           this.cd.markForCheck();
-          this.afterSettingChange();
+          this.checkVisibility(settingMin, setting);
         }, 0);
       }
     }
@@ -1640,12 +1644,12 @@ export class GeneratorComponent implements OnInit {
         setTimeout(() => {
           this.global.generator_settingsMap[setting["name"]] = settingMax;
           this.cd.markForCheck();
-          this.afterSettingChange();
+          this.checkVisibility(settingMax, setting);
         }, 0);
       }
     }
     else { //Update setting with new number value
-      this.inputFocusOut(settingName, false, parseInt(newValue));
+      this.inputFocusOut(settingName, false, parseInt(newValue), setting);
     }
   }
 
