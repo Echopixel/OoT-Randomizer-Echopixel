@@ -399,7 +399,7 @@ class World:
         if self.settings.shuffle_ganon_bosskey == 'medallions':
             self.settings.ganon_bosskey_medallions = random.randint(1, 6)
             self.randomized_list.append('ganon_bosskey_medallions')
-        if self.settings.ganon_bosskey_rewards == 'dungeons':
+        if self.settings.shuffle_ganon_bosskey == 'dungeons':
             self.settings.ganon_bosskey_rewards = random.randint(1, 9)
             self.randomized_list.append('ganon_bosskey_rewards')
         if self.settings.shuffle_ganon_bosskey == 'stones':
