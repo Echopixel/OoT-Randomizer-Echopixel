@@ -3268,7 +3268,7 @@ class SettingInfos:
 
     random_starting_items_exclude = MultipleSelect(
         gui_text         = 'Exclude Item Types',
-        gui_tooltip    = '''\
+        gui_tooltip      = '''\
             Selections here will be excluded from the random starting item pool.
         ''',
         choices          = {
