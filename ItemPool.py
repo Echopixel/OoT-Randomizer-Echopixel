@@ -7,6 +7,7 @@ from typing import TYPE_CHECKING, Optional
 
 from Item import Item, ItemInfo, ItemFactory
 from Location import DisableType
+from LocationList import location_groups
 
 if TYPE_CHECKING:
     from Plandomizer import ItemPoolRecord
@@ -815,9 +816,9 @@ def get_pool_core(world: World) -> tuple[list[str], dict[str, Item]]:
                     shuffle_item = True
                 else:
                     if world.settings.shuffle_dungeon_rewards in ('any_dungeon', 'overworld', 'regional', 'anywhere'):
-                        possible_reward_locations = ["ToT Reward from Rauru", "Queen Gohma", "King Dodongo", "Barinade",
-                                                      "Phantom Ganon", "Volvagia", "Morpha", "Bongo Bongo", "Twinrova"]
-                        rauru_random_location: str = random.choice(possible_reward_locations)
+                        # Rauru is currently considered a "Boss" by location, may need to change this in the future.
+                        boss_locations = location_groups['Boss']
+                        rauru_random_location: str = random.choice(boss_locations)
                         item = world.get_location(rauru_random_location).vanilla_item
                     shuffle_item = False
         elif location.type == 'Boss':
