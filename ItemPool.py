@@ -1096,18 +1096,15 @@ def get_pool_core(world: World) -> tuple[list[str], dict[str, Item]]:
 def configure_random_starting_items_pool(world: World, pool: list[str]) -> list[str]:
     exclude_list = []
 
-    for exclusion in world.settings.random_starting_items_exclude:
-        if exclusion == 'bombchus':
-            exclude_list.extend([item for item in pool if 'Bombchus' in item])
-        elif exclusion == 'shields':
-            exclude_list.extend([item for item in item_groups['Shield']])
-        elif exclusion == 'deku_upgrades':
-            exclude_list.extend(['Deku Stick Capacity', 'Deku Nut Capacity'])
-        elif exclusion == 'health_upgrades':
-            exclude_list.extend([item for item in item_groups['HealthUpgrade']])
-        elif exclusion == 'junk':
-            exclude_list.extend([item for item in ItemInfo.junk_weight])
+    if 'bombchus' in world.settings.random_starting_items_exclude:
+        exclude_list.extend((item for item in pool if 'Bombchus' in item))
+    if 'shields' in world.settings.random_starting_items_exclude:
+        exclude_list.extend(item_groups['Shield'])
+    if 'deku_upgrades' in world.settings.random_starting_items_exclude:
+        exclude_list.extend(('Deku Stick Capacity', 'Deku Nut Capacity'))
+    if 'health_upgrades' in world.settings.random_starting_items_exclude:
+        exclude_list.extend(item_groups['HealthUpgrade'])
+    if 'junk' in world.settings.random_starting_items_exclude:
+        exclude_list.extend(ItemInfo.junk_weight)
 
-    ret = sorted({item for item in pool if item not in exclude_list}) # give each item the same weight regardless of how many copies there are
-
-    return ret
+    return sorted({item for item in pool if item not in exclude_list}) # give each item the same weight regardless of how many copies there are
