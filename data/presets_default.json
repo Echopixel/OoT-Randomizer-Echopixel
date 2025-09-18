@@ -561,7 +561,7 @@
             "zeldas_letter"
         ],
         "starting_songs": [
-            "prelude
+            "prelude"
         ],
         "add_random_starting_items": false,
         "random_starting_items_exclude": [],
