@@ -3289,7 +3289,6 @@ class SettingInfos:
             Configure the amount of random items to start with.
         ''',
         default          = 0,
-        disabled_default = 0,
         minimum          = 0,
         maximum          = 10,
         shared           = True,
