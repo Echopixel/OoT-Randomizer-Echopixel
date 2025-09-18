@@ -16,11 +16,14 @@
 * For consistency with other location types, excluded pot/crate/beehive/wonderitem/etc. locations no longer behave as if their shuffle setting was off.
 * The Triforce Piece counter display has been moved to a CRT-safe position.
 * Fix Complete Mask Quest not working if Zelda's Letter is found in Kakariko.
+* Fix a bug where some custom hint distributions could cause the generator to fail with a `TypeError`.
+* Limit length of plandomized text boxes to 1200 characters to prevent buffer overflow bugs.
 
 ## Other changes
 * Big poe souls can now be collected while riding Epona.
 * Ice traps have a new item model that's displayed instead of nothing after being picked up.
 * The professor in the lakeside lab now only takes 1 second instead of 6 to prepare the eyeball frog.
+* The text box that appears when collecting a gold skulltula token is no longer shuffled when `Text Shuffle` is set to `Shuffled except Important Text`.
 
 # 8.3
 
