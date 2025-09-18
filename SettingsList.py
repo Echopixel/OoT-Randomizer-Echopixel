@@ -3272,11 +3272,11 @@ class SettingInfos:
             Selections here will be excluded from the random starting item pool.
         ''',
         choices          = {
-            'bombchus': 'Bombchus',
-            'shields': 'Deku/Hylian Shields',
-            'deku_upgrades': 'Deku Stick/Nut Upgrades',
+            'bombchus':        'Bombchus',
+            'shields':         'Deku/Hylian Shields',
+            'deku_upgrades':   'Deku Stick/Nut Upgrades',
             'health_upgrades': 'Health Upgrades',
-            'junk': 'Junk Items'
+            'junk':            'Junk Items',
         },
         default          = [],
         disabled_default = [],
