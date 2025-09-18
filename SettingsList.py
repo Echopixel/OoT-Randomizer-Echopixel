@@ -3256,7 +3256,7 @@ class SettingInfos:
 
     add_random_starting_items = Checkbutton(
         gui_text         = 'Additional Random Starting Items',
-        gui_tooltip    = '''\
+        gui_tooltip      = '''\
             Begin the game with a configurable amount of randomly selected items in
             addition to your selections from the tables.
         ''',
