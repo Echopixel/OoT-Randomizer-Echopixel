@@ -3285,7 +3285,7 @@ class SettingInfos:
 
     random_starting_items_count = Scale(
         gui_text         = 'Amount of Items',
-        gui_tooltip    = '''\
+        gui_tooltip      = '''\
             Configure the amount of random items to start with.
         ''',
         default          = 0,
