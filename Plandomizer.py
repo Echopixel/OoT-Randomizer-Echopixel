@@ -1267,15 +1267,14 @@ class Distribution:
         for itemsetting in starting_items:
             if itemsetting in StartingItems.everything:
                 item = StartingItems.everything[itemsetting]
-                if not item.special:
-                    add_starting_item_with_ammo(data, item.item_name)
+                if self.settings.blue_fire_arrows and item.item_name == 'Ice Arrows':
+                    add_starting_item_with_ammo(data, 'Blue Fire Arrows')
+                elif item.item_name == 'Rutos Letter' and self.settings.zora_fountain != 'open':
+                    data['Rutos Letter'].count += 1
+                elif item.item_name in ('Bottle', 'Rutos Letter'):
+                    data['Bottle'].count += 1
                 else:
-                    if item.item_name == 'Rutos Letter' and self.settings.zora_fountain != 'open':
-                        data['Rutos Letter'].count += 1
-                    elif item.item_name in ('Bottle', 'Rutos Letter'):
-                        data['Bottle'].count += 1
-                    else:
-                        raise KeyError("invalid special item: {}".format(item.item_name))
+                    add_starting_item_with_ammo(data, item.item_name)
             else:
                 raise KeyError("invalid starting item: {}".format(itemsetting))
         self.settings.starting_equipment = []
