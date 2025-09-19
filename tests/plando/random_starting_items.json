@@ -2,6 +2,7 @@
     "settings": {
         "add_random_starting_items": true,
         "random_starting_items_exclude": [
+            "songs",
             "bombchus",
             "shields",
             "deku_upgrades",
