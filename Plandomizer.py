@@ -1272,7 +1272,7 @@ class Distribution:
                 elif item.item_name == 'Rutos Letter' and self.settings.zora_fountain != 'open':
                     data['Rutos Letter'].count += 1
                 elif item.item_name in ('Bottle', 'Rutos Letter'):
-                        data['Bottle'].count += 1
+                    data['Bottle'].count += 1
                 else:
                     add_starting_item_with_ammo(data, item.item_name)
             else:
