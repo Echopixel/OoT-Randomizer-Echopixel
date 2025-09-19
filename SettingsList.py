@@ -3272,6 +3272,7 @@ class SettingInfos:
             Selections here will be excluded from the random starting item pool.
         ''',
         choices          = {
+            'songs':           'Songs',
             'bombchus':        'Bombchus',
             'shields':         'Deku/Hylian Shields',
             'deku_upgrades':   'Deku Stick/Nut Upgrades',

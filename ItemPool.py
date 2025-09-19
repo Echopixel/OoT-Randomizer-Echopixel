@@ -1096,6 +1096,8 @@ def get_pool_core(world: World) -> tuple[list[str], dict[str, Item]]:
 def configure_random_starting_items_pool(world: World, pool: list[str]) -> list[str]:
     exclude_list = []
 
+    if 'songs' in world.settings.random_starting_items_exclude:
+        exclude_list.extend(item_groups['Song'])
     if 'bombchus' in world.settings.random_starting_items_exclude:
         exclude_list.extend((item for item in pool if 'Bombchus' in item))
     if 'shields' in world.settings.random_starting_items_exclude:
