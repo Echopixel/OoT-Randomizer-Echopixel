@@ -18,6 +18,7 @@
 * Fix Complete Mask Quest not working if Zelda's Letter is found in Kakariko.
 * Fix a bug where some custom hint distributions could cause the generator to fail with a `TypeError`.
 * Limit length of plandomized text boxes to 1200 characters to prevent buffer overflow bugs.
+* Fix Blue Fire Arrows being logically treated as Ice Arrows when selected as a starting item.
 
 ## Other changes
 * Big poe souls can now be collected while riding Epona.
