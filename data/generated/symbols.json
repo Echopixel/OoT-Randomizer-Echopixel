@@ -404,11 +404,11 @@
         "length": 1
     },
     "DPAD_RESOURCE": {
-        "address": "034A4E30",
+        "address": "034A4E38",
         "length": 0
     },
     "DPAD_RESOURCE_END": {
-        "address": "034A5630",
+        "address": "034A5638",
         "length": 0
     },
     "DUNGEONS_SHUFFLED": {
@@ -456,19 +456,19 @@
         "length": 160
     },
     "FONT_CHAR_TEX_HEIGHT": {
-        "address": "034A4BB8",
+        "address": "034A4BC0",
         "length": 4
     },
     "FONT_CHAR_TEX_WIDTH": {
-        "address": "034A4BBC",
+        "address": "034A4BC4",
         "length": 4
     },
     "FONT_RESOURCE": {
-        "address": "034A5630",
+        "address": "034A5638",
         "length": 0
     },
     "FONT_RESOURCE_END": {
-        "address": "034A6AF8",
+        "address": "034A6B00",
         "length": 0
     },
     "FREE_BOMBCHU_DROPS": {
@@ -592,7 +592,7 @@
         "length": 1
     },
     "NUM_FONT_CHARS": {
-        "address": "034A4BB4",
+        "address": "034A4BBC",
         "length": 4
     },
     "OCARINAS_SHUFFLED": {
@@ -688,7 +688,7 @@
         "length": 4
     },
     "REQUIRED_PENDING_FRAMES": {
-        "address": "034A4810",
+        "address": "034A4818",
         "length": 1
     },
     "REWARDS_AS_ITEMS": {
@@ -800,11 +800,11 @@
         "length": 2
     },
     "TRIFORCE_SPRITE_RESOURCE": {
-        "address": "034A6AF8",
+        "address": "034A6B00",
         "length": 0
     },
     "TRIFORCE_SPRITE_RESOURCE_END": {
-        "address": "034A7AF8",
+        "address": "034A7B00",
         "length": 0
     },
     "TWINROVA_ACTION_TIMER": {
@@ -1024,19 +1024,19 @@
         "length": 3
     },
     "debug_text_height": {
-        "address": "034A4618",
+        "address": "034A4620",
         "length": 1
     },
     "debug_text_width": {
-        "address": "034A4619",
+        "address": "034A4621",
         "length": 1
     },
     "defaultDDHeart": {
-        "address": "034A4884",
+        "address": "034A488C",
         "length": 6
     },
     "defaultHeart": {
-        "address": "034A488C",
+        "address": "034A4894",
         "length": 6
     },
     "deku_rooms": {
@@ -1104,7 +1104,7 @@
         "length": 312
     },
     "freecam_modes": {
-        "address": "034A46B8",
+        "address": "034A46C0",
         "length": 66
     },
     "ganon_rooms": {
@@ -1140,7 +1140,7 @@
         "length": 260
     },
     "icon_sprites": {
-        "address": "034A4788",
+        "address": "034A4790",
         "length": 12
     },
     "illegal_model": {
@@ -1152,19 +1152,19 @@
         "length": 2
     },
     "input_icon_height": {
-        "address": "034A489E",
+        "address": "034A48A6",
         "length": 1
     },
     "input_icon_width": {
-        "address": "034A489F",
+        "address": "034A48A7",
         "length": 1
     },
     "input_number_height": {
-        "address": "034A489C",
+        "address": "034A48A4",
         "length": 1
     },
     "input_number_width": {
-        "address": "034A489D",
+        "address": "034A48A5",
         "length": 1
     },
     "item_digit_sprite": {
@@ -1212,7 +1212,7 @@
         "length": 4
     },
     "left_alignment": {
-        "address": "034A489A",
+        "address": "034A48A2",
         "length": 2
     },
     "linkhead_skull_sprite": {
@@ -1308,7 +1308,7 @@
         "length": 256
     },
     "rupee_colors": {
-        "address": "034A4878",
+        "address": "034A4880",
         "length": 12
     },
     "rupee_digit_sprite": {
@@ -1380,11 +1380,11 @@
         "length": 4
     },
     "text_height": {
-        "address": "034A4A00",
+        "address": "034A4A08",
         "length": 4
     },
     "text_width": {
-        "address": "034A4A04",
+        "address": "034A4A0C",
         "length": 4
     },
     "texture_table": {
@@ -1392,11 +1392,11 @@
         "length": 496
     },
     "top_alignment": {
-        "address": "034A4898",
+        "address": "034A48A0",
         "length": 2
     },
     "trade_quest_items": {
-        "address": "034A4BC8",
+        "address": "034A4BD0",
         "length": 616
     },
     "treasure_chest_game_show_message": {
