@@ -1509,7 +1509,8 @@ def update_map_compass_messages(messages: list[Message], world: World):
                             map_message = f"\x13\x76\x08You found the \x05\x41Map\x05\x40 for {COLOR_MAP['Red'] + 'masterful' if world.dungeon_mq[dungeon.name] else COLOR_MAP['Green'] + 'ordinary'}\x01{dungeon_name}\x05\x40!\x01In this dungeon, {boss_textboxes[boss_room]}\x05\x40\x01lurks within!\x05\x40\x09"
                         else:
                             map_message = f"\x13\x76\x08You found the \x05\x41Map\x05\x40 for\x01{dungeon_name}\x05\x40!\x01In this dungeon, {boss_textboxes[boss_room]}\x05\x40\x01lurks within!\x05\x40\x09"
+                        update_message_by_id(messages, map_id, map_message, allow_duplicates=True)
                     else:
                         if 'map_mq' in world.settings.enhance_map_compass and (world.settings.mq_dungeons_mode == 'random' or world.settings.mq_dungeons_count != 0 and world.settings.mq_dungeons_count != 12):
                             map_message = f"\x13\x76\x08You found the \x05\x41Map\x05\x40 for\x01{dungeon_name}\x05\x40!\x01It\'s {COLOR_MAP['Red'] + 'masterful' if world.dungeon_mq[dungeon.name] else COLOR_MAP['Green'] + 'ordinary'}!\x09"
-                    update_message_by_id(messages, map_id, map_message, allow_duplicates=True)
+                            update_message_by_id(messages, map_id, map_message, allow_duplicates=True)
