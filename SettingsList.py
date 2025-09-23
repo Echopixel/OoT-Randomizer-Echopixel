@@ -935,7 +935,6 @@ class SettingInfos:
         disable          = {
             True: {'settings': ['bridge_medallions']},
         },
-        disabled_default = False,
         gui_params       = {
             'randomize_key': 'randomize_settings',
             "hide_when_disabled": True,
@@ -968,7 +967,6 @@ class SettingInfos:
         disable          = {
             True: {'settings': ['bridge_stones']},
         },
-        disabled_default = False,
         gui_params       = {
             'randomize_key': 'randomize_settings',
             "hide_when_disabled": True,
@@ -1001,7 +999,6 @@ class SettingInfos:
         disable          = {
             True: {'settings': ['bridge_rewards']},
         },
-        disabled_default = False,
         gui_params       = {
             'randomize_key': 'randomize_settings',
             "hide_when_disabled": True,
@@ -1182,7 +1179,6 @@ class SettingInfos:
         disable          = {
             True: {'settings': ['ganon_bosskey_medallions']},
         },
-        disabled_default = False,
         gui_params       = {
             'randomize_key': 'randomize_settings',
             "hide_when_disabled": True,
@@ -1215,7 +1211,6 @@ class SettingInfos:
         disable          = {
             True: {'settings': ['ganon_bosskey_stones']},
         },
-        disabled_default = False,
         gui_params       = {
             'randomize_key': 'randomize_settings',
             "hide_when_disabled": True,
@@ -1248,7 +1243,6 @@ class SettingInfos:
         disable          = {
             True: {'settings': ['ganon_bosskey_rewards']},
         },
-        disabled_default = False,
         gui_params       = {
             'randomize_key': 'randomize_settings',
             "hide_when_disabled": True,
