@@ -230,8 +230,9 @@ void KaleidoScope_DrawItemSelect(z64_game_t* play) {
                                 pause_ctxt->cursor_point[PAUSE_ITEM] -= 6;
 
                                 if(z64_file.items[pause_ctxt->cursor_point[PAUSE_ITEM]] != ITEM_NONE
-                                   || pause_ctxt->cursor_x[PAUSE_ITEM] > 0 && pause_ctxt->cursor_x[PAUSE_ITEM] < 5) {
-                                    move_cursor_result = 1;
+                                    // Allow unrestricted menu Y movement without interfering with equip swap
+                                    || x_move_result == 0) {
+                                    cursor_move_result = 1;
                                 }
                             } else { // Nothing fancy if we've reached the vertical bounds.
                                 pause_ctxt->cursor_y[PAUSE_ITEM] = cursor_y;
@@ -245,8 +246,9 @@ void KaleidoScope_DrawItemSelect(z64_game_t* play) {
                                 pause_ctxt->cursor_point[PAUSE_ITEM] += 6;
 
                                 if(z64_file.items[pause_ctxt->cursor_point[PAUSE_ITEM]] != ITEM_NONE
-                                   || pause_ctxt->cursor_x[PAUSE_ITEM] > 0 && pause_ctxt->cursor_x[PAUSE_ITEM] < 5) {
-                                    move_cursor_result = 1;
+                                    // Allow unrestricted menu Y movement without interfering with equip swap
+                                    || x_move_result == 0) {
+                                    cursor_move_result = 1;
                                 }
                             } else { // Nothing fancy if we've reached the vertical bounds.
                                 pause_ctxt->cursor_y[PAUSE_ITEM] = cursor_y;
