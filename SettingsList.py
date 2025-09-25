@@ -1282,13 +1282,40 @@ class SettingInfos:
         },
     )
 
-    open_door_of_time = Checkbutton(
-        gui_text       = 'Open Door of Time',
+    open_door_of_time = Combobox(
+        gui_text       = 'Door of Time',
+        default        = 'sot',
+        choices        = {
+            'open':           'Open',
+            'sot':            'Song of Time',
+            'oot_sot':        'Ocarina of Time + Song of Time',
+            'stones':         '3 Spiritual Stones',
+            'stones_sot':     '3 Stones + Song of Time',
+            'stones_oot_sot': '3 Stones + OoT + SoT',
+        },
         gui_tooltip    = '''\
-            The Door of Time starts opened instead of needing to
-            play the Song of Time. If this is not set, only
-            an Ocarina and Song of Time must be found to open
-            the Door of Time.
+            'Open': The Door of Time starts opened instead of
+            needing to play the Song of Time.
+
+            'Song of Time': Only an Ocarina and Song of Time
+            must be found to open the Door of Time. This is the
+            vanilla behavior despite what the story suggests.
+
+            'Ocarina of Time + Song of Time': The Door of Time
+            is opened by playing the Song of Time on the
+            Ocarina of Time.
+
+            '3 Spiritual Stones': The Door of Time
+            automatically opens upon collecting all three
+            Spiritual Stones. Song of Time is not required.
+
+            '3 Stones + Song of Time': The Door of Time is
+            opened by playing the Song of Time after collecting
+            all three Spiritual Stones.
+
+            '3 Stones + OoT + SoT': The Door of Time is opened
+            by playing the Song of Time on the Ocarina of Time
+            after collecting all three Spiritual Stones.
         ''',
         shared         = True,
         gui_params     = {
@@ -3225,6 +3252,18 @@ class SettingInfos:
         gui_tooltip    = '''\
             Begin the game with the selected songs already learnt.
         ''',
+    )
+
+    add_random_starting_items = Scale(
+        gui_text         = 'Additional Random Starting Items',
+        gui_tooltip    = '''\
+            Begin the game with this many randomly selected items in
+            addition to your selections from the tables.
+        ''',
+        default          = 0,
+        minimum          = 0,
+        maximum          = 10,
+        shared           = True,
     )
 
     start_with_consumables = Checkbutton(
