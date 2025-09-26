@@ -27,7 +27,7 @@ jobs:
         with:
           submodules: recursive
           repository: Kingcom/armips
-          ref: v0.11.0
+          ref: master
       - name: Build armips
         run: mkdir build && cd build && cmake .. && cmake --build . --config Release && sudo mv armips /usr/local/bin/armips && cd ..
       - uses: actions/checkout@v4
@@ -78,7 +78,7 @@ jobs:
         with:
           submodules: recursive
           repository: Kingcom/armips
-          ref: v0.11.0
+          ref: master
       - name: Build armips
         run: mkdir build && cd build && cmake .. && cmake --build . --config Release && sudo mv armips /usr/local/bin/armips && cd ..
       - uses: actions/checkout@v4
