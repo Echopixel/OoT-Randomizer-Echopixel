@@ -24,7 +24,7 @@ jobs:
       - name: Create fake base ROM
         run: dd if=/dev/zero of=ASM/roms/base.z64 bs=64M count=1
       - name: Run build scripts
-        run: python ASM/build.py --no-compile-c
+        run: python ASM/build.py --no-compile-c --mips-binutils-prefix mips64-ultra-elf-
   test_C_build:
     name: Build - C
     runs-on: ubuntu-latest
@@ -43,7 +43,7 @@ jobs:
       - name: Create fake base ROM
         run: dd if=/dev/zero of=ASM/roms/base.z64 bs=64M count=1
       - name: Run build scripts
-        run: python ASM/build.py --diff-only
+        run: python ASM/build.py --diff-only --mips-binutils-prefix mips64-ultra-elf-
   test_full_build:
     name: Build - Full
     runs-on: ubuntu-latest
@@ -62,5 +62,5 @@ jobs:
       - name: Create fake base ROM
         run: dd if=/dev/zero of=ASM/roms/base.z64 bs=64M count=1
       - name: Run build scripts
-        run: python ASM/build.py
+        run: python ASM/build.py --mips-binutils-prefix mips64-ultra-elf-
 
