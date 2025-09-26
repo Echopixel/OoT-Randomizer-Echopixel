@@ -6,16 +6,8 @@ on:
     branches: [ "Dev" ]
 
 jobs:
-  build-platforms:
-    name: Build N64 platform packages
-    uses: PracticeROM/gz-release/.github/workflows/build-platforms.yml@master
-    with:
-      repository: PracticeROM/gz-release
-      ref: master
-
   test_assembly_build:
     name: Build - Assembly
-    needs: build-platforms
     runs-on: ubuntu-latest
     container:
       image: practicerom/practicerom-dev
@@ -35,7 +27,6 @@ jobs:
         run: python ASM/build.py --no-compile-c
   test_C_build:
     name: Build - C
-    needs: build-platforms
     runs-on: ubuntu-latest
     container:
       image: practicerom/practicerom-dev
@@ -55,7 +46,6 @@ jobs:
         run: python ASM/build.py --diff-only
   test_full_build:
     name: Build - Full
-    needs: build-platforms
     runs-on: ubuntu-latest
     container:
       image: practicerom/practicerom-dev
