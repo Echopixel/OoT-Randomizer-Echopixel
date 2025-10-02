@@ -1,12 +1,12 @@
 {
-    "name": "league",
-    "gui_name": "League",
-    "description": "Hint Distribution for the S9 of League. 6 Always, 5 Path, 3 Important Checks, 3 Sometimes, 2 Dual Hints, 30/40/50 skull hints in house of skulltula",
-    "add_locations": [
+    "name":                     "league",
+    "gui_name":                 "League",
+    "description":              "Hint Distribution for the S9 of League. 6 Always, 5 Path, 3 Important Checks, 3 Sometimes, 2 Dual Hints, 30/40/50 skull hints in house of skulltula",
+    "add_locations":            [
         { "location": "Deku Theater Skull Mask", "types": ["always"] },
         { "location": "Sheik in Kakariko", "types": ["always"] }
     ],
-    "remove_locations": [
+    "remove_locations":         [
         { "location": "Sheik in Crater", "types": ["sometimes"] },
         { "location": "Song from Royal Familys Tomb", "types": ["sometimes"] },
         { "location": "Sheik in Forest", "types": ["sometimes"] },
@@ -45,8 +45,8 @@
         { "location": "Ganons Castle Spirit Trial Chests", "types": ["dual"] },
         { "location": "Dodongos Cavern Upper Business Scrubs", "types": ["dual"] }
     ],
-    "add_items": [],
-    "remove_items": [
+    "add_items":                [],
+    "remove_items":             [
         { "item": "Zeldas Lullaby", "types": ["goal"] },
         { "item": "Eponas Song", "types": ["goal"] },
         { "item": "Sarias Song", "types": ["goal"] },
@@ -58,14 +58,14 @@
         { "item": "Requiem of Spirit", "types": ["goal"] },
         { "item": "Nocturne of Shadow", "types": ["goal"] }
     ],
-    "dungeons_woth_limit": 2,
-    "dungeons_barren_limit": 1,
-    "one_hint_per_goal": true,
-    "named_items_required": true,
-    "vague_named_items": false,
-    "use_default_goals": true,
-    "combine_trial_hints": true,
-    "distribution": {
+    "dungeons_woth_limit":      2,
+    "dungeons_barren_limit":    1,
+    "one_hint_per_goal":        true,
+    "named_items_required":     true,
+    "vague_named_items":        false,
+    "use_default_goals":        true,
+    "combine_trial_hints":      true,
+    "distribution":             {
         "trial":           {"order":  1, "weight": 0, "fixed": 0, "copies": 2, "remove_stones": [
             "HC (Storms Grotto)",
             "HF (Cow Grotto)"
@@ -89,6 +89,10 @@
             "HC (Storms Grotto)",
             "HF (Cow Grotto)"
         ]},
+        "important_check": {"order":  9, "weight": 0, "fixed": 3, "copies": 2, "remove_stones": [
+            "HC (Storms Grotto)",
+            "HF (Cow Grotto)"
+        ]},
         "junk":            {"order": 10, "weight": 0, "fixed": 2, "copies": 1, "priority_stones": [
             "HC (Storms Grotto)",
             "HF (Cow Grotto)"
@@ -100,10 +104,6 @@
         "dungeon":         {"order":  0, "weight": 0, "fixed": 0, "copies": 2},
         "named-item":      {"order":  0, "weight": 0, "fixed": 0, "copies": 2},
         "woth":            {"order":  0, "weight": 0, "fixed": 0, "copies": 2},
-        "dual_always":     {"order":  0, "weight": 0, "fixed": 0, "copies": 0},
-        "important_check": {"order":  9, "weight": 0, "fixed": 3, "copies": 2, "remove_stones": [
-            "HC (Storms Grotto)",
-            "HF (Cow Grotto)"
-        ]}
+        "dual_always":     {"order":  0, "weight": 0, "fixed": 0, "copies": 0}
     }
 }
