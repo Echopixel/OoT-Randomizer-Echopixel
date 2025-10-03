@@ -492,9 +492,8 @@ def get_pool_core(world: World) -> tuple[list[str], dict[str, Item]]:
             if 'Pocket Egg' in world.settings.adult_trade_start and 'Pocket Cucco' in world.settings.adult_trade_start:
                 pending_junk_pool.remove('Pocket Cucco')
         elif world.settings.adult_trade_start:
-            # With adult trade shuffle off, add a random extra adult trade item
-            item = random.choice(world.settings.adult_trade_start)
-            pending_junk_pool.append(item)
+            # With adult trade shuffle off, add another copy of the selected adult trade item
+            pending_junk_pool.append(world.selected_adult_trade_item)
         if world.settings.zora_fountain != 'open':
             ruto_bottles += 1
         if world.settings.shuffle_kokiri_sword:
