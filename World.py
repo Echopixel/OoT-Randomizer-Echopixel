@@ -102,7 +102,9 @@ class World:
 
         if (settings.open_forest == 'closed'
             and (self.shuffle_special_interior_entrances or settings.shuffle_hideout_entrances or settings.shuffle_overworld_entrances
-                 or settings.warp_songs or settings.spawn_positions)):
+                 or settings.warp_songs or settings.spawn_positions
+                 or (settings.logic_rules == 'advanced' and settings.shuffle_grotto_entrances)
+                 )):
             self.settings.open_forest = 'closed_deku'
 
         if settings.triforce_goal_per_world > settings.triforce_count_per_world:
