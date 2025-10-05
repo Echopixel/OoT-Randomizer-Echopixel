@@ -226,8 +226,8 @@ void KaleidoScope_DrawItemSelect(z64_game_t* play) {
                                 pause_ctxt->cursor_y[PAUSE_ITEM]--;
                                 pause_ctxt->cursor_point[PAUSE_ITEM] -= 6;
 
-                                if(z64_file.items[pause_ctxt->cursor_point[PAUSE_ITEM]] != ITEM_NONE
-                                   || (pause_ctxt->cursor_x[PAUSE_ITEM] > 0 && pause_ctxt->cursor_x[PAUSE_ITEM] < 5)) {
+                                if((z64_file.items[pause_ctxt->cursor_point[PAUSE_ITEM]] != ITEM_NONE
+                                   || pause_ctxt->cursor_x[PAUSE_ITEM] > 0) && pause_ctxt->cursor_x[PAUSE_ITEM] < 5) {
                                     move_cursor_result = 1;
                                 }
                             } else { // Nothing fancy if we've reached the vertical bounds.
@@ -241,8 +241,8 @@ void KaleidoScope_DrawItemSelect(z64_game_t* play) {
                                 pause_ctxt->cursor_y[PAUSE_ITEM]++;
                                 pause_ctxt->cursor_point[PAUSE_ITEM] += 6;
 
-                                if(z64_file.items[pause_ctxt->cursor_point[PAUSE_ITEM]] != ITEM_NONE
-                                   || (pause_ctxt->cursor_x[PAUSE_ITEM] > 0 && pause_ctxt->cursor_x[PAUSE_ITEM] < 5)) {
+                                if((z64_file.items[pause_ctxt->cursor_point[PAUSE_ITEM]] != ITEM_NONE
+                                   || pause_ctxt->cursor_x[PAUSE_ITEM] > 0) && pause_ctxt->cursor_x[PAUSE_ITEM] < 5) {
                                     move_cursor_result = 1;
                                 }
                             } else { // Nothing fancy if we've reached the vertical bounds.
