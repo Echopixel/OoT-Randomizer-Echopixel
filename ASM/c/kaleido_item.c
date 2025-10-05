@@ -3,15 +3,12 @@
 #include "kaleido_item.h"
 
 void KaleidoScope_DrawItemSelect(z64_game_t* play) {
-    static int16_t magic_arrow_effects_r[] = {255, 100, 255 };
-    static int16_t magic_arrow_effects_g[] = {0, 100, 255 };
-    static int16_t magic_arrow_effects_b[] = {0, 255, 100 };
     z64_input_t* input = &play->common.input[0];
     z64_pause_ctxt_t* pause_ctxt = &play->pause_ctxt;
     uint16_t i;
     uint16_t j;
     uint16_t cursor_item;
-    uint16_t cursor_slot;
+    uint16_t cursor_slot = 0;
     uint16_t index;
     int16_t cursor_point;
     int16_t cursor_x;
@@ -230,7 +227,7 @@ void KaleidoScope_DrawItemSelect(z64_game_t* play) {
                                 pause_ctxt->cursor_point[PAUSE_ITEM] -= 6;
 
                                 if(z64_file.items[pause_ctxt->cursor_point[PAUSE_ITEM]] != ITEM_NONE
-                                   || pause_ctxt->cursor_x[PAUSE_ITEM] > 0 && pause_ctxt->cursor_x[PAUSE_ITEM] < 5) {
+                                   || (pause_ctxt->cursor_x[PAUSE_ITEM] > 0 && pause_ctxt->cursor_x[PAUSE_ITEM] < 5)) {
                                     move_cursor_result = 1;
                                 }
                             } else { // Nothing fancy if we've reached the vertical bounds.
@@ -245,7 +242,7 @@ void KaleidoScope_DrawItemSelect(z64_game_t* play) {
                                 pause_ctxt->cursor_point[PAUSE_ITEM] += 6;
 
                                 if(z64_file.items[pause_ctxt->cursor_point[PAUSE_ITEM]] != ITEM_NONE
-                                   || pause_ctxt->cursor_x[PAUSE_ITEM] > 0 && pause_ctxt->cursor_x[PAUSE_ITEM] < 5) {
+                                   || (pause_ctxt->cursor_x[PAUSE_ITEM] > 0 && pause_ctxt->cursor_x[PAUSE_ITEM] < 5)) {
                                     move_cursor_result = 1;
                                 }
                             } else { // Nothing fancy if we've reached the vertical bounds.

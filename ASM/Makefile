@@ -4,8 +4,9 @@ LD = $(MIPS_BINUTILS_PREFIX)ld
 OBJDUMP = $(MIPS_BINUTILS_PREFIX)objdump
 OBJCOPY = $(MIPS_BINUTILS_PREFIX)objcopy
 
-CFLAGS = -O1 -G0 -fno-reorder-blocks -march=vr4300 -mtune=vr4300 -mabi=32 -mno-gpopt -mdivide-breaks \
-	-mexplicit-relocs
+CFLAGS = -O1 -G0 -fno-reorder-blocks \
+	-march=vr4300 -mtune=vr4300 -mabi=32 -mno-gpopt -mdivide-breaks -mexplicit-relocs \
+	-Wall
 CPPFLAGS = -DF3DEX_GBI_2
 
 OUTDIR := build
