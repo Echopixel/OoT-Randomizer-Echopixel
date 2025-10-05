@@ -369,12 +369,15 @@ void* threadFunc(void* null)
         /* Otherwise, just copy src into out */
         if(refTab[i] == 1)
         {
-            /* Determine if we should compare against the archive or not*/
-            useArchive = ((archive != NULL) && (archive->files[i].ref != NULL));
+            /* Determine if we should use the data in the archive or not */
+            /* Check if archive exists, reference file exist, sizes match, data matches */
+            useArchive  = (archive != NULL) && (archive->files[i].ref != NULL);
+            useArchive &= (srcSize == archive->files[i].refSize);
+            useArchive &= (memcmp(src, archive->files[i].ref, archive->files[i].refSize) == 0);
 
             /* If uncompressed is the same as archive, just copy/paste the compressed */
             /* Otherwise, compress it manually */
-            if(useArchive && (memcmp(src, archive->files[i].ref, archive->files[i].refSize) == 0))
+            if(useArchive)
             {
                 out[i].comp = 1;
                 size = archive->files[i].srcSize;
