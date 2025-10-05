@@ -197,19 +197,15 @@ void draw_dpad_and_menu_utilities() {
         else if (CAN_DRAW_WORLD_INFO && CFG_DPAD_DUNGEON_INFO_ENABLE) {
             bool shuffle_dungeons = CFG_DUNGEON_BOSS_INFO[0] > 0;
             bool shuffle_bosses = CFG_DUNGEON_BOSS_INFO[0] > 0;
-            bool mixed_dungeons = CFG_DUNGEON_BOSS_INFO[0] > 1;
-            bool mixed_bosses = CFG_DUNGEON_BOSS_INFO[0] > 1;
-            bool mixed = mixed_dungeons || mixed_bosses;
-            if (shuffle_dungeons || shuffle_bosses) {
-                if (mixed) {
-                // boss key on D-right
-                    sprite_load(db, &quest_items_sprite, 14, 1);
-                    sprite_draw(db, &quest_items_sprite, 0, left_main_dpad + 14, top_main_dpad + 2, 12, 12);
-                }
-
-                // map on D-left
+            // map on D-left
+            if (shuffle_dungeons) {
                 sprite_load(db, &quest_items_sprite, 16, 1);
                 sprite_draw(db, &quest_items_sprite, 0, left_main_dpad - 11, top_main_dpad + 2, 12, 12);
+            }
+            // boss key on D-right
+            if (shuffle_bosses) {
+                sprite_load(db, &quest_items_sprite, 14, 1);
+                sprite_draw(db, &quest_items_sprite, 0, left_main_dpad + 14, top_main_dpad + 2, 12, 12);
             }
         } else { // Main game dpad
             if (!CAN_USE_DPAD) {

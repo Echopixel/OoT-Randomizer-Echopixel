@@ -2614,22 +2614,26 @@ def configure_dungeon_info(rom: Rom, world: World) -> None:
                         'Twinrova Boss Room': 'Twin',
                         'Ganons Castle Tower': 'Ganon'}
 
+    boss_lobby_list = ['Queen Gohma Boss Room', 'King Dodongo Boss Room', 'Barinade Boss Room',
+                       'Phantom Ganon Boss Room', 'Volvagia Boss Room', 'Morpha Boss Room',
+                       'Bongo Bongo Boss Room', 'Twinrova Boss Room', 'Ganons Castle Tower']
+
     bosses = bytearray()
-    if 'map_boss_location' in world.settings.enhance_map_compass and world.settings.shuffle_bosses != 'off':
+    if 'compass_boss_location' in world.settings.enhance_map_compass and world.settings.shuffle_bosses != 'off':
         dungeon_info.append(1)
-        # We want each boss on the same line as the corresponding dungeon.
+        # For the Dpad left menu, we want each boss on the same line as the corresponding dungeon.
         for index in boss_index:
             if index < 0:
                 bosses += "-".encode('ascii').ljust(0x8) + b'\0'
             else:
                 connected_region = world.get_entrance(bosses_entrances_list[index]).connected_region
                 bosses += boss_short_names[connected_region.name].encode('ascii').ljust(0x8) + b'\0'
+        # But on Dpad right, we just list by the dungeons in their usual order.
+        for boss_entrance in bosses_entrances_list:
+            connected_region = world.get_entrance(boss_entrance).connected_region
+            bosses += boss_short_names[connected_region.name].encode('ascii').ljust(0x8) + b'\0'
     else:
         dungeon_info.append(0)
-
-    bosses_entrances_list = ['Deku Tree Before Boss -> Queen Gohma Boss Room', 'Dodongos Cavern Before Boss -> King Dodongo Boss Room', 'Jabu Jabus Belly Before Boss -> Barinade Boss Room',
-                              'Forest Temple Before Boss -> Phantom Ganon Boss Room', 'Fire Temple Before Boss -> Volvagia Boss Room', 'Water Temple Before Boss -> Morpha Boss Room',
-                              'Shadow Temple Before Boss -> Bongo Bongo Boss Room', 'Spirit Temple Before Boss -> Twinrova Boss Room', 'Ganons Castle Main -> Ganons Castle Tower']
 
     dungeon_map_index = {'Deku': 0,
                         'DC': 1,

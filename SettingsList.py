@@ -3115,17 +3115,18 @@ class SettingInfos:
         choices        = {
             'map_mq':    'Map gives MQ info',
             'map_dungeon_location':       'Map gives dungeon location',
-            'map_boss_location':    'Map gives boss location',
+            'compass_boss_location':    'Compass gives boss location',
             'compass_reward':    'Compass gives reward info',
         },
         gui_tooltip    = '''\
             Gives the Map and Compass extra functionality.
 
             Map can be enhanced to tell if a dungeon is vanilla or Master Quest,
-            to give dungeon locations if Dungeon entrance shuffle is enabled,
-            and to give bosses locasions if Boss entrance shuffle is enabled.
+            and to give dungeon locations if Dungeon entrance shuffle is enabled.
 
-            Compass will tell what medallion or stone is within.
+            Compass can be enhanced to reveal which boss is in the corresponding dungeon
+            if Boss entrance shuffle is enabled,
+            or to tell what medallion or stone is within.
             If compass is enabled, the Temple of Time Altar will no longer provide
             information on the location of medallions and stones.
 
