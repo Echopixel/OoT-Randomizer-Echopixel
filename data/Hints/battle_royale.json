@@ -40,8 +40,7 @@
         { "location": "Graveyard Dampe Race Rewards", "types": ["dual"] },
         { "location": "Dodongos Cavern Upper Business Scrubs", "types": ["dual"] }
     ],
-    "add_items":             [ 
-    ],
+    "add_items": [],
     "remove_items":      [
     { "item": "Zeldas Lullaby", "types": ["woth", "goal"] }],
     "dungeons_woth_limit":   40,
