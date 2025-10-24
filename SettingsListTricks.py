@@ -2872,6 +2872,14 @@ advanced_logic_tricks: dict[str, dict[str, str | tuple[str, ...]]] = {
                     You can also do the same by abusing invincibility frames
                     if not on ohko.
                     '''},
+   '(Advanced) Water Temple Before Boss Iron Boots Dive Ledgegrab': {
+        'name'    : 'adv_irons_dive',
+        'tags'    : ("Glitchless","Adult","Water Temple","Water Temple MQ",),
+        'tooltip' : '''\
+                    After diving in front of the water, equip iron boots
+                    on the frame(s) before resurfacing to preserve velocity
+                    to grab the ledge.
+                    '''},
     '(Glitch) Water Temple Antigrav to Boss Key Area': {
         'name'    : 'glitch_water_bk_area_antigrav',
         'tags'    : ("Glitch","Adult","Water Temple","Water Temple MQ",),
