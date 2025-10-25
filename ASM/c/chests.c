@@ -180,10 +180,8 @@ void get_dummy_chest(Chest* dummy_chest) {
     dummy_actor.actor_id = 0x000A;
     dummy_actor.variable = 0x27EE;
     dummy_chest->en_box.dyna.actor = dummy_actor;
-    // If vanilla chest appearance, keep displaying a gilded chest.
-    if (!CHEST_SIZE_MATCH_CONTENTS && !CHEST_SIZE_TEXTURE && !CHEST_TEXTURE_MATCH_CONTENTS) {
-        dummy_chest->en_box.type = GOLD_CHEST;
-    }
+    // Init the type at gold, this way it will keep its vanilla appearance if we do not override it later in get_chest_override.
+    dummy_chest->en_box.type = GOLD_CHEST;
 }
 
 void draw_forest_hallway_chest_base() {
