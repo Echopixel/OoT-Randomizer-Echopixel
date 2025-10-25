@@ -797,7 +797,7 @@ bool Item00_KillActorIfFlagIsSet(z64_actor_t* actor) {
         return 1;
     }
 
-    return 1;
+    return 0;
 }
 
 // Check ammo counts for bombs/chus and drop correspondingly.
