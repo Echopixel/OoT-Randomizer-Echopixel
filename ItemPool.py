@@ -1117,5 +1117,4 @@ def add_random_starting_items_ammo(randomized_starting_items: dict[str, int]) ->
     for item in StartingItems.inventory.values():
         if item.item_name in randomized_starting_items and item.ammo:
             for ammo, qty in item.ammo.items():
-                if ammo not in randomized_starting_items:
-                    randomized_starting_items[ammo] = qty[randomized_starting_items[item.item_name] - 1]
+                randomized_starting_items[ammo] = qty[randomized_starting_items[item.item_name] - 1]
