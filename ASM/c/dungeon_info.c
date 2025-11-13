@@ -206,7 +206,7 @@ void draw_world_info(z64_disp_buf_t* db) {
 
     if (!mixed) {
 
-        if (z64_ctxt.input[0].pad_pressed.dl && show_dungeons) {
+        if ((z64_ctxt.input[0].pad_pressed.dl || z64_ctxt.input[0].pad_pressed.a) && show_dungeons) {
             world_display = world_display ? false : true;
             boss_display = false;
         }
