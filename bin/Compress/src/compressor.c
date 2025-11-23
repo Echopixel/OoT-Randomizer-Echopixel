@@ -173,7 +173,7 @@ int main(int argc, char** argv)
     /* The first 3 files are never compressed */
     /* They should never be given to the compression function anyway though */
     refTab[0] = refTab[1] = refTab[2] = 0;
-    
+
     /* Read in the rest of the exclusion list */
     for(i = 0; fscanf(file, "%d", &j) == 1; i++)
     {
@@ -355,7 +355,6 @@ void* threadFunc(void* null)
     uint8_t* dst;
     table_t    t;
     int32_t i, size, srcSize;
-    uint8_t useArchive;
 
     while((i = getNext()) != -1)
     {
@@ -371,14 +370,14 @@ void* threadFunc(void* null)
         {
             /* Determine if we should use the data in the archive or not */
             /* Check if archive exists, reference file exist, sizes match, data matches */
-            useArchive  = (archive != NULL) && (archive->files[i].ref != NULL);
-            useArchive &= (srcSize == archive->files[i].refSize);
-            useArchive &= (memcmp(src, archive->files[i].ref, archive->files[i].refSize) == 0);
-
             /* If uncompressed is the same as archive, just copy/paste the compressed */
             /* Otherwise, compress it manually */
-            if(useArchive)
-            {
+            if (
+                (archive != NULL)
+                && (archive->files[i].ref != NULL)
+                && (srcSize == archive->files[i].refSize)
+                && (memcmp(src, archive->files[i].ref, archive->files[i].refSize) == 0)
+            ) {
                 out[i].comp = 1;
                 size = archive->files[i].srcSize;
                 out[i].data = malloc(size);
