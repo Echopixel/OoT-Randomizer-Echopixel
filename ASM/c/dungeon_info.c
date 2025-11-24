@@ -196,7 +196,7 @@ void draw_world_info(z64_disp_buf_t* db) {
     }
 
     bool mixed_dungeons = CFG_DUNGEON_BOSS_INFO[0] > 1;
-    bool mixed_bosses = CFG_DUNGEON_BOSS_INFO[0] > 1;
+    bool mixed_bosses = CFG_DUNGEON_BOSS_INFO[1] > 1;
     bool mixed = mixed_dungeons || mixed_bosses;
 
     db->p = db->buf;

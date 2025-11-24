@@ -3111,7 +3111,6 @@ class SettingInfos:
 
     enhance_map_compass = MultipleSelect(
         gui_text       = 'Maps and Compasses Give Information',
-        default        = [],
         choices        = {
             'map_mq':    'Map gives MQ info',
             'map_dungeon_location':       'Map gives dungeon location',
