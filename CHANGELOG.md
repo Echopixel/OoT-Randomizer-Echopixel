@@ -10,6 +10,7 @@
 * A slew of advanced tricks and glitches have been added for the new `Advanced` logic setting.
 * The `Open Door of Time` setting has been renamed to `Door of Time`, with new options to require the Spiritual Stones and/or the Ocarina of Time.
 * New `Additional Random Starting Items` setting.
+* `Maps and Compasses Give Information` has been extended with options to give dungeon and boss entrance locations.
 
 ## Bug fixes
 * The Deku Shield pot in the Spirit Temple is no longer shuffled when both `Fix Broken Drops` and `Include Empty Pots` are off.
