@@ -3117,6 +3117,7 @@ class SettingInfos:
             'compass_boss_location':    'Compass gives boss location',
             'compass_reward':    'Compass gives reward info',
         },
+        default         = [],
         gui_tooltip    = '''\
             Gives the Map and Compass extra functionality.
 

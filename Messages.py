@@ -1504,8 +1504,7 @@ def update_map_compass_messages(messages: list[Message], world: World):
                         update_message_by_id(messages, compass_id, compass_message, allow_duplicates=True)
                 if 'map_dungeon_location' in world.settings.enhance_map_compass and world.settings.shuffle_dungeon_entrances != 'off':
                     dungeon_index = [i for i, c in enumerate(dungeon_entrances) if dungeon.name in c]
-                    if dungeon.name not in ('Dodongos Cavern', 'Jabu Jabus Belly'):
-                        dungeon_name = dungeon_name.split(' ', 1)[1] # Remove the "the" to make room.
+                    dungeon_name = dungeon_name.removeprefix('the ') # to make room
                     if 'map_mq' in world.settings.enhance_map_compass and (world.settings.mq_dungeons_mode == 'random' or world.settings.mq_dungeons_count != 0 and world.settings.mq_dungeons_count != 12):
                         map_message = f"\x13\x76\x08You found the \x05\x41Map\x05\x40 for \x05{COLOR_MAP['Red'] + 'masterful' if world.dungeon_mq[dungeon.name] else COLOR_MAP['Green'] + 'ordinary'}\x05\x40\x01{dungeon_name}\x05\x40! This dungeon\x01is at {dungeon_textbox_list[dungeon_index[0]]}\x05\x40!\x09"
                     else:
