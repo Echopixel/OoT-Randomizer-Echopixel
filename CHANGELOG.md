@@ -32,6 +32,7 @@
 * The professor in the lakeside lab now only takes 1 second instead of 6 to prepare the eyeball frog.
 * The text box that appears when collecting a gold skulltula token is no longer shuffled when `Text Shuffle` is set to `Shuffled except Important Text`.
 * Important Check hints no longer generate for areas with no shuffled locations, areas hinted as Barren, or precompleted dungeons.
+* Python 3.8 is no longer supported.
 
 # 8.3
 
