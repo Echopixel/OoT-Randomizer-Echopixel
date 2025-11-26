@@ -25,6 +25,8 @@
 * Fix the code that checks whether a hint is reachable not taking effective starting items (e.g. the rewards of precompleted dungeons) into account.
 * Pause menu has been modified to more closely align equip swap behavior with the vanilla game, while also removing some cursor movement restrictions.
 * Fix the texture of the rotated Forest Temple boss key chest when `Chest Appearance Matches Content` is off.
+* Misc. location hints no longer prevent their area from being hinted as Barren.
+* Fix a generator failure when a `named_items_required` Named Item hint conflicts with a misc. location hint.
 
 ## Other changes
 * Big poe souls can now be collected while riding Epona.
