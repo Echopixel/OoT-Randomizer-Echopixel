@@ -140,7 +140,7 @@ int main(int argc, char** argv)
 
             if(j >= archive->tabCount)
             {
-                printf("Archive index %d has out-of-bounds file index %d... Skipping.", i, j);
+                printf("Archive index %d has out-of-bounds file index %d... Skipping.\n", i, j);
                 continue;
             }
 
