@@ -67,6 +67,7 @@ void     getTableEnt(table_t*, uint32_t*, uint32_t);
 void*    threadFunc(void*);
 void     errorCheck(int, char**);
 void     makeArchive();
+void     freeArchive(archive_t*);
 int32_t  getNumCores();
 int32_t  getNext();
 /* 1}}} */
@@ -95,7 +96,6 @@ int main(int argc, char** argv)
     uint32_t archiveFileIndex;
     pthread_t* threads;
     table_t tab;
-
     errorCheck(argc, argv);
     printf("Zelda64 Compressor, Version 2.1\n");
     fflush(stdout);
@@ -142,7 +142,8 @@ int main(int argc, char** argv)
             if(archiveFileIndex >= archive->tabCount)
             {
                 printf("Archive index %d has out-of-bounds file index %d... Assuming corrupt archive and skipping.\n", i, archiveFileIndex);
-                archive = NULL;
+                freeArchive(archive); // Keep track of the archive so we can free it
+                archive = NULL; // Set archive to NULL prevents using the archive and forces creation of a new archive file.
                 break;
             }
 
@@ -238,18 +239,8 @@ int main(int argc, char** argv)
 
     /* Free some stuff */
     pthread_mutex_destroy(&filelock);
-    if(archive != NULL)
-    {
-        for(i = 0; i < archive->tabCount; ++i)
-        {
-            if(archive->files[i].ref != NULL)
-                free(archive->files[i].ref);
-            if(archive->files[i].src != NULL)
-                free(archive->files[i].src);
-        }
-        free(archive->files);
-        free(archive);
-    }
+    
+    freeArchive(archive);
     free(threads);
     free(refTab);
 
@@ -314,6 +305,21 @@ int main(int argc, char** argv)
     return(0);
 }
 /* 1}}} */
+
+void freeArchive(archive_t* toFree) {
+    if(toFree != NULL)
+    {
+        for(int i = 0; i < toFree->tabCount; ++i)
+        {
+            if(toFree->files[i].ref != NULL)
+                free(toFree->files[i].ref);
+            if(toFree->files[i].src != NULL)
+                free(toFree->files[i].src);
+        }
+        free(toFree->files);
+        free(toFree);
+    }
+}
 
 /* uint32_t findTable(uint8_t*) {{{1 */
 uint32_t findTable(uint8_t* argROM)
