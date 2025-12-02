@@ -78,7 +78,6 @@ uint8_t* inROM;
 uint8_t* outROM;
 uint8_t* refTab;
 pthread_mutex_t filelock;
-pthread_mutex_t countlock;
 int32_t numFiles, nextFile;
 int32_t arcCount, outSize;
 uint32_t* fileTab;
@@ -92,7 +91,8 @@ int main(int argc, char** argv)
     FILE* file;
     int32_t tabStart, tabSize, tabCount, junk;
     volatile int32_t prev;
-    int32_t i, j, size, numCores, tempSize;
+    int32_t i, exclusionListEntry, size, numCores, tempSize;
+    uint32_t archiveFileIndex;
     pthread_t* threads;
     table_t tab;
 
@@ -136,23 +136,25 @@ int main(int argc, char** argv)
         for(i = 0; i < archive->numFiles; ++i)
         {
             /* Get the index that this file goes into */
-            junk = fread(&j, sizeof(uint32_t), 1, file);
+            junk = fread(&archiveFileIndex, sizeof(uint32_t), 1, file);
 
-            if(j >= archive->tabCount)
+            // Handle corrupt/legacy archive file.
+            if(archiveFileIndex >= archive->tabCount)
             {
-                printf("Archive index %d has out-of-bounds file index %d... Skipping.\n", i, j);
-                continue;
+                printf("Archive index %d has out-of-bounds file index %d... Assuming corrupt archive and skipping.\n", i, archiveFileIndex);
+                archive = NULL;
+                break;
             }
 
             /* Decompressed "Reference" file */
-            junk = fread(&(archive->files[j].refSize), sizeof(uint32_t), 1, file);
-            archive->files[j].ref = malloc(archive->files[j].refSize);
-            junk = fread(archive->files[j].ref, 1, archive->files[j].refSize, file);
+            junk = fread(&(archive->files[archiveFileIndex].refSize), sizeof(uint32_t), 1, file);
+            archive->files[archiveFileIndex].ref = malloc(archive->files[archiveFileIndex].refSize);
+            junk = fread(archive->files[archiveFileIndex].ref, 1, archive->files[archiveFileIndex].refSize, file);
 
             /* Compressed "Source" file */
-            junk = fread(&(archive->files[j].srcSize), sizeof(uint32_t), 1, file);
-            archive->files[j].src = malloc(archive->files[j].srcSize);
-            junk = fread(archive->files[j].src, 1, archive->files[j].srcSize, file);
+            junk = fread(&(archive->files[archiveFileIndex].srcSize), sizeof(uint32_t), 1, file);
+            archive->files[archiveFileIndex].src = malloc(archive->files[archiveFileIndex].srcSize);
+            junk = fread(archive->files[archiveFileIndex].src, 1, archive->files[archiveFileIndex].srcSize, file);
         }
         fclose(file);
     }
@@ -175,28 +177,27 @@ int main(int argc, char** argv)
     refTab[0] = refTab[1] = refTab[2] = 0;
 
     /* Read in the rest of the exclusion list */
-    for(i = 0; fscanf(file, "%d", &j) == 1; i++)
+    for(i = 0; fscanf(file, "%d", &exclusionListEntry) == 1; i++)
     {
         /* Make sure the number is within the dmaTable */
-        if(j > size || j < -size)
+        if(exclusionListEntry > size || exclusionListEntry < -size)
         {
             fprintf(stderr, "Error: Entry %d in dmaTable.dat is out of bounds\n", i);
             exit(1);
         }
 
-        /* If j was negative, the file shouldn't exist */
+        /* If entry is negative, the file shouldn't exist */
         /* Otherwise, set file to not compress */
-        if(j < 0)
-            refTab[(~j + 1)] = 2;
+        if(exclusionListEntry < 0)
+            refTab[(~exclusionListEntry + 1)] = 2;
         else
-            refTab[j] = 0;
+            refTab[exclusionListEntry] = 0;
     }
     fclose(file);
 
     /* Initialise some stuff */
     out = malloc(sizeof(output_t) * tabCount);
     pthread_mutex_init(&filelock, NULL);
-    pthread_mutex_init(&countlock, NULL);
     numFiles = tabCount;
     outSize = COMPSIZE;
     nextFile = 3;
@@ -237,7 +238,6 @@ int main(int argc, char** argv)
 
     /* Free some stuff */
     pthread_mutex_destroy(&filelock);
-    pthread_mutex_destroy(&countlock);
     if(archive != NULL)
     {
         for(i = 0; i < archive->tabCount; ++i)
