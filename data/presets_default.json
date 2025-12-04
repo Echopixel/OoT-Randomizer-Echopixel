@@ -383,7 +383,7 @@
         "big_poe_count": 1,
         "clearer_hints": true,
         "hints": "always",
-        "hint_dist": "s9_test",
+        "hint_dist": "tournament",
         "item_hints": [],
         "hint_dist_user": {},
         "plandomized_locations": {},
