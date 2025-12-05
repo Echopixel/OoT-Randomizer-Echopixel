@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <stdbool.h>
 #include <unistd.h>
 #include <string.h>
 #include <pthread.h>
@@ -51,22 +52,39 @@ typedef struct
 }
 archiveFile_t;
 
+typedef struct {
+    char magic[4];
+    uint32_t version;
+} archive_header_t;
+
 /* Archive file */
 typedef struct
 {
+    archive_header_t header;
     uint32_t    numFiles;
     uint32_t    tabCount;
     archiveFile_t* files;
 }
 archive_t;
+
+
 /* 1}}} */
+
+// Current version identifier. Increment version number if the format of the file changes
+archive_header_t CURR_VERSION = {
+    .magic = {'A', 'R', 'C', 'H' },
+    .version = 2
+};
 
 /* Functions {{{1 */
 uint32_t findTable(uint8_t*);
 void     getTableEnt(table_t*, uint32_t*, uint32_t);
 void*    threadFunc(void*);
 void     errorCheck(int, char**);
+archive_t* readArchive(FILE* file, int32_t tabCount);
 void     makeArchive();
+void     freeArchive(archive_t*);
+bool     checkHeader(archive_header_t*);
 int32_t  getNumCores();
 int32_t  getNext();
 /* 1}}} */
@@ -78,7 +96,6 @@ uint8_t* inROM;
 uint8_t* outROM;
 uint8_t* refTab;
 pthread_mutex_t filelock;
-pthread_mutex_t countlock;
 int32_t numFiles, nextFile;
 int32_t arcCount, outSize;
 uint32_t* fileTab;
@@ -92,10 +109,9 @@ int main(int argc, char** argv)
     FILE* file;
     int32_t tabStart, tabSize, tabCount, junk;
     volatile int32_t prev;
-    int32_t i, j, size, numCores, tempSize;
+    int32_t i, exclusionListEntry, size, numCores, tempSize;
     pthread_t* threads;
     table_t tab;
-
     errorCheck(argc, argv);
     printf("Zelda64 Compressor, Version 2.1\n");
     fflush(stdout);
@@ -120,40 +136,7 @@ int main(int argc, char** argv)
     file = fopen("ARCHIVE.bin", "rb");
     if(file != NULL)
     {
-        /* The table count is the number of tables in the ROM */
-        /* The file count is the number of files in the archive */
-        archive = malloc(sizeof(archive_t));
-        archive->tabCount = tabCount;
-        junk = fread(&(archive->numFiles), sizeof(uint32_t), 1, file);
-
-        /* We want an archive file for every table entry */
-        /* Initialize all SRC and REF arrays to NULL */
-        archive->files = calloc(sizeof(archiveFile_t), archive->tabCount);
-
-        printf("Loading Archive with %d files.\n", archive->numFiles);
-
-        /* Read in file size and then file data */
-        for(i = 0; i < archive->numFiles; ++i)
-        {
-            /* Get the index that this file goes into */
-            junk = fread(&j, sizeof(uint32_t), 1, file);
-
-            if(j >= archive->tabCount)
-            {
-                printf("Archive index %d has out-of-bounds file index %d... Skipping.\n", i, j);
-                continue;
-            }
-
-            /* Decompressed "Reference" file */
-            junk = fread(&(archive->files[j].refSize), sizeof(uint32_t), 1, file);
-            archive->files[j].ref = malloc(archive->files[j].refSize);
-            junk = fread(archive->files[j].ref, 1, archive->files[j].refSize, file);
-
-            /* Compressed "Source" file */
-            junk = fread(&(archive->files[j].srcSize), sizeof(uint32_t), 1, file);
-            archive->files[j].src = malloc(archive->files[j].srcSize);
-            junk = fread(archive->files[j].src, 1, archive->files[j].srcSize, file);
-        }
+        archive = readArchive(file, tabCount);
         fclose(file);
     }
     else
@@ -175,28 +158,27 @@ int main(int argc, char** argv)
     refTab[0] = refTab[1] = refTab[2] = 0;
 
     /* Read in the rest of the exclusion list */
-    for(i = 0; fscanf(file, "%d", &j) == 1; i++)
+    for(i = 0; fscanf(file, "%d", &exclusionListEntry) == 1; i++)
     {
         /* Make sure the number is within the dmaTable */
-        if(j > size || j < -size)
+        if(exclusionListEntry > size || exclusionListEntry < -size)
         {
             fprintf(stderr, "Error: Entry %d in dmaTable.dat is out of bounds\n", i);
             exit(1);
         }
 
-        /* If j was negative, the file shouldn't exist */
+        /* If entry is negative, the file shouldn't exist */
         /* Otherwise, set file to not compress */
-        if(j < 0)
-            refTab[(~j + 1)] = 2;
+        if(exclusionListEntry < 0)
+            refTab[(~exclusionListEntry + 1)] = 2;
         else
-            refTab[j] = 0;
+            refTab[exclusionListEntry] = 0;
     }
     fclose(file);
 
     /* Initialise some stuff */
     out = malloc(sizeof(output_t) * tabCount);
     pthread_mutex_init(&filelock, NULL);
-    pthread_mutex_init(&countlock, NULL);
     numFiles = tabCount;
     outSize = COMPSIZE;
     nextFile = 3;
@@ -237,19 +219,8 @@ int main(int argc, char** argv)
 
     /* Free some stuff */
     pthread_mutex_destroy(&filelock);
-    pthread_mutex_destroy(&countlock);
-    if(archive != NULL)
-    {
-        for(i = 0; i < archive->tabCount; ++i)
-        {
-            if(archive->files[i].ref != NULL)
-                free(archive->files[i].ref);
-            if(archive->files[i].src != NULL)
-                free(archive->files[i].src);
-        }
-        free(archive->files);
-        free(archive);
-    }
+    
+    freeArchive(archive);
     free(threads);
     free(refTab);
 
@@ -314,6 +285,21 @@ int main(int argc, char** argv)
     return(0);
 }
 /* 1}}} */
+
+void freeArchive(archive_t* toFree) {
+    if(toFree != NULL)
+    {
+        for(int i = 0; i < toFree->tabCount; ++i)
+        {
+            if(toFree->files[i].ref != NULL)
+                free(toFree->files[i].ref);
+            if(toFree->files[i].src != NULL)
+                free(toFree->files[i].src);
+        }
+        free(toFree->files);
+        free(toFree);
+    }
+}
 
 /* uint32_t findTable(uint8_t*) {{{1 */
 uint32_t findTable(uint8_t* argROM)
@@ -417,6 +403,69 @@ void* threadFunc(void* null)
 }
 /* 1}}} */
 
+bool checkHeader(archive_header_t* header) {
+    for(int i = 0; i < 4; i++) {
+        if(header->magic[i] != CURR_VERSION.magic[i]) {
+            return false;
+        }
+    }
+    return header->version == CURR_VERSION.version;
+}
+
+archive_t* readArchive(FILE* file, int32_t tabCount) {
+    
+    size_t junk;
+    uint32_t archiveFileIndex;
+    /* The table count is the number of tables in the ROM */
+    /* The file count is the number of files in the archive */
+    archive_t* alloced = malloc(sizeof(archive_t));
+
+    /* Read header */
+    junk = fread(&(alloced->header), sizeof(archive_header_t), 1, file);
+
+    /* Check if header matches the current file format version */
+    if (!checkHeader(&alloced->header)) {
+        printf("Archive header mismatch. Starting fresh\n");
+        free(alloced);
+        return NULL;
+    }
+
+    alloced->tabCount = tabCount;
+    junk = fread(&(alloced->numFiles), sizeof(uint32_t), 1, file);
+
+    /* We want an archive file for every table entry */
+    /* Initialize all SRC and REF arrays to NULL */
+    alloced->files = calloc(sizeof(archiveFile_t), alloced->tabCount);
+
+    printf("Loading Archive with %d files.\n", alloced->numFiles);
+
+    /* Read in file size and then file data */
+    for(int i = 0; i < alloced->numFiles; ++i)
+    {
+        /* Get the index that this file goes into */
+        junk = fread(&archiveFileIndex, sizeof(uint32_t), 1, file);
+
+        // Handle corrupt/legacy archive file.
+        if(archiveFileIndex >= alloced->tabCount)
+        {
+            printf("Archive index %d has out-of-bounds file index %d... Assuming corrupt archive and skipping.\n", i, archiveFileIndex);
+            freeArchive(alloced); // Keep track of the archive so we can free it
+            return NULL;
+        }
+
+        /* Decompressed "Reference" file */
+        junk = fread(&(alloced->files[archiveFileIndex].refSize), sizeof(uint32_t), 1, file);
+        alloced->files[archiveFileIndex].ref = malloc(alloced->files[archiveFileIndex].refSize);
+        junk = fread(alloced->files[archiveFileIndex].ref, 1, alloced->files[archiveFileIndex].refSize, file);
+
+        /* Compressed "Source" file */
+        junk = fread(&(alloced->files[archiveFileIndex].srcSize), sizeof(uint32_t), 1, file);
+        alloced->files[archiveFileIndex].src = malloc(alloced->files[archiveFileIndex].srcSize);
+        junk = fread(alloced->files[archiveFileIndex].src, 1, alloced->files[archiveFileIndex].srcSize, file);
+    }
+    return alloced;
+}
+
 /* void makeArchive() {{{1 */
 void makeArchive()
 {
@@ -451,6 +500,9 @@ void makeArchive()
         fprintf(stderr, "Error: Could not create archive\n");
         return;
     }
+
+    /* Write archive header*/
+    fwrite(&CURR_VERSION, sizeof(archive_header_t), 1, file);
 
     /* Write the archive data */
     fwrite(&fileCount, sizeof(uint32_t), 1, file);
