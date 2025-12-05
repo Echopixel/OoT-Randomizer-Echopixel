@@ -36,7 +36,6 @@
                 (Zora_Tunic or logic_fewer_tunic_requirements) and Hookshot",
             "Water Temple Before Boss": "can_use(Longshot) or
                 (adv_hovers_recoil and can_use(Hover_Boots) and Megaton_Hammer) or
-                (adv_irons_dive and can_use(Iron_Boots) and Raise_Water_Level) or
                 ((can_mega or can_hess or can_superslide) and can_use(Hover_Boots)) or
                 can_hover",
             "Water Temple North Basement": "can_use(Iron_Boots) and (Zora_Tunic or logic_fewer_tunic_requirements)
