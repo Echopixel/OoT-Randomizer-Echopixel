@@ -31,18 +31,15 @@ pacman -S mingw-w64-i686-toolchain # only needs to be run once (installs the too
 gcc bin/Compress/src/compressor.c -o bin/Compress/Compress32.exe
 ```
 
-# macOS (ARM64)
+# macOS (Universal)
+
+Compile on ARM64 (Apple Silicon).
 
 ```zsh
 clang -pthread bin/Compress/src/compressor.c -o bin/Compress/Compress_ARM64.out
-```
-
-# macOS (x86_64)
-
-Can be cross-compiled from ARM64.
-
-```zsh
-clang -arch x86_64 -pthread bin/Compress/src/compressor.c -o bin/Compress/Compress.out
+clang -arch x86_64 -pthread bin/Compress/src/compressor.c -o bin/Compress/Compress_x86_64.out
+lipo -create bin/Compress/Compress_ARM64.out bin/Compress/Compress_x86_64.out -output bin/Compress/Compress.out
+rm bin/Compress/Compress_ARM64.out bin/Compress/Compress_x86_64.out
 ```
 
 # Linux (ARM64)
