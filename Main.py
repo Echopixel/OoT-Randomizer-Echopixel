@@ -25,7 +25,7 @@ from Patches import patch_rom
 from Rom import Rom
 from Rules import set_rules, set_shop_rules
 from Settings import Settings
-from SettingsList import logic_tricks
+from SettingsList import logic_tricks, advanced_logic_tricks
 from Spoiler import Spoiler
 from Utils import default_output_path, is_bundled, run_process, data_path
 from World import World
@@ -63,15 +63,20 @@ def resolve_settings(settings: Settings) -> Optional[Rom]:
     logger = logging.getLogger('')
 
     old_tricks = settings.allowed_tricks
+    old_advanced_tricks = settings.advanced_allowed_tricks
     settings.load_distribution()
 
     # compare pointers to lists rather than contents, so even if the two are identical
     # we'll still log the error and note the dist file overrides completely.
-    if old_tricks and old_tricks is not settings.allowed_tricks:
+    if old_tricks and (old_tricks is not settings.allowed_tricks
+                    or old_advanced_tricks is not settings.advanced_allowed_tricks):
         logger.error('Tricks are set in two places! Using only the tricks from the distribution file.')
 
     for trick in logic_tricks.values():
         settings.settings_dict[trick['name']] = trick['name'] in settings.allowed_tricks
+
+    for trick in advanced_logic_tricks.values():
+        settings.settings_dict[trick['name']] = trick['name'] in settings.advanced_allowed_tricks
 
     # we load the rom before creating the seed so that errors get caught early
     outputting_specific_world = settings.create_uncompressed_rom or settings.create_compressed_rom or settings.create_wad_file
@@ -132,7 +137,7 @@ def build_world_graphs(settings: Settings) -> list[World]:
         logger.info('Creating Overworld')
 
         # Load common json rule files (those used regardless of MQ status)
-        if settings.logic_rules == 'glitched':
+        if settings.logic_rules == 'advanced':
             path = 'Glitched World'
         else:
             path = 'World'
@@ -235,10 +240,7 @@ def compress_rom(input_file: str, output_file: str, delete_input: bool = False) 
         else:
             compressor_path += "Compress"
     elif platform.system() == 'Darwin':
-        if platform.machine() == 'arm64':
-            compressor_path += "Compress_ARM64.out"
-        else:
-            compressor_path += "Compress.out"
+        compressor_path += "Compress.out"
     else:
         logger.info("OS not supported for ROM compression.")
         raise Exception("This operating system does not support ROM compression. You may only output patch files or uncompressed ROMs.")
