@@ -102,7 +102,9 @@ class World:
 
         if (settings.open_forest == 'closed'
             and (self.shuffle_special_interior_entrances or settings.shuffle_hideout_entrances or settings.shuffle_overworld_entrances
-                 or settings.warp_songs or settings.spawn_positions)):
+                 or settings.warp_songs or settings.spawn_positions
+                 or (settings.logic_rules == 'advanced' and settings.shuffle_grotto_entrances)
+                 )):
             self.settings.open_forest = 'closed_deku'
 
         if settings.triforce_goal_per_world > settings.triforce_count_per_world:
@@ -181,6 +183,8 @@ class World:
             self.hint_dist_user['upgrade_hints'] = 'off'
         if 'combine_trial_hints' not in self.hint_dist_user:
             self.hint_dist_user['combine_trial_hints'] = False
+        if 'boss_goal_names' not in self.hint_dist_user:
+            self.hint_dist_user['boss_goal_names'] = True
 
         # Validate hint distribution format
         # Originally built when I was just adding the type distributions
@@ -240,7 +244,7 @@ class World:
 
         self.always_hints: list[str] = [hint.name for hint in get_required_hints(self)]
 
-        self.dungeon_rewards_hinted: bool = settings.shuffle_compass != 'remove' if settings.enhance_map_compass else 'altar' in settings.misc_hints
+        self.dungeon_rewards_hinted: bool = settings.shuffle_compass != 'remove' if 'compass_reward' in settings.enhance_map_compass else 'altar' in settings.misc_hints
         self.misc_hint_items: dict[str, str] = {hint_type: self.hint_dist_user.get('misc_hint_items', {}).get(hint_type, data['default_item']) for hint_type, data in misc_item_hint_table.items()}
         self.misc_hint_locations: dict[str, str] = {hint_type: self.hint_dist_user.get('misc_hint_locations', {}).get(hint_type, data['item_location']) for hint_type, data in misc_location_hint_table.items()}
         self.state: State = State(self)

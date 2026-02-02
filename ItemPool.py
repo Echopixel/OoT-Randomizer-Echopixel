@@ -6,7 +6,10 @@ from decimal import Decimal, ROUND_UP
 from typing import TYPE_CHECKING, Optional
 
 from Item import Item, ItemInfo, ItemFactory
+from ItemList import REWARD_COLORS
 from Location import DisableType
+from LocationList import location_groups
+import StartingItems
 
 if TYPE_CHECKING:
     from Plandomizer import ItemPoolRecord
@@ -492,9 +495,8 @@ def get_pool_core(world: World) -> tuple[list[str], dict[str, Item]]:
             if 'Pocket Egg' in world.settings.adult_trade_start and 'Pocket Cucco' in world.settings.adult_trade_start:
                 pending_junk_pool.remove('Pocket Cucco')
         elif world.settings.adult_trade_start:
-            # With adult trade shuffle off, add a random extra adult trade item
-            item = random.choice(world.settings.adult_trade_start)
-            pending_junk_pool.append(item)
+            # With adult trade shuffle off, add another copy of the selected adult trade item
+            pending_junk_pool.append(world.selected_adult_trade_item)
         if world.settings.zora_fountain != 'open':
             ruto_bottles += 1
         if world.settings.shuffle_kokiri_sword:
@@ -549,6 +551,7 @@ def get_pool_core(world: World) -> tuple[list[str], dict[str, Item]]:
 
     # Use the vanilla items in the world's locations when appropriate.
     vanilla_items_processed = Counter()
+    rauru_random_location = None
     for location in world.get_locations():
         if location.vanilla_item is None:
             continue
@@ -810,11 +813,25 @@ def get_pool_core(world: World) -> tuple[list[str], dict[str, Item]]:
             if world.settings.shuffle_dungeon_rewards in ('vanilla', 'reward'):
                 pass # handled in World.fill_bosses
             else:
-                shuffle_item = True
+                if world.settings.skip_reward_from_rauru != 'free_forced':
+                    shuffle_item = True
+                else:
+                    if world.settings.shuffle_dungeon_rewards in ('any_dungeon', 'overworld', 'anywhere'):
+                        # Rauru is currently considered a "Boss" by location, may need to change this in the future.
+                        boss_locations = location_groups['Boss']
+                        rauru_random_location: str = random.choice(boss_locations)
+                        item = world.get_location(rauru_random_location).vanilla_item
+                        world.push_item(location, ItemFactory(item, world))
+                    else:
+                        item = location.vanilla_item
+                        world.push_item(location, ItemFactory(item, world))
         elif location.type == 'Boss':
             if world.settings.shuffle_dungeon_rewards in ('vanilla', 'reward'):
                 pass # handled in World.fill_bosses
             elif world.settings.shuffle_dungeon_rewards in ('any_dungeon', 'overworld', 'regional', 'anywhere'):
+                # We swap with the dungeon reward that rauru became if it is a guaranteed dungeon reward then shuffle like usual
+                if rauru_random_location == location.name:
+                    item = world.get_location('ToT Reward from Rauru').vanilla_item
                 shuffle_item = True
             else:
                 dungeon = Dungeon.from_vanilla_reward(ItemFactory(location.vanilla_item, world))
@@ -1020,13 +1037,16 @@ def get_pool_core(world: World) -> tuple[list[str], dict[str, Item]]:
         for ocarina_button in ocarina_buttons:
             world.state.collect(ItemFactory(ocarina_button, world))
 
-    for _ in range(world.settings.add_random_starting_items):
-        random_starting_items_pool = sorted({item for item in pool if item not in ItemInfo.junk_weight}) # give each item the same weight regardless of how many copies there are
+    for _ in range(world.settings.random_starting_items_count):
+        random_starting_items_pool = configure_random_starting_items_pool(world, pool)
         selected_item = random.choice(random_starting_items_pool)
         world.randomized_starting_items[selected_item] = world.randomized_starting_items.get(selected_item, 0) + 1
         pool.remove(selected_item)
         pool.extend(get_junk_item())
+    add_random_starting_items_ammo(world.randomized_starting_items)
     for item, count in world.randomized_starting_items.items():
+        if item in REWARD_COLORS and count > 0:
+            world.hinted_dungeon_reward_locations[item] = None
         item = ItemFactory(item, world)
         for _ in range(count):
             if item.solver_id is not None:
@@ -1097,3 +1117,29 @@ def get_pool_core(world: World) -> tuple[list[str], dict[str, Item]]:
         world.distribution.distribution.search_groups['Junk'] = remove_junk_items
 
     return pool, placed_items
+
+
+def configure_random_starting_items_pool(world: World, pool: list[str]) -> list[str]:
+    exclude_list = []
+
+    if 'songs' in world.settings.random_starting_items_exclude:
+        exclude_list.extend(item_groups['Song'])
+    if 'bombchus' in world.settings.random_starting_items_exclude:
+        exclude_list.extend((item for item in pool if 'Bombchus' in item))
+    if 'shields' in world.settings.random_starting_items_exclude:
+        exclude_list.extend(item_groups['Shield'])
+    if 'deku_upgrades' in world.settings.random_starting_items_exclude:
+        exclude_list.extend(('Deku Stick Capacity', 'Deku Nut Capacity'))
+    if 'health_upgrades' in world.settings.random_starting_items_exclude:
+        exclude_list.extend(item_groups['HealthUpgrade'])
+    if 'junk' in world.settings.random_starting_items_exclude:
+        exclude_list.extend(ItemInfo.junk_weight)
+
+    return sorted({item for item in pool if item not in exclude_list and ItemInfo.items[item].type != 'Shop'}) # give each item the same weight regardless of how many copies there are
+
+
+def add_random_starting_items_ammo(randomized_starting_items: dict[str, int]) -> None:
+    for item in StartingItems.inventory.values():
+        if item.item_name in randomized_starting_items and item.ammo:
+            for ammo, qty in item.ammo.items():
+                randomized_starting_items[ammo] = qty[randomized_starting_items[item.item_name] - 1]

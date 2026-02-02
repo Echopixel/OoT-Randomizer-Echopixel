@@ -1,5 +1,17 @@
 # Dev
 
+## New features
+* New hint distribution field `boss_goal_names` can be set to `false` to force dungeon reward names to be used for goal text instead of boss names even if dungeon rewards are on bosses.
+* The `Free Reward from Rauru` has a new `Yes (Forced)` option which forces the check to be a dungeon reward even if these are otherwise shuffled.
+
+## Bug fixes
+* Fix a potential softlock when talking to Pierre (the upper scarecrow) as child in Lake Hylia.
+* Fix a generator failure when a dungeon reward is selected as a random starting item.
+* Fix a bug where the starting health capacity in game might be miscalculated when starting with a heart piece.
+* Fix the Chicken (child trade quest item) using the same get item text box as the Pocket Cucco (adult trade quest item).
+
+# 9.0
+
 ## New Settings and Options
 * New settings for more control over special deal prices.
 * The `Randomize Ocarina Melodies` setting has a new option to randomize the Frogs 2 melody.
@@ -10,6 +22,7 @@
 * A slew of advanced tricks and glitches have been added for the new `Advanced` logic setting.
 * The `Open Door of Time` setting has been renamed to `Door of Time`, with new options to require the Spiritual Stones and/or the Ocarina of Time.
 * New `Additional Random Starting Items` setting.
+* `Maps and Compasses Give Information` has been extended with options to give dungeon and boss entrance locations.
 
 ## Bug fixes
 * The Deku Shield pot in the Spirit Temple is no longer shuffled when both `Fix Broken Drops` and `Include Empty Pots` are off.
@@ -19,12 +32,23 @@
 * Fix a bug where some custom hint distributions could cause the generator to fail with a `TypeError`.
 * Limit length of plandomized text boxes to 1200 characters to prevent buffer overflow bugs.
 * Fix Blue Fire Arrows being logically treated as Ice Arrows when selected as a starting item.
+* Fix a bug where it was possible to buy the item from Granny's Potion Shop without turning in the Odd Mushroom in some cases.
+* Fix two different trade items being shuffled with plentiful item pool and no adult trade shuffle, which could lead to softlocks due to inconsistent game state.
+* Fix the code that checks whether a hint is reachable not taking effective starting items (e.g. the rewards of precompleted dungeons) into account.
+* Pause menu has been modified to more closely align equip swap behavior with the vanilla game, while also removing some cursor movement restrictions.
+* Fix the texture of the rotated Forest Temple boss key chest when `Chest Appearance Matches Content` is off.
+* Misc. location hints no longer prevent their area from being hinted as Barren.
+* Fix a generator failure when a `named_items_required` Named Item hint conflicts with a misc. location hint.
+* Prevent another case of Dead Hand spawning outside the room collision.
+* Fix a bug where the ROM compressor may rarely produce corrupted ROMs.
 
 ## Other changes
 * Big poe souls can now be collected while riding Epona.
 * Ice traps have a new item model that's displayed instead of nothing after being picked up.
 * The professor in the lakeside lab now only takes 1 second instead of 6 to prepare the eyeball frog.
 * The text box that appears when collecting a gold skulltula token is no longer shuffled when `Text Shuffle` is set to `Shuffled except Important Text`.
+* Important Check hints no longer generate for areas with no shuffled locations, areas hinted as Barren, or precompleted dungeons.
+* Python 3.8 is no longer supported.
 
 # 8.3
 
