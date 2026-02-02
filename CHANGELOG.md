@@ -6,6 +6,7 @@
 
 ## Bug fixes
 * Fix a potential softlock when talking to Pierre (the upper scarecrow) as child in Lake Hylia.
+* Fix a generator failure when a dungeon reward is selected as a random starting item.
 
 # 9.0
 
