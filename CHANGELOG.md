@@ -7,6 +7,7 @@
 ## Bug fixes
 * Fix a potential softlock when talking to Pierre (the upper scarecrow) as child in Lake Hylia.
 * Fix a generator failure when a dungeon reward is selected as a random starting item.
+* Fix a bug where the starting health capacity in game might be miscalculated when starting with a heart piece.
 
 # 9.0
 
