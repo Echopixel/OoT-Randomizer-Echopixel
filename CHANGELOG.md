@@ -1,3 +1,7 @@
+# Dev
+
+* New hint distribution field `boss_goal_names` can be set to `false` to force dungeon reward names to be used for goal text instead of boss names even if dungeon rewards are on bosses.
+
 # 9.0
 
 ## New Settings and Options
